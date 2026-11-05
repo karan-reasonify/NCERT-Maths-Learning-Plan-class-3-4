@@ -1,0 +1,17 @@
+# Approved tool map for this chapter (paste the content team's table here, verbatim)
+
+The curriculum / content team decides the tools, their names, their purposes and their sequence. Paste their table
+below and change nothing in it. Each tool must appear as `Tool N: Name` in one cell, with its purpose in another cell
+of the same row (as in the example). Then run:
+
+    python -I -X utf8 core/tool_map.py parse  chapters/<chapter>/tool_map.md      (read what was understood)
+    python -I -X utf8 core/tool_map.py lock   chapters/<chapter>/tool_map.md      (write it into chapter.config.json)
+
+Delete this paragraph and the example rows once the real table is in.
+
+| # | Topic | Format | Purpose / learning focus |
+|---|---|---|---|
+| 1 | Hook: TODO | Hook video | TODO the story that opens the chapter. |
+| 2 | TODO exploration | Tool 1: TODO Exploration Tool Name | TODO what the child explores, one sentence. |
+| 3 | TODO concept | Concept video | TODO the concept this story explains. |
+| 4 | TODO concept | Tool 2: TODO Concept Tool Name | TODO what the child applies, one sentence. |

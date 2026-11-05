@@ -1,0 +1,10 @@
+# stdlib-first: every build, gate and validation script runs on a bare Python
+# with nothing installed. Only the database-read-back tooling needs anything
+# beyond the standard library, and it imports that dependency lazily (inside
+# the function that needs it, not at module scope), so the build pipeline
+# never pays for it.
+
+# Optional - only needed by core/check_master_id.py, upload/verify_uploaded.py,
+# and core/config.py's own connection doctor (`python core/config.py`). Not
+# needed to build, gate or locally validate a plan.
+psycopg2-binary

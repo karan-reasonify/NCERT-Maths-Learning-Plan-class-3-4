@@ -1,0 +1,88 @@
+{
+  "chapter_id": "cbse_eng_maths3_ch2",
+  "phase": 2,
+  "pipeline": "class3_4_story_tool_flow",
+  "chapter_master_id": 539,
+  "subject_ref_id": 102,
+  "medium_id": 1,
+  "publication_id": 1,
+  "grade": 3,
+  "grade_band": "3_4",
+  "chapter_no": 2,
+  "chapter_name": "Toy Joy",
+  "media_tag": "c3x",
+  "eqcheck": "plain",
+  "eqcheck_errata": [],
+  "allow_words": [],
+  "photo_rule_band": "default",
+  "asset_base_template": "https://media.singularity-learn.com/learning_plan_assets/V2/cbse/cbse/english/class_{grade}/mathematics/ch_{chapter_no}",
+  "approved_tools": [
+    {
+      "no": 1,
+      "name": "Explore Shapes Around Us",
+      "purpose": "Explore a ball, dice, bottle, shoebox and birthday cap. Rotate and observe, match similar objects and notice which can roll, slide or stand.",
+      "flow_row": "Explore Shapes Around Us"
+    },
+    {
+      "no": 2,
+      "name": "Meet the 3D Shapes",
+      "purpose": "Rotate each solid, observe it from different sides, recognise/name it and match it with familiar objects.",
+      "flow_row": "Meet the 3D Shapes"
+    },
+    {
+      "no": 3,
+      "name": "Explore Faces, Edges and Corners",
+      "purpose": "Select a face, trace an edge, identify a corner and compare features across solids.",
+      "flow_row": "Explore Faces, Edges and Corners"
+    },
+    {
+      "no": 4,
+      "name": "Identify Shapes in Constructions",
+      "purpose": "Select parts, identify the solid shape, count shapes and use position words such as on top, under and between.",
+      "flow_row": "Identify Shapes in Constructions"
+    },
+    {
+      "no": 5,
+      "name": "Build and Describe",
+      "purpose": "Arrange shapes to create a model; describe where each shape is placed; recreate a model from a simple description.",
+      "flow_row": "Build and Describe"
+    },
+    {
+      "no": 6,
+      "name": "Build with Clay, Sticks and Cubes",
+      "purpose": "Join clay balls and sticks, explore what they represent, combine cubes and count visible/hidden cubes where relevant.",
+      "flow_row": "Build with Clay, Sticks and Cubes"
+    },
+    {
+      "no": 7,
+      "name": "Compare and Discover",
+      "purpose": "Compare solids, identify shared/different properties and explain observations using simple prompts.",
+      "flow_row": "Compare and Discover"
+    },
+    {
+      "no": 8,
+      "name": "Shape Challenges and Games",
+      "purpose": "Apply learning through shape identification, dice patterns, opposite-face predictions and different-view challenges.",
+      "flow_row": "Shape Challenges and Games"
+    }
+  ],
+  "tool_map_required": true,
+  "concept_objective_word_range": [
+    5,
+    30
+  ],
+  "topic_objective_max_words": 40,
+  "coverage_exclude_doer_role": "tool",
+  "idea_topic_concept_range": [
+    1,
+    6
+  ],
+  "max_tool_controls": 4,
+  "max_tool_questions": 7,
+  "max_instruction_words": 15,
+  "max_sentence_words": 14,
+  "video_max_seconds": {
+    "hook": 90,
+    "concept": 150
+  }
+}

@@ -1,0 +1,12 @@
+.env
+config.json
+*.pem
+__pycache__/
+*.pyc
+.drafts/
+.bak/
+/textbooks
+smoke/_run/
+
+# issued upload ids (chapter_master_id / subject_ref_id): never committed
+upload/chapter_ids.local.json

@@ -1,0 +1,53 @@
+# -*- coding: utf-8 -*-
+"""TEMPLATE - the chapter's topics. Fill in every TODO (the c34-journey-designer, c34-media-minimiser and
+c34-question-mapper agents do this from the analysis and the locked tool map; see .claude/skills/lp34/SKILL.md).
+
+Keys are fixed once approved: topic "T1", concept "T1.C1". Split into topics_2.py ... when this grows past a page or two.
+
+The shape is always:
+    T1  opening (framing)   C1 hook video  ->  C2 exploration tool (the first approved tool)
+    T2.. idea topics         concept video -> its matching tool (+ its NCERT questions), repeated where it adds value;
+                             a small concept may be one image instead
+    TN  review (summary)     short revision of concepts already taught, nothing new
+"""
+from __future__ import annotations
+
+from topics_common import A, DOER, FIO, IMG, TOPIC, VID, WE  # noqa: F401
+
+TOPICS = []
+
+# ---- T1: the opening --------------------------------------------------------------------------------------------
+# TOPICS.append(TOPIC(
+#     "T1", "M1", "TODO the chapter's opening", ["TODO book section"], "Understand",
+#     "",   # the opening carries NO topic objective
+#     "TODO one or two sentences: what the child does in this topic.",
+#     [A("T1.C1", "TODO hook name", "Understand", "", role="hook",
+#        teach=["Predict first: TODO a question about the hook story."],
+#        ncert=["opening"], key_terms=[],
+#        video=VID("TODO hook title", "TODO one sentence: the situation it introduces. It teaches nothing yet.")),
+#      DOER("T1.C2", "TODO the first approved tool's name", "tool_key_1", "Understand", "",
+#           applies_to="T1.C1", role="explore")],
+#     topic_type="framing"))
+
+# ---- T2: an idea topic (concept video -> tool -> NCERT practice) ------------------------------------------------
+# TOPICS.append(TOPIC(
+#     "T2", "M1", "TODO idea topic name", ["TODO book section"], "Apply",
+#     "Students TODO a checkable objective for the whole topic.", "TODO topic summary.",
+#     [A("T2.C1", "TODO concept name", "Understand", "Students TODO one checkable objective.", role="story",
+#        textbook=["TODO the book's own lines, verbatim"],
+#        teach=["Predict first: TODO.", "TODO the reveal.", "TODO the rule in one short line."],
+#        key_terms=["TODO"], misconceptions=["M_TODO_1"],
+#        video=VID("TODO video title", "TODO what this story is for", new_idea="TODO the ONE concept it explains")),
+#      DOER("T2.C2", "TODO approved tool name", "tool_key_2", "Apply", "Students TODO use the idea they just met.",
+#           applies_to="T2.C1", recap=["TODO one short recap line"],
+#           items=[FIO("TODO.q1", "TODO the book's label", "TODO the book's wording", ["TODO step"], "TODO answer",
+#                      kind="exercise")])],
+#     topic_type="instructional"))
+
+# ---- TN: the review ---------------------------------------------------------------------------------------------
+# TOPICS.append(TOPIC(
+#     "TN", "MLAST", "TODO Chapter Review", ["Summary"], "Understand", "", "TODO short summary.",
+#     [A("TN.C1", "TODO review concept name", "Understand", "Students TODO recall the ideas of the chapter.",
+#        role="review", teach=["TODO a short revision line that uses only ideas already taught."],
+#        review_covers=["T2.C1"])],
+#     topic_type="summary"))

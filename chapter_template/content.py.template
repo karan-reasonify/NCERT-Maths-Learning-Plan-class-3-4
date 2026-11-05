@@ -1,0 +1,108 @@
+# -*- coding: utf-8 -*-
+"""TEMPLATE - chapter-level authored content: the one place the book's own facts live. Fill in every TODO.
+
+The topics themselves (modules -> topics -> concepts) belong in topics_N.py; this module holds chapter-wide data that
+every topic refers to by key: the identity, the modules, the chapter's story (characters, setting), the visual key,
+every NCERT item, the misconceptions, the open clashes.
+
+No em dash and no en dash anywhere in any string (gates/media_content.py scans the whole built plan). Minus is U+2212.
+Never "NCERT", "textbook" or "page N" in anything a child reads.
+"""
+from __future__ import annotations
+
+# ---------------------------------------------------------------------------
+# chapter identity (also in chapter.config.json: keep the two in sync by hand)
+# ---------------------------------------------------------------------------
+CHAPTER = {
+    "grade": 0,                      # TODO: same as chapter.config.json "grade"
+    "label": "Class N",              # TODO
+    "chapter_no": 0,                 # TODO: same as chapter.config.json "chapter_no"
+    "name": "TODO Chapter Name",     # TODO: same as chapter.config.json "chapter_name"
+    "book": "NCERT Maths Mela",
+    "source_pdf": "textbooks/classN/TODO.pdf",
+}
+CHAPTER_NAME = CHAPTER["name"]
+
+# ---------------------------------------------------------------------------
+# modules: (module_id, module_name, summary), the top level of the hierarchy. Short; the child sees them.
+# ---------------------------------------------------------------------------
+MODULES = [
+    ("M1", "TODO Module 1 Name", "TODO one or two short sentences."),
+    # ("M2", "TODO Module 2 Name", "TODO."),
+    # ("MLAST", "Chapter Review", "TODO."),
+]
+
+# ---------------------------------------------------------------------------
+# the chapter's story: ONE thread that the hook starts and every concept video continues. Characters, setting and
+# objects are the BOOK's own (same people, same colours). A video's story brief may only use these characters.
+# ---------------------------------------------------------------------------
+STORY = {
+    "thread": "TODO one sentence: the chapter's situation, as the book sets it up.",
+    "setting": "TODO where it happens",
+    "characters": [
+        # "TODO a character's name, as the book calls them",
+    ],
+}
+
+# ---------------------------------------------------------------------------
+# VISUAL_KEY: how each recurring shape or object is drawn, so it looks the same in every tool and image of the chapter.
+# Tool specs and image briefs name these keys in `visuals`. Example: "ten_rod": "a tall blue bar, 10 squares".
+# ---------------------------------------------------------------------------
+VISUAL_KEY = {
+    # "TODO_key": "TODO how it looks (shape, colour)",
+}
+
+# ---------------------------------------------------------------------------
+# how this chapter is taught (shown once with the plan)
+# ---------------------------------------------------------------------------
+CHAPTER_APPROACH = {
+    "heading": "How this chapter is taught",
+    "intro": "TODO 2 to 4 short sentences: the arc (a story hook, then try it, then a story that names the idea, then "
+             "a tool to apply it, then the book's questions on that tool, then a short review).",
+    "points": [
+        {"title": "TODO design decision", "text": "TODO what it is and why."},
+    ],
+}
+
+# ---------------------------------------------------------------------------
+# NCERT_ITEMS: every item of this chapter the plan must cover, as ("id", kind). Nothing from outside the chapter.
+#   "example"   a solved example printed in the book      \
+#   "exercise"  an exercise question                       }  NCERT questions: each sits on the tool of its concept
+#   "prompt"    an answerable in-text question             /   (or on the concept itself when no tool follows)
+#   "talk"      a discussion prompt (not a question)       \  stay in the teaching text
+#   "text"      a fact, rule, figure or summary line       /
+# Use the book's own section numbering as the id prefix, e.g. "2.1.example1", "end.Q4".
+# ---------------------------------------------------------------------------
+NCERT_ITEMS = [
+    ("opening", "text"),
+    # ("TODO.id", "exercise"),
+]
+
+# ---------------------------------------------------------------------------
+# misconceptions this chapter targets: (id, one-sentence description of the wrong idea).
+# ---------------------------------------------------------------------------
+MISCONCEPTIONS = [
+    ("M_TODO_1", "TODO the wrong idea a child commonly holds, stated plainly."),
+]
+
+# ---------------------------------------------------------------------------
+# CLASHES: judgement calls and conflicts the user must decide, one string each (shown in the structure report):
+# a tool with no matching concept, a concept with no NCERT question, an approved tool the book does not support,
+# a teacher instruction against a hard rule. Empty means none. Never settle one silently.
+# ---------------------------------------------------------------------------
+CLASHES = [
+]
+
+# ---------------------------------------------------------------------------
+# printed-book errors this plan corrects: {"item", "printed_solution", "correct"}; and ERRATA, exact false-equation
+# chains kept verbatim from the book (copy each into chapter.config.json "eqcheck_errata" too).
+# ---------------------------------------------------------------------------
+SOLUTION_NOTES = [
+]
+ERRATA = [
+]
+
+DESIGN_REFERENCES = [
+    {"text": "Class 3/4 story and tool flow: docs/00_overview.md. The approved tool map comes from the content team.",
+     "url": ""},
+]

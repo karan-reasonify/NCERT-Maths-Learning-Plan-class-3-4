@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+"""TEMPLATE - the chapter's tool specs, one entry per APPROVED tool, keyed by the name a DOER concept's `tool` field uses.
+
+The approved tool list is the content team's: same names, same purposes, same order (tool_map.md -> chapter.config.json
+"approved_tools"). T(...) never changes them; it only describes how the tool works for a child of 8 to 10:
+ONE learning objective, simple controls (at most 4), large visuals, a short instruction (at most 15 words), feedback that
+explains the result. The tool's questions are the NCERT items of its concept (FIO in topics_N.py), never invented here.
+
+A tool here is a spec + placeholder (tools_spec/TOOL_SPEC_GUIDE.md): the tool itself is built elsewhere.
+"""
+from __future__ import annotations
+
+from topics_common import T  # noqa: F401
+
+TOOLS = {
+    # "tool_key_1": T(
+    #     "tool_travel_explorer", "TODO Approved Name Of Tool 1", 1,
+    #     "Students TODO notice one thing by trying it.",
+    #     screen="TODO what is on screen: one main picture, large and clear.",
+    #     controls=["TODO tap an object", "TODO press Next"],
+    #     instruction="TODO one short line the child reads.",
+    #     notice=["TODO What do you notice?", "TODO What changes when you ...?"],
+    #     feedback=["TODO what a right try shows and why.", "TODO what a wrong try shows and how to fix it."],
+    #     done_when="TODO the done condition in one sentence.",
+    #     shared_state=["TODO"], misconceptions=[], visuals=["TODO key from content.VISUAL_KEY"],
+    #     hints=["TODO orienting", "TODO strategic", "TODO specific", "TODO bottom-out"]),
+}

@@ -1,0 +1,35 @@
+{
+  "ref": {
+    "grade": 3,
+    "chapter_no": 2,
+    "asked": "class 3 ch 2"
+  },
+  "out_dir": "/root/maths-learning-plan/Learning-Plan-Maths-Class3-4/chapters/maths3_ch2/new_design",
+  "pdf": "/root/maths-learning-plan/Learning-Plan-Maths-Class3-4/textbooks/class3/cemm102.pdf",
+  "pages": [
+    1,
+    7
+  ],
+  "title": "Toy Joy",
+  "master_id": 539,
+  "subject_ref_id": 102,
+  "media_tag": "c3x",
+  "flags": [
+    "ids come from upload/chapter_ids.local.json (chapter_master_id 539, subject_ref_id 102, platform name 'Toy Joy'). Confirm them live with core/check_master_id.py once DATABASE_URL is set.",
+    "Class 3 picture-book pages: the exercises sit in boxes and activities, not numbered sections; read every page PNG, the text layer alone misses them."
+  ],
+  "instruction": "TOY JOY | CLASS 3 MATHEMATICS\nComplete Learning Plan with Video, Image and Interactive Tool Mapping\nLearning approach: Hook → Explore → Understand → Apply → Create → Compare → Challenge. Keep the approved eight-tool sequence unchanged. Every asset must add a distinct learning value.\n\n1. Hook: The Mystery of Toys. A child opens a toy box and notices toys have different shapes and behave differently. Create curiosity: Why does a ball roll? Why can a box stand? HOOK VIDEO. Story only; do not explain all five solids.\n2. Explore Shapes Around Us. Explore a ball, dice, bottle, shoebox and birthday cap. Rotate and observe, match similar objects and notice which can roll, slide or stand. TOOL 1. Immediately after hook; discovery before formal naming.\n3. Meet the Solid Shapes. A story introduces cube, cuboid, cylinder, cone and sphere through familiar toys and everyday objects. CONCEPT VIDEO. Explain only the five solids needed next.\n4. Meet the 3D Shapes. Rotate each solid, observe it from different sides, recognise/name it and match it with familiar objects. TOOL 2.\n5. The Secret Parts of Shapes. A character investigates toy solids and discovers faces, edges and corners. Show flat and curved surfaces with close-up visuals. CONCEPT VIDEO. One clear explanation of each feature.\n6. Explore Faces, Edges and Corners. Select a face, trace an edge, identify a corner and compare features across solids. TOOL 3.\n7. Shapes in Real Constructions. Observe a house, rocket and toy engine and notice that one construction can contain several solid shapes. IMAGE SET in main flow before Tool 4.\n8. Identify Shapes in Constructions. Select parts, identify the solid shape, count shapes and use position words such as on top, under and between. TOOL 4. Reuse the same construction visuals.\n9. Let's Build Something! A child combines solid shapes to make a house, rocket or tower. Introduce arranging shapes and describing their positions. CONCEPT VIDEO before Tool 5.\n10. Build and Describe. Arrange shapes to create a model; describe where each shape is placed; recreate a model from a simple description. TOOL 5.\n11. Building with Clay, Sticks and Cubes. A short story/demo shows clay balls joined by sticks to make a frame, then cubes joined to make a larger structure. CONCEPT VIDEO / DEMO only if needed to show the process.\n12. Build with Clay, Sticks and Cubes. Join clay balls and sticks, explore what they represent, combine cubes and count visible/hidden cubes where relevant. TOOL 6.\n13. How Are Shapes Different? Compare a cube with a cuboid and a sphere with a flat circle. Highlight the difference visually. COMPARISON IMAGE in main flow before Tool 7; no video needed.\n14. Compare and Discover. Compare solids, identify shared/different properties and explain observations using simple prompts. TOOL 7.\n15. Shape Challenges and Games. Apply learning through shape identification, dice patterns, opposite-face predictions and different-view challenges. TOOL 8. Application/revision; no new concept.\n16. NCERT Practice. Complete all relevant NCERT examples, activities and exercise questions, mapped to their concepts. QUESTION TOPICS. Put each question after its concept or in a concise practice section.\n17. Chapter Check. Short visual assessment of recognition, properties, constructions and reasoning. ASSESSMENT. No outside-chapter concepts.",
+  "written": [
+    "build.py",
+    "chapter.config.README.md",
+    "content.py",
+    "concept_plan.py",
+    "topics_common.py",
+    "topics_1.py",
+    "tools_1.py",
+    "tool_map.md",
+    "chapter.config.json"
+  ],
+  "kept": [],
+  "approved_tools": 8
+}

@@ -1,0 +1,546 @@
+{
+ "book_errors": [
+  {
+   "correct": "None of the five solids has both. A cube and a cuboid have only straight edges, a cylinder and a cone only curved edges, a sphere none. The answer on the tool says none and is labelled 'Sample answer'.",
+   "item": "ch2.q3 (fourth bullet)",
+   "printed_solution": "The book prints no answer. The bullet 'with both straight and curved edges' has no answer among the five solids."
+  },
+  {
+   "correct": "The plan's own reading from a usual die: opposite 1 is 6, opposite 2 is 5, opposite 3 is 4, and each pair adds up to 7. It is labelled 'Sample answer: on a usual die, ...' (not an official answer).",
+   "item": "ch2.q7",
+   "printed_solution": "The book prints no answer. Its die picture shows only the faces 6, 5 and 3, so it cannot answer the opposite of 1, 2 and 3."
+  },
+  {
+   "correct": "'The cylinder is on top of the cuboid. The cone is on the cylinder.' The picture shows the cylinder standing on the cuboid; the words 'on top' are the plan's own reading. The answer is labelled 'From the picture'.",
+   "item": "ch2.play1ex",
+   "printed_solution": "'The cylinder is of the cuboid. The cone is on the cylinder.' A word is missing; the text layer and the page image agree."
+  },
+  {
+   "correct": "The answer follows the labels: 1, 2, 1, 1. The wheels are left out, as in the book. It is labelled 'From the picture'.",
+   "item": "ch2.do9",
+   "printed_solution": "Blanks for red cylinder(s), yellow cone(s), grey cuboid(s) and blue cube(s). The drawn cylinder is pink-red, the base slab is grey-blue, and the cab is an open box with a window that can be read as a cube or a cuboid. The black wheels are in no blank although the engine 'has many parts'."
+  },
+  {
+   "correct": "The user raised the cap to 7 (CLASH 22), so they are two items on Tool 6, asked one after the other on one screen (the same picture of 3 joined cubes). Q9's sample answer names two ways, a straight row and an L, and gives no count of ways. The bubble's sample answer names the shapes, a long cuboid and an L shape.",
+   "item": "ch2.q9 and ch2.say3",
+   "printed_solution": "Q9 asks 'In how many different ways' and its bubble asks 'What possible shapes'. Ways and shapes are not the same count (does turning a shape make a new way?). No answer is printed."
+  },
+  {
+   "correct": "The user removed hidden-cube counting (CLASH 6). The book's words stay, but the stack on the screen is the plan's own, with every cube seen or counted by turning it (CLASH 28), and the words 'hidden' and 'visible' are not used. The briefs stage fixes that stack and its total. Until then the answer says only how to count, and is labelled 'From the picture'.",
+   "item": "ch2.say2",
+   "printed_solution": "'How many cubes are used to make this shape?' The stepped stack hides cubes behind others, so its total cannot be read with certainty. No answer is printed."
+  },
+  {
+   "correct": "The page numbers are dropped: the child reads 'the pages in your maths book', and 'You can play it on the screen' is added. The board on the screen is the plan's own: every picture is a real object that really is one of the five solids (CLASH 26). The brief writer defines it. The answer is labelled 'Sample answer'.",
+   "item": "ch2.play2",
+   "printed_solution": "'There is a game along the border of these pages (12, 13).' The sentence names book pages, and no key says which picture belongs to which die number."
+  },
+  {
+   "correct": "The plan's clearer wording of the book's question, made after the user's decision (CLASH 5 and 23): 'Here is a house made of solid shapes. Imagine you stand far away from it. What parts of the shapes can you still see? The parts are faces, edges and corners.' The parts are the faces, edges and corners the child met in Tool 3. The book's own wording stays in NCERT_ITEMS and analysis.md. Tool 3 shows the plan's own simple house (a yellow cuboid with a lavender cone roof), not Jaya's two-storey house, which is reserved for the T4 image. The answer is a Sample answer, 'the faces', and says it is the plan's own reading.",
+   "item": "ch2.do8",
+   "printed_solution": "'What part of the shapes can you see from a distance?' It is the last sentence of the house activity ('Collect objects to make a house. Name the shapes, and talk about their faces and edges. Which are straight and which are curved? Also, describe how the shapes have been arranged.'). It does not say which shapes or what 'part' means. No answer is printed."
+  },
+  {
+   "correct": "In this plan the sphere is a shaded ball everywhere (CLASH 2). Q2: the yellow ball is a sphere and gets no mark, because no instruction in Q2 applies to a sphere. disc1: the round parts of toys 2 and 3 are balls, named as spheres. Q6: the child compares five solids (cylinder, cube, cone, cuboid and ball), and the sample answer says the sphere has only a curved face and no edges. No answer or step says that a sphere is a flat disc.",
+   "item": "ch2.q2, ch2.disc1, ch2.q6",
+   "printed_solution": "The sphere is drawn as a flat disc: the yellow shape in Q2, the round parts of two shop toys in disc1, the green shape in Q6. Q2 gives no instruction for its disc."
+  },
+  {
+   "correct": "The sample answer uses only objects that really are the solid: a football and a marble, a bottle and chalk, a die and a cube-shaped box, a shoebox, an eraser and a book, a birthday cap (CLASH 26). Most is cuboid (3 objects) and least is cone (1 object) in that sample, so ch2.q1a and ch2.q1b agree with it.",
+   "item": "ch2.q1",
+   "printed_solution": "The table's sphere column shows a flat red disc. The book prints no answer. Its classroom hunt can be answered with objects that are only roughly a solid (a globe on a stand, a clay pot, a watermelon)."
+  },
+  {
+   "correct": "No official content-team key was found in the repository (CLASH 24). Every answer is the plan's own reading and begins 'From the picture' or 'Sample answer'; open tasks end 'Your answer may differ'. None is presented as an official textbook answer. The content team may replace them with a key.",
+   "item": "all 31 questions",
+   "printed_solution": "The chapter prints no answer, solution or key."
+  }
+ ],
+ "chapter": {
+  "chapter_id": "cbse_eng_maths3_ch2",
+  "chapter_master_id": 539,
+  "chapter_no": 2,
+  "grade": 3,
+  "name": "Toy Joy",
+  "subject_ref_id": 102
+ },
+ "clashes": [
+  "CLASH 1, Tool 1 (Explore Shapes Around Us): roll, slide, stand and its objects have no source in the book. NOTE SAYS: explore a ball, dice, bottle, shoebox and birthday cap and notice which can roll, slide or stand (and the hook asks why a ball rolls and why a box can stand). BOOK SAYS: nothing about rolling, sliding or standing (the only 'roll' is 'Roll the die'); the word 'ball' is never printed; the ball and the birthday cap are only small pictures on the game border; there is no shoebox (the book has old boxes, a gift box, a trunk box, a pencil box); the die and the bottle are in the book. The book's first page also names cube, cuboid, cylinder and cone in the craft bubbles, while the note wants discovery before formal naming. No book question belongs to Tool 1, so it carries only its notice prompts. OPTIONS: (a) keep the note's objects and the roll, slide, stand idea as the plan's own exploration, and keep the shape names out of Tool 1; (b) use the book's own objects (craft boxes, bottles, the cone) and drop roll, slide, stand: this changes the approved purpose, so only the content team can choose it. RECOMMENDATION: (a). Tool 1 is mapped to C1 (everyday objects are solid shapes: the chapter's opening situation). The user says yes or no to content the book never states. DECIDED BY THE USER (5 Nov 2026): option (a), widened: the plan is not limited to objects the book draws. A football, a birthday cap, a shoebox, dice and bottles are valid real-life examples of solid shapes and stay in Tool 1. Rolling, sliding and standing stay, stated accurately (a ball rolls in every direction, a box slides and stands on its flat faces, a cylinder rolls one way and also stands, a cone rolls in a circle and stands on its flat base). Tool 1 still names no shape. CHANGED IN THE PLAN: new VISUAL_KEY keys football, birthday_cap, shoebox and bottle (die kept); the Tool 1 visuals and notice prompts are rewritten; the hook purpose names the same objects and no solid; the T2 video and Tool 2 reuse them. See CLASH 27 for how each object is shown.",
+  "CLASH 2, Tool 7 (Compare and Discover) and the comparison image: sphere versus a flat circle. NOTE SAYS: compare a cube with a cuboid and a sphere with a flat circle, highlighted visually. BOOK SAYS: cube and cuboid are compared by one sentence ('a cube is a special type of cuboid') and by Q6 (five shapes, same and different). The book draws the sphere as a flat disc (the chart, Q2, Q6) and never teaches a flat circle; 'circle' is only the verb in Q2. Q6 is the only compare question and it holds the green disc. OPTIONS: (a) keep the note's comparison, draw the sphere as a shaded ball everywhere, and show the flat disc as 'a drawing of a ball on paper' so no new shape name is taught; (b) compare only cube with cuboid (the book's own idea) and drop the sphere versus flat circle half of the note; (c) follow the book and show the sphere as its flat disc: this is the very mistake M_TOY_1 targets. RECOMMENDATION: (a), because the book's flat sphere would otherwise confuse a child who has just met a solid ball in Tools 1 and 2. The user decides, and decides whether 'flat circle' may appear at all. DECIDED BY THE USER (5 Nov 2026): a sphere is always shown as a proper shaded 3D solid, never a flat disc; a circle may be shown as a flat drawing only if it genuinely helps explain the distinction, and the comparison is not compulsory; the cube against cuboid comparison is suitable. CHANGED IN THE PLAN: VISUAL_KEY sphere is a shaded ball everywhere, so the book's flat red, yellow and green discs (the chart, Q2, Q6 and the round parts of the shop toys) are not copied; the flat circle is removed from the T7 topic objective, the T7.C1 objective and the key terms of T7, and Tool 7 does not require it. JUDGEMENT CALL (media minimiser), for the user to overrule: the pair stays in the ONE T7 photo as a smaller, clearly secondary pair (a real ball beside a flat paper circle, new key flat_circle) because the note asks for it, one flat paper circle costs no extra medium and the book's own flat discs keep M_TOY_1 a live risk; if the photo looks crowded the pair is dropped and nothing else changes. The answers of ch2.q2, ch2.q6 and ch2.disc1 speak of a flat disc: the question mapper re-reads them. QUESTION MAPPER (5 Nov 2026), THE SPHERE IN THE ANSWERS (follows from the user's decision above): ch2.q2: the yellow shape is a shaded ball (a sphere) and gets no mark, because no instruction in Q2 applies to a sphere (the marks are for cubes, cones, cylinders and cuboids). ch2.q6: the green round shape is a shaded ball, so the child compares five solids, and the sample answer says the sphere is a ball with only a curved face and no edges. ch2.disc1: the round parts of toy 2 and toy 3 are balls, named as spheres. ch2.q1: the sample answer uses a football and a marble for the sphere, never a globe or another roughly round object. No answer or step tells the child that a sphere is a flat disc.",
+  "CLASH 3, Tool 8 (Shape Challenges and Games): 'no new concept' against the opposite faces of a die. NOTE SAYS: Tool 8 is application and revision with no new concept, and names dice patterns and opposite-face predictions. BOOK SAYS: opposite faces of a die are first met in Q7 (what is opposite 1, 2, 3, and the pattern) and in the Teacher's Note ('talk about opposite faces in cubes, cuboids and cylinders'); no earlier step teaches them. Q7's own picture shows 6, 5 and 3, so it cannot answer the question it asks. OPTIONS: (a) give the opposite faces of a die (C13) one small image of its own just before Tool 8 and keep Tool 8 as the application, with Q7 and the board game on it; (b) let Tool 8 teach it by predict-then-check, which breaks the note's 'no new concept'; (c) drop dice patterns: not allowed, it is in the approved purpose. RECOMMENDATION: (a). Tool 8 is mapped to C14 (the shape game, application) with C13 as its dice-pattern part. The user decides. DECIDED BY THE USER (5 Nov 2026): add a simple visual introduction before Tool 8: a die with three visible faces and a visual setup that creates curiosity about the hidden opposite faces, preparing the activity without giving away the answer. CHANGED IN THE PLAN: option (a) is taken; the T8.C1 image stays ONE image concept and now has a fixed setup (a plain die tucked into the corner of two upright books, so three faces show and the other three are out of sight), written in CLASH 19. Tool 8 stays application.",
+  "CLASH 4, load per tool against the default cap of 6 book questions (a config default, not a curriculum rule). As proposed in tool_map.locked.md: Tool 4 holds 7 (do3, do4, do5, do6, do9, disc1, q1c) and Tool 6 holds 7 (q4, q5, q9, say3, q11, say1, say2); Tool 2 and Tool 5 hold exactly 6; Tool 1 holds none, Tool 3 two, Tool 7 one, Tool 8 two. All 31 book questions are homed once. OPTIONS: (a) raise max_tool_questions to 7 in chapter.config.json for this chapter (needs the user's say-so); (b) move items: disc1 could be recorded as a discussion (talk) instead of a prompt, and say3 sits beside q9 and asks it in other words (the book mixes 'ways' and 'shapes', analysis section 6 item 7); both change the analysis, so the analyst or the user must decide; (c) split a tool: not allowed. RECOMMENDATION: (a), because the long tools are the rocket and engine count and the cube builds, whose items are short one-answer prompts on one or two pictures. QUESTION MAPPER (step 5): the cap was NOT changed. Two moves were made provisionally so that the structure stage passes: see CLASH 22. Other points found while homing are in CLASH 23 to 25. DECIDED BY THE USER (5 Nov 2026): option (a): the cap is raised from 6 to 7 for this chapter only ('Please raise the question cap from 6 to 7 for this chapter only. Keep q1c in Tool 4 and make say3 a separate item on q9's screen'). CHANGED IN THE PLAN: chapter.config.json max_tool_questions is 7 (set by the orchestrator at the user's request, this chapter only); ch2.q1c is back on Tool 4 (T4.C2, last in its list); ch2.say3 is its own item on Tool 6 (T6.C2, right after q9, asked on q9's screen). Tool 4 holds 7 (do3, do4, do5, do6, do9, disc1, q1c) and Tool 6 holds 7 (q4, q5, say1, say2, q9, say3, q11); Tool 2 and Tool 5 hold 6, Tool 3 two (q3, do8), Tool 7 one (q6), Tool 8 two (q7, play2) and Tool 1 none. All 31 book questions are homed once, as in the tool mapper's proposal.",
+  "CLASH 5, book questions that fit no tool cleanly (the question mapper confirms the home). Proposed home and reason: ch2.do1 and ch2.do2 (craft faces on boxes and bottles): Tool 2, because the book's wording names cube, cuboid and cylinder (Tool 1 must not name shapes yet) and 'face' here means an animal face, not a flat side (printed-book ambiguity, analysis section 6 item 11); the alternatives are Tool 1 (breaks discovery before naming) or teaching text only (an exercise would then have no home). ch2.q1a and ch2.q1b (shape found most and least): Tool 2, as the count step of the classroom match in q1; the alternative is teaching text. ch2.do8 (what part of the shapes can you see from a distance): Tool 3, because 'part' reads as face, edge or corner; its wording is unclear and no answer is printed, so the alternative is to keep it with do7 on Tool 5 or leave it as a talk item. ch2.q9 and ch2.say3 (ways of joining 3 cubes): Tool 6, because 'combine cubes' is in its purpose, but the note counts cubes and says nothing about the number of ways or the shapes made. RECOMMENDATION: the homes above. The user decides, especially for do1, do2 and do8. DECIDED BY THE USER (5 Nov 2026): 'Keep the proposed placements: do1, do2, q1a, q1b, do8, q9/say3, do7, q10 and say1 on their nearest relevant tools. However, please review do8's wording and make it clearer using the actual textbook context.' CHANGED IN THE PLAN: every home above stands (do1, do2, q1a, q1b on Tool 2; do8 on Tool 3; q9 and say3 on Tool 6; do7 and q10 on Tool 5; say1 on Tool 6). do8's wording is made clearer. In the book, do8 is the LAST SENTENCE of the house activity on the second page ('Collect objects to make a house. Name the shapes, and talk about their faces and edges. Which are straight and which are curved? Also, describe how the shapes have been arranged. What part of the shapes can you see from a distance?'), so it asks about the child's house of shapes seen from far away, and 'part' means the faces, edges and corners of Tool 3. THE PLAN'S CLEARER WORDING OF THE BOOK'S QUESTION, on Tool 3: 'Here is a house made of solid shapes. Imagine you stand far away from it. What parts of the shapes can you still see? The parts are faces, edges and corners.' The book's own wording stays unchanged in NCERT_ITEMS and analysis.md. Tool 3's house picture is the plan's own simple house: a yellow cuboid for the walls and a lavender cone for the roof, drawn like Tool 3's solids (VISUAL_KEY cuboid and cone, already in Tool 3's visuals), seen first small from far away and then close up. It is not Jaya's two-storey house (reserved for the T4 image) and not one of Jaya's other three houses (kept for Tool 5). The answer is a Sample answer ('the faces') and says it is the plan's own reading, because the book prints no answer.",
+  "CLASH 6, Tool 6 (Build with Clay, Sticks and Cubes): two parts of its purpose are not in the book. NOTE SAYS: join clay balls and sticks and 'explore what they represent'; combine cubes and 'count visible/hidden cubes where relevant'. BOOK SAYS: Q4 shows two clay-and-stick figures (4 balls and 6 sticks drawn flat; 8 balls and 12 sticks as a cuboid frame) and never says what balls and sticks stand for; the words visible and hidden are not used; the only cube count is the bubble ch2.say2 ('How many cubes are used to make this shape?') on a stepped stack with cubes hidden behind others, whose total cannot be read for certain; the book prints no answer. The left figure of Q4 is not one of the five solids. OPTIONS: (a) say balls are corners and sticks are edges of the frame (a reading that links to Tool 3, not printed in the book) and let the stack be turned so hidden cubes show, with the plan's own counted stack and a 'sample answer' note; (b) keep to the book: only 'how many cubes' on a stack the child can turn, no mention of hidden cubes, and no meaning given to balls and sticks (the note says 'where relevant', so the hidden part is optional); (c) leave as is. RECOMMENDATION: (a) for the balls and sticks, (b) for the hidden cubes. The user decides what may be taught that the book does not state. DECIDED BY THE USER (5 Nov 2026): do not force explanations the learning context does not support. Explaining clay balls as corners and sticks as edges may be an additional explanation if it is conceptually useful and accurately demonstrated; otherwise Tool 6 stays on constructing structures. Hidden-cube counting is removed unless it is genuinely part of the chapter's learning objective. CHANGED IN THE PLAN: the T6 video teaches neither hidden nor visible cubes and gives no meaning to balls and sticks (CLASH 17); the balls and sticks link is OPTIONAL, belongs to Tool 6's feedback after the child builds the cuboid frame (8 balls and 12 sticks are exactly its 8 corners and 12 edges, as Tool 3 showed) and is never used for the 4 ball, 6 stick figure; it is written at the briefs stage and is not part of any new_idea. M_TOY_9 (hidden cubes) is no longer tagged on the T6 video. The approved Tool 6 purpose is unchanged (it still says explore what they represent and count visible or hidden cubes where relevant): only the content team can change it. How ch2.say2 is asked is for the question mapper. QUESTION MAPPER (5 Nov 2026), FOLLOWING FROM THE USER'S DECISION ABOVE: ch2.say2 stays on Tool 6 as the book's question ('How many cubes are used to make this shape?'). Its steps and its answer use no hidden-cube idea and never the words 'hidden' or 'visible' with the child: the stack on the screen is the plan's own stack in which every cube can be seen or counted by turning it (CLASH 28). The tag M_TOY_9 is removed from T6.C2, because no question needs it. The balls = corners, sticks = edges link is not a question: no question was added for it, and it stays in Tool 6's feedback (briefs stage).",
+  "CLASH 7, 'different views': Tool 2 (observe a solid from different sides) and Tool 8 (different-view challenges). NOTE SAYS: observe from different sides; different-view challenges. BOOK SAYS: only the Teacher's Note phrase 'turn the shapes and observe them in different orientations', Q2's tilted and lying shapes, and the unclear ch2.do8. There is no question about a view from a side. OPTIONS: (a) keep both as rotation interactions on C2 (a turned solid is the same solid), with no extra book question and no new concept; (b) drop the view challenge from Tool 8: not allowed, it is in the approved purpose. RECOMMENDATION: (a). The user confirms that a rotate-and-recognise challenge counts as in the chapter.",
+  "CLASH 8, flow rule 'concept video then tool': Tools 4 and 7 follow an image, not a video. NOTE SAYS: row 7 is an IMAGE SET in the main flow before Tool 4 (house, rocket, toy engine); row 13 is a COMPARISON IMAGE in the main flow before Tool 7, 'no video needed'. FLOW RULES: concept video then tool, but a small concept may be one image, and the gate accepts a tool right after an image concept; an image concept holds exactly one image, so a set of three needs a decision. OPTIONS: (a) accept the note: an image concept, then the tool, no video; for Tool 4 use ONE composite picture of the book's house, rocket and toy engine (or three image concepts in a row); (b) add a short concept video: not in the note and it would repeat the image. RECOMMENDATION: (a), one composite construction image that Tool 4 reuses. The user and the journey designer decide. RE-CHECKED AFTER THE USER'S DECISIONS (5 Nov 2026): option (a) stands. T4 and T7 are still one image concept each, followed by their tool; nothing changed in this clash.",
+  "CLASH 9, flow rule 'concept video then tool': Tool 6's video is optional in the note. NOTE SAYS: row 11 (clay balls joined by sticks, then cubes) is a CONCEPT VIDEO / DEMO 'only if needed to show the process'. FLOW RULE AND GATE: a tool never opens a topic and must follow a concept video or an image. OPTIONS: (a) make the short demo video (a story with Jaya or the children joining balls and sticks, then cubes); (b) use one image instead: it cannot show the joining process. RECOMMENDATION: (a). The user decides.",
+  "CLASH 10, flow rule 'concept video then tool': Tool 8 has nothing before it in the note. NOTE SAYS: row 15 is Tool 8 only, 'Application/revision; no new concept', with no video or image. FLOW RULE AND GATE: every tool after the first follows a concept video or an image concept and names it. OPTIONS: (a) one image concept before Tool 8: the opposite faces of a die (this also settles CLASH 3); (b) one image of the book's game border (the shape game, no new concept); (c) a short story video: more media than the note asks for. RECOMMENDATION: (a), or (b) if the user wants no new fact before the game. The user decides. DECIDED BY THE USER (5 Nov 2026): option (a) is taken through the decision on CLASH 3: one image concept, the lead-in of the die, before Tool 8; no video and no other image. CHANGED IN THE PLAN: T8.C1 stays; its setup is written in CLASH 19 and its style is now illustration.",
+  "CLASH 11, 'a tool covers one concept': Tool 6 covers two of the analysis's concepts, and Tools 2, 3 and 4 pair an idea with its small partner. NOTE SAYS: Tool 6 is one tool for clay balls and sticks AND cubes (rows 11 and 12 pair them); Tool 3 compares features across solids (flat and curved with faces, edges and corners); Tool 4 counts shapes and uses position words; Tool 2 matches solids with familiar objects. ANALYSIS: C11 (clay and sticks) and C12 (joining cubes) are two concepts; C4 and C5, C7 and C8, C2 and C3 are separate rows. OPTIONS: (a) map each tool to one named idea: Tool 2 to C2 (with the matching skill of C3), Tool 3 to C4 (with C5), Tool 4 to C7 (with the position words of C8), Tool 6 to 'making solid shapes from parts' (C11 and C12 together, a plainly named combination because the note itself pairs them); (b) ask the content team to split Tool 6: not possible, tools may not be split. RECOMMENDATION: (a), as in tool_map.locked.md. The user confirms.",
+  "CLASH 12, position words are used in Tool 4 before the video that 'introduces' them. NOTE SAYS: row 8 (Tool 4) has the child use position words such as on top, under and between; row 9 (the video before Tool 5, which comes AFTER Tool 4) says it will 'introduce arranging shapes and describing their positions'. BOOK SAYS: the words between, on the top of and under are used on the first page (the rocket questions) with no teaching step; the book never introduces them. Tools stay in the approved order, so the words reach the child in Tool 4 first. OPTIONS: (a) accept: the words are everyday words the book itself uses without teaching; Tool 4 reads where a shape is in a finished model, and the row 9 video then uses the same words to tell someone how to BUILD a model, so nothing is explained twice; (b) also put the three words in the caption of the construction image before Tool 4 (the media step decides; it adds no new picture); (c) move the row 9 video before Tool 4: not allowed, it changes the approved order. RECOMMENDATION: (a), with (b) if the user wants the words shown before the tool. The user decides.",
+  "CLASH 13, note row 16 (NCERT practice, 'QUESTION TOPICS') against the flow gate. NOTE SAYS: complete all relevant book examples, activities and exercises as QUESTION TOPICS, 'after its concept or in a concise practice section'. FLOW RULE AND GATE: a chapter is an opening topic, idea topics and a review; every book question sits on the tool of its concept; there is no Questions topic in this pipeline, and a tool never carries a question of another concept. OPTIONS: (a) put each question on the tool of its concept, which is the note's own 'after its concept' (the question mapper does this next; the tool concepts hold no questions in the skeleton yet); (b) a separate practice topic: the gate does not allow it. RECOMMENDATION: (a). The user confirms that no separate question topic is wanted. FOLLOWS FROM THE USER'S DECISIONS ON CLASH 4, 22 AND 25 (5 Nov 2026): option (a) stands and is applied. All 31 book questions sit on the tools of their concepts (cap 7 for this chapter), there is no Questions topic, and the ten real-world activities are on-screen versions on their tools. The statement that the tool concepts hold no questions 'in the skeleton yet' is out of date: the question mapper has homed them all.",
+  "CLASH 14, note row 17 (Chapter Check, 'ASSESSMENT') against the review rules. NOTE SAYS: a short visual assessment of recognition, properties, constructions and reasoning, with no outside-chapter concepts. FLOW RULE AND GATE: the last topic is a review of one or two concepts that revises earlier concepts; it has no new video or tool, no book item of its own and no key term not taught earlier; no tool may be added; the flow rules ask for no unnecessary scoring. OPTIONS: (a) the review IS the Chapter Check: two look-back concepts (T9.C1 recognition and properties, T9.C2 constructions and reasoning) built only from pictures already used in the chapter, with the plan's own short prompts and no score; they cover every idea topic; (b) a scored assessment tool: not allowed (no tool may be added); (c) book questions in the review: not allowed (they sit on the tools). RECOMMENDATION: (a). The brief writer chooses the prompts after approval. The user confirms that a no-score look back is enough.",
+  "CLASH 15, the same pictures reach the child in the T4 image, Tool 4 and Tool 5, and the T5 video builds them. NOTE SAYS: row 7 is an image set of a house, a rocket and a toy engine in the main flow before Tool 4; row 8 says Tool 4 must 'reuse the same construction visuals'; row 9 is a video in which a child builds a house, a rocket or a tower. FLOW RULE: do not add an image that repeats what a tool already shows; add one only for a new real-life example or visual reference. BOOK SAYS: Jaya's rocket (first page), Jaya's houses and Devika's toy engine (second page) are each printed once, each with its own question. OPTIONS: (a) keep the note's design and give each medium a different act on the pictures: the image is a LOOK (no labels, no shape names, no counts, no position words, nothing that answers do3 to do6 or do9), Tool 4 is NAME, COUNT and WHERE, the T5 video is BUILD IN ORDER (it does not name or count the shapes of a finished model), Tool 5 is rebuild from a description; (b) pin the image beside Tool 4 and open the topic with something else: not allowed, a tool cannot open a topic and the note wants the image in the main flow; (c) show new models in the image (a photo of a real house and a toy rocket): closer to the 'new real-life example' rule, but it breaks the note's 'reuse the same construction visuals'. RECOMMENDATION: (a). The user decides, and confirms that one set of pictures used for look, count and build is wanted. RE-CHECKED AFTER THE USER'S DECISIONS (5 Nov 2026): option (a) stands. The user's general principle allows extra real-life examples, but Jaya's rocket, house and Devika's engine are the foundation of this unit and the note asks to reuse them, so no extra example was added; the only change is that any round shop-toy part is a shaded ball (CLASH 16).",
+  "CLASH 16, what goes in the T4 construction image: the note names three models, Tool 4 uses four sets of pictures. NOTE SAYS: the image shows a house, a rocket and a toy engine. BOOK SAYS: all three are in the book: Jaya's rocket (first page), Jaya's four houses and Devika's toy engine (second page). Tool 4 draws the rocket, the engine, the four shop toys of ch2.disc1 and the houses (tools_1.py); the house tasks of the book (do7, disc2) are on Tool 5, not Tool 4. DECIDED HERE, for the user to overrule: (1) the image has three panels, one model each: the rocket, ONE house (Jaya's two-storey house, the richest of her four: boxes, roofs, pillars and boards) and the engine; (2) the shop toys are KEPT FOR TOOL 4 ONLY (they are the book's own question disc1 and a fresh example for the idea after the image; in the image they would make a crowded picture); (3) the other three houses stay for Tool 5; (4) CLASH 12's option (b) is NOT taken: the words on top, under and between stay out of the image caption, because that would turn the picture into a lesson on position and repeat Tool 4. OPTIONS: (a) as decided; (b) add the shop toys to the image (four panels): busier, and it shows disc1's pictures before disc1 asks about them; (c) show all four houses: six models in one picture; (d) drop the shop toys from Tool 4: not allowed, disc1 is a book question and needs its picture. RECOMMENDATION: (a). Note for the briefs stage: the book draws the round shape of one shop toy as a flat disc, the same flat-sphere problem as CLASH 2. DECIDED BY THE USER (5 Nov 2026): because a sphere is always a shaded ball (CLASH 2), the round parts of the shop toys (the red round shape of toy 2 and the head of the yellow cat in toy 3, which the book draws as flat discs) are drawn as shaded balls on Tool 4. CHANGED IN THE PLAN: VISUAL_KEY shop_toys is rewritten. Nothing else in this clash changed: the T4 image still has three panels and the shop toys stay on the tool only.",
+  "CLASH 17, the T6 demo video against Tool 6. NOTE SAYS: row 11 is a short story or demo of clay balls joined by sticks into a frame, then cubes joined into a larger structure, 'only if needed to show the process'; row 12 (Tool 6) has the child do exactly this. FLOW RULE: the manipulation is what the approved tool is for, so a video that shows the manipulation can repeat the tool; but a tool cannot open a topic (CLASH 9), so something must come first. BOOK SAYS: no video; one girl's bubble with two clay figures (Q4) and the cube pictures (Q5, Q9, the stepped stack, Q11). This is the one concept video whose idea is mostly a doing. OPTIONS: (a) keep the short story video, the one place where a picture cannot show joining, and keep it to the idea: the children join balls and sticks into a frame, then join cubes into a bigger shape, with no count, none of the book's figures to copy, no tour of the tool's controls, and (unless the user takes CLASH 6 (a)) no statement of what balls and sticks stand for or of hidden cubes; the idea is worded as ONE idea, making a solid by joining parts, because the approved Tool 6 pairs the two (CLASH 11); (b) one image concept instead (CLASH 9 (b)): cheaper, but it shows a finished frame, which Tool 6's own figures show again; (c) drop it: not allowed, Tool 6 needs a concept before it. RECOMMENDATION: (a), as CLASH 9 does. The user decides, and may prefer (b) if the fewest videos matters more than showing the joining. FOLLOWS FROM THE USER'S DECISION ON CLASH 6 (5 Nov 2026): option (a) stands and the video is worded as before. It shows joining only: no hidden or visible cubes, no meaning given to balls and sticks, no count. The optional balls and sticks link belongs to Tool 6's feedback after the cuboid frame is built, never to the video's new_idea. M_TOY_5 and M_TOY_9 are no longer tagged on the T6 video.",
+  "CLASH 18, the T7 comparison image against Tool 7 (and against the T2 video's sphere). NOTE SAYS: row 13 is a comparison image that highlights the difference visually between a cube and a cuboid and between a sphere and a flat circle, no video; row 14 (Tool 7) then has the child compare solids and explain what is shared and different. BOOK SAYS: one sentence ('a cube is a special type of cuboid') and Q6, one question that asks for the same and the different over five shapes, with the sphere drawn as a flat green disc. DUPLICATE RISK: a picture that states the differences hands the child the answers Tool 7 asks for; the cube and the cuboid are compared twice (image and Q6); and the T2 video also meets the sphere. DECIDED HERE, for the user to overrule: the image SHOWS and does not TELL: two pairs side by side at the same size and angle, no text on the differences, no repeat of Q6's question in its caption; the T2 video shows the sphere as a ball only, so the ball against the flat circle appears once. Style PHOTO of real objects (a die beside a box, a ball beside a flat paper circle), not an illustration: Tool 7 draws the solids in the chart colours, so real objects are the new context, and a real ball shows a thickness that the book's flat disc cannot. OPTIONS: (a) as decided; (b) an illustration in the chart colours, matching Tool 7: consistent, but it repeats Tool 7's look and a drawn disc brings back M_TOY_1; (c) labels that state the differences: repeats Tool 7. FOLLOW-ON for CLASH 2: Q6's flat green disc then sits on Tool 7 after a photo that shows a ball is not a flat circle; if CLASH 2 (a) is chosen the Q6 disc must be drawn as a shaded ball, and if (b) the second pair leaves the image. RECOMMENDATION: (a). DECIDED BY THE USER (5 Nov 2026): the cube against cuboid comparison is suitable and is the core of the image; a sphere is only ever a shaded real ball, never a flat disc; a flat circle is optional and only if it genuinely helps. CHANGED IN THE PLAN: the T7 image stays ONE photo; its main pair is a die (or a plain cube-shaped box if the dots distract) beside a closed shoebox; the ball beside a flat paper circle is a smaller, clearly secondary pair kept by the media minimiser's judgement (see CLASH 2) and removed from every T7 objective and key term. The FOLLOW-ON for CLASH 2 is settled: the Q6 disc is drawn as a shaded ball.",
+  "CLASH 19, the T8 die image against Tool 8 and Q7. NOTE SAYS: Tool 8 only, 'application/revision, no new concept', with dice patterns and opposite-face predictions; CLASH 3 and CLASH 10 (PROVISIONAL) put one image of a die before it. BOOK SAYS: Q7 prints one pink die showing 6, 5 and 3 and asks what is opposite 1, 2 and 3 (the picture cannot answer it); the Teacher's Note says to talk about opposite faces. DUPLICATE RISK: the same die then appears in the image, in Tool 8 (which turns a die) and in Q7's picture; a photo of two sides of the die, or of a face with its opposite, would answer Q7 before the tool. This is the weakest medium of the note: it exists mainly because a tool cannot open a topic. DECIDED HERE, for the user to overrule: one photo of one real die with three faces in view and the opposite faces out of sight, no sum of 7, no arrows, no pair of opposite faces; it teaches only what 'opposite face' means. OPTIONS: (a) as decided (CLASH 3 (a) and CLASH 10 (a)); (b) the game border instead (CLASH 10 (b)): it repeats the board that is Tool 8's own screen and leaves 'opposite face' to the tool, against 'no new concept'; (c) a two-view photo: gives away Q7. RECOMMENDATION: (a). The user decides. DECIDED BY THE USER (5 Nov 2026): the lead-in is a die with three visible faces and a visual setup that creates curiosity about the hidden opposite faces, preparing the activity without giving away the answer (no pair of opposite faces, no sum of 7, no pattern, no arrows). CHANGED IN THE PLAN: still ONE image. SETUP fixed here: a plain white die with black dots tucked into the corner where two upright maths books meet on a desk, seen from the open side; the top and two side faces show with exact dot counts, and the other three faces (the underside on the desk, the back and one side against the books) are out of sight, so a child wonders what is on them. The three visible numbers meet at a corner of a usual die, are not 6, 5 and 3 (Q7's own picture) and are not 1, 2 and 3 (a child would guess 4, 5 and 6 behind them, which feeds M_TOY_10); for example 1, 4 and 5. No mirror, no second view, no arrow and no hidden face drawn. JUDGEMENT CALL (media minimiser), for the user to overrule: the style changes from photo to illustration, because the dot counts must be exact (a wrong count planted just before Q7 is a false fact) and the hidden-face setup must be controlled.",
+  "CLASH 20, the T9 review and its pictures. NOTE SAYS: row 17 is a short 'visual' assessment of recognition, properties, constructions and reasoning. FLOW RULE AND GATE: the review has no new video or tool and adds no new content; a second image with the same title or content is flagged as a duplicate. OPTIONS: (a) the review holds no media node of its own: the brief writer shows again the pictures already made (the T4 composite, the T7 photo, the T8 photo, the models on the tools) by reference to their ids, with the plan's own short prompts; (b) new pictures for the check: they would be new content or duplicates, and more to make; (c) a text-only review: loses the 'visual' of the note. RECOMMENDATION: (a). The user confirms. FOLLOWS FROM THE USER'S DECISIONS (5 Nov 2026): the T8 picture is now an illustration, not a photo (CLASH 19). Option (a) stands: the review holds no media node and shows the T4, T7 and T8 pictures again by id.",
+  "CLASH 21, no pinned images are added. FLOW RULE: an image that only recaps a concept a video or tool already teaches is pinned, not shown again in the main flow; none is needed by default, so none is added. NOTE SAYS: nothing about pinned material. Two pinned references were considered and left out because the video and the tool already carry them: (1) a chart of the five solids with their names kept beside Tools 2, 7 and 8 (Tool 2 names each solid on screen); (2) the book's cube picture with face, edge and corner (ch2.fig1) kept beside Tool 3 (the T3 video gives the close-ups and Tool 3 labels the parts on tap). OPTIONS: (a) no pinned image: the fewest media; (b) add one or both as pinned images: two more pictures that recap, but a child who forgets 'cuboid' or 'corner' mid-chapter has them to hand (whether the platform supports pinned media is not yet checked, docs/02_flow_rules.md). RECOMMENDATION: (a). The user decides. RE-CHECKED AFTER THE USER'S DECISIONS (5 Nov 2026): option (a) stands, no pinned image. The real objects the user listed are already in Tool 1, the T2 video, Tool 2 and the T7 photo, so a pinned chart of the five solids with real examples would repeat them; it stays an option for the user.",
+  "CLASH 22, the cap of 6 book questions per tool (CLASH 4), applied PROVISIONALLY by the question mapper. NOTE SAYS: complete all relevant book questions, each after its concept (row 16). CONFIG SAYS: max_tool_questions is 6 (a default, not a rule of the curriculum owner; only the user may change it) and the gate stops the structure stage when a tool holds more. The mapper's proposal held 7 on Tool 4 and 7 on Tool 6. BOOK SAYS: nothing about a limit. All 31 book questions are kept; none was deleted. MOVED ONLY BECAUSE OF THE CAP: (1) ch2.q1c (Q1(c), 'Name the objects that are made up of more than one shape') belongs to Tool 4's concept (shapes inside a construction). It now sits on Tool 8 (T8.C2), last in its list. Why this one: it is the only Tool 4 question with no picture on the tool (a classroom search), while the others read the rocket, the engine or the shop toys (CLASH 16 keeps those pictures on Tool 4); Tool 8 is application and revision, and q1c revisits the Tool 4 idea; Tools 2 and 5 are full at 6, and Tools 3 and 7 teach ideas that q1c does not practise. (2) ch2.say3 (the bubble beside Q9, 'What possible shapes do you get if you join 3 cubes?') is no longer a tool question of its own on Tool 6. It is listed under `ncert` of T6.C2 (so it is homed once and counted) and its wording is the second line of q9's question, so one screen asks both; it asks again what q9 asks (CLASH 5 and the 'ways' against 'shapes' note). Why this one: it restates q9, so no question is lost. Tool 6 therefore carries 6 questions on the tool (q4, q5, say1, say2, q9, q11); the structure report lists 7 book questions under T6.C2 because say3 is counted there. OPTIONS: (a) raise max_tool_questions to 7 for this chapter in chapter.config.json (needs the user's say-so): q1c goes back to Tool 4 (T4.C2, last) and say3 becomes its own item on Tool 6 (after q9), two small edits in topics_1.py; (b) keep the two moves as done; (c) other moves, each worse: disc1 to Tool 8 (breaks CLASH 16, the shop toys are for Tool 4 only), do4 to do6 to Tool 5 (Tool 5 is full, and the position words are CLASH 12), say1 or say2 to another tool (they practise Tool 6 itself). RECOMMENDATION: (a), as in CLASH 4: it keeps every question on the tool of its own concept. Until the user decides, the plan stands as (b). DECIDED BY THE USER (5 Nov 2026): SETTLED BY OPTION (a): 'Please raise the question cap from 6 to 7 for this chapter only. Keep q1c in Tool 4 and make say3 a separate item on q9's screen.' CHANGED IN THE PLAN: both provisional moves are undone. ch2.q1c is back on Tool 4 (T4.C2, last in its list). ch2.say3 is its own FIO on Tool 6 (T6.C2, right after q9, asked on q9's screen, the same picture of 3 joined cubes) and is no longer only listed under `ncert`; q9's question is now only its own sentence ('In how many different ways can you join 3 cubes? Try and see.'). Tool 4 and Tool 6 hold 7 each and Tool 8 holds q7 and play2. Nothing is PROVISIONAL any more; the words 'provisional' and 'until the user decides' above are the history of this clash.",
+  "CLASH 23, more book questions whose home is a judgement call (they add to CLASH 5; each is kept at the mapper's proposed home). (1) ch2.do7 (make a house, name the shapes, faces and edges, straight or curved, describe the arrangement) on Tool 5: it also practises Tool 3's idea (faces and edges), but its main task is the house and how it is arranged. (2) ch2.q10 (name the shapes in four stacked models, describe how they are arranged) on Tool 5: naming shapes is also Tool 4's idea, but Tool 4 is full and the main task is the arrangement; all four models are flat cuboids. (3) ch2.say1 (join a cube and a cuboid) on Tool 6: it is about joining solids, but it also touches the cube-and-cuboid idea of Tool 7 and the printed fact (ch2.fact1). (4) ch2.q7 on Tool 8: CLASH 3. (5) ch2.play2 on Tool 8: the game border has no key for which picture is which shape (printed-book error 9), so the board is for the brief writer to define. (6) ch2.q6 is the only question on Tool 7 (one is enough for a concept tool). (7) Tool 1 holds no book question (CLASH 1): it carries only its notice prompts and no question was invented for it. (8) The four text and talk items are teaching text, not tool questions: opening (T1.C1), note1 (T2.C1), fig1 (T3.C1), fact1 (T7.C1). OPTIONS: (a) keep as homed; (b) move do7 to Tool 3 or q10 to Tool 4: Tool 4 is full (CLASH 22), Tool 3 holds only 2. RECOMMENDATION: (a). The user decides. DECIDED BY THE USER (5 Nov 2026): 'Keep the proposed placements', so option (a). CHANGED IN THE PLAN: nothing moved: do7 and q10 stay on Tool 5, say1 stays on Tool 6, q7 and play2 stay on Tool 8, q6 stays alone on Tool 7, Tool 1 holds no question, and the four text and talk items stay teaching text. The user also asked for do8's wording to be made clearer from the book's own context. do8 is the last sentence of the same house activity as do7 ('Collect objects to make a house...'), but it asks which parts (faces, edges, corners) can be seen from far away, which is Tool 3's idea, so it stays on Tool 3 with the plan's clearer wording recorded in CLASH 5. play2 (item 5): the board on the screen is the plan's own and uses only real objects that really are one of the five solids (CLASH 26); the printed-book error 9 is therefore answered by the plan's board and not by a key.",
+  "CLASH 24, the book prints no answer, so every answer in the plan is the plan's own reading. NOTE SAYS: nothing about answers. BOOK SAYS: no answer, solution or key anywhere in the chapter, and some printed items cannot be answered as printed: Q3 'with both straight and curved edges' (no solid fits), Q7's die picture (it shows only 6, 5 and 3), the Example 'The cylinder is of the cuboid' (a word is missing), the engine blanks (red, grey and blue do not match the drawing, and the wheels are in no blank), Q9 'ways' against its bubble 'shapes', say2's stack (its total cannot be read with certainty). DONE: counts and positions are read from the pictures and marked 'From the picture'; open tasks give 'Sample answer: ... Your answer may differ'; the die fact is marked 'On a usual die'; Q3's fourth bullet answers none; the Example's missing words are put back as 'on top of' (from the picture); the book page numbers are dropped from the game sentence; say2 gets no total. Each is recorded in SOLUTION_NOTES. OPTIONS: (a) keep the plan's readings as sample answers; (b) show no answers and let the tool judge only; (c) the content team gives an answer key and the plan copies it. RECOMMENDATION: (c) if a key exists, otherwise (a). The user decides. DECIDED BY THE USER (5 Nov 2026): 'Use the official content-team answer key if available. Otherwise, inferred answers should be labelled \"From the picture\" or \"Sample answer\". Do not present interpretations as official textbook answers.' SEARCH RESULT: no official answer key was found (looked in textbooks/, docs/, upload/, this chapter's book folder and its text layer, and the sibling folders Learning-Plan-Maths and Image-Pipeline-Maths: the only solution material there is for other classes, none for Class 3). So option (a) stands, tightened. CHANGED IN THE PLAN: every answer begins exactly 'From the picture' (counts, positions, what a picture shows) or 'Sample answer' (open tasks, games, and geometry the book does not print); open tasks end 'Your answer may differ'; none reads as an official answer. Relabelled: ch2.q3 ('Sample answer: ...'), ch2.q5, ch2.play1, ch2.play1ex, ch2.play2, ch2.say2 and ch2.q7 ('Sample answer: on a usual die, ...' replaces 'On a usual die'). Q3's fourth bullet stays 'none of the five'. The 'DONE' line above that names the label 'On a usual die' is replaced by this. If the content team later gives a key, the plan copies it (option c).",
+  "CLASH 25, ten book questions are real-world activities. NOTE SAYS: row 16, every relevant book activity as practice; each tool is on screen. BOOK SAYS: ch2.do1 (craft with old boxes and bottles), ch2.do7 (collect objects and make a house), ch2.disc2 (build houses, towers, rockets), ch2.play1 (a group of four or five plays Construct and Describe), ch2.q1 (a classroom hunt), ch2.q4 (clay and sticks), ch2.q5, ch2.q9 and ch2.q11 (cubes and six dice) and ch2.play2 (a board game with a die) are done with real things, friends or a classroom. The analyst recorded them as exercises (analysis open question 4). DONE: each sits on the tool of its concept, and the tool shows or records the task on screen; the real-world version is for the teacher or the child at home. OPTIONS: (a) as done; (b) record them as talk items (teaching text, no question): they leave the tools, and Tool 5 and Tool 6 would be left with only a few questions each; (c) keep on a tool only those that work on screen. RECOMMENDATION: (a). The user decides. DECIDED BY THE USER (5 Nov 2026): 'Keep all ten activities as on-screen interactive versions within their assigned tools. Preserve their original intent and make the interactions easy and meaningful for Class 3 students.' So option (a), with every `steps` list now stating the on-screen task in one or two short lines. CHANGED IN THE PLAN: do1 (Tool 2): pick a box or a bottle on the screen and choose an animal or bird face to put on it. q1 (Tool 2): put the real objects on the screen into the five columns, then look round your classroom for more. q4 (Tool 6): put a clay ball on each dot and join the balls with sticks. q5 (Tool 6): join cubes until the shape matches the picture. q9 (Tool 6): join 3 cubes in different ways. q11 (Tool 6): join 6 dice for a cuboid, a tower and a shape of your choice. do7 (Tool 5): build a house from shapes on the screen, then name each shape, say if its faces and edges are straight or curved and say where it sits. disc2 (Tool 5): build a house, a tower or a rocket and check that it stands. play1 (Tool 5): join three shapes and tell the order, then the friends build the same model. play2 (Tool 8): play the board game on the screen; its board uses only real objects that really are one of the five solids (CLASH 26: no cake slice, clay pot, watermelon or roti stack). The book's intent is kept, and no activity became a new concept or a long task; the classroom and the group of friends stay as the last step of q1 and the group game of play1.",
+  "CLASH 26, book pictures the plan does not reproduce because they misrepresent a solid or only roughly show it. NOTE SAYS: nothing about the book's pictures (it names a ball, dice, bottle, shoebox, birthday cap and a flat circle). BOOK SAYS: its sphere is a flat red, yellow or green disc (the chart, Q2, Q6) and the flat round part of two shop toys; its game border (the board of ch2.play2) holds pictures that are only roughly a solid: a clay pot, a watermelon, an orange and a ball of wool (roughly round), a globe on a stand, a roti stack (a very flat cylinder) and a cake slice (a wedge that fits none of the five; printed-book error 9). USER SAYS (5 Nov 2026, general principle): extra real-life examples are fine if they correctly represent the concept; do not misrepresent an object or its geometrical properties; use the book as the foundation, not as a restriction. OPTIONS: (a) copy the book's pictures as printed; (b) draw every sphere as a shaded ball (decided, CLASH 2) and build the Tool 8 board and every example from objects that really are the solid (a football, a die, a shoebox, a bottle, a birthday cap and look-alikes), leaving out the clay pot, watermelon, cake slice and roti stack as clean examples; (c) keep the border as printed and add a note. RECOMMENDATION: (b). The flat-disc part is DECIDED BY THE USER (CLASH 2). The game-border part is APPLIED FROM THE USER'S PRINCIPLE by the media minimiser, for the user to overrule: the board itself is for the brief writer to define (CLASH 23 (5)), and the sample answers of ch2.q1 (for example 'Sphere: globe') stay with the question mapper. QUESTION MAPPER (5 Nov 2026): done. The ch2.q1 sample answer no longer says 'Sphere: globe'. It uses a football and a marble (sphere), a bottle and chalk (cylinder), a die and a cube-shaped box (cube), a shoebox, an eraser and a book (cuboid) and a birthday cap (cone). No sample answer uses a globe, a clay pot, a watermelon, a cake slice or a roti stack. ch2.play2's question adds 'You can play it on the screen', and the board is the plan's own, built from real objects of the five solids only (the brief writer defines it).",
+  "CLASH 27, a real object is only an approximate solid. NOTE SAYS: explore a ball, dice, bottle, shoebox and birthday cap (Tool 1). USER SAYS (5 Nov 2026, CLASH 1): these are valid real-life examples of solid shapes, as long as they correctly represent the concept and no object or geometrical property is misrepresented. FOUND: a real birthday cap is a hollow cone with an open underside (no flat base face), most bottles have a narrow neck, a shoebox lid overhangs a little, a football has seams and patches, and many dice have rounded corners. OPTIONS: (a) use the objects the user listed but show each as its plain solid, as VISUAL_KEY now says (a bottle with no narrow neck, a closed shoebox, a cap shown upright with its pointed tip and round base, a plain football, a die with square corners and exact dots), and let the tool say only what is true (the cap stands on its round base and rolls in a circle on its side; a die tips over rather than rolls smoothly); (b) swap the cap for a closed solid cone object such as a wooden toy cone; (c) drop the cap. RECOMMENDATION: (a), because the user chose these objects. The user decides whether the open underside of a real cap matters for Tool 3, where a cone has one flat round face.",
+  "CLASH 28, ch2.say2's picture: the book's stepped stack is replaced by the plan's own stack of cubes. NOTE SAYS: Tool 6 may count visible/hidden cubes 'where relevant'. BOOK SAYS: the speech bubble 'How many cubes are used to make this shape?' stands beside one stepped stack of coloured cubes in which some cubes are behind others, so its total cannot be read with certainty; the book prints no answer. USER SAYS (5 Nov 2026, CLASH 6): hidden-cube counting is removed unless it is genuinely part of the chapter's learning objective. DONE: say2 keeps the book's words and its place on Tool 6, but the stack on the screen is the plan's own, one in which every cube can be seen or counted by turning it, so the child never has to work out a cube from behind another and the words 'hidden' and 'visible' are not used. The briefs stage builds the stack, and the answer then gives that stack's total; until then the answer says only how to count ('From the picture: count every cube once...'). OPTIONS: (a) the plan's own countable stack (as done); (b) the book's stepped stack as printed, turned by the child: its total stays uncertain and a child may have to reason about cubes it cannot see, which the user removed; (c) drop say2: not allowed, every book question is homed. RECOMMENDATION: (a). FOR THE USER TO CONFIRM: that a plan-made stack may stand in for the book's picture for this one bubble."
+ ],
+ "counts": {
+  "approved_tools": 8,
+  "book_items": 35,
+  "concept_videos": 4,
+  "concepts": 18,
+  "hook_videos": 1,
+  "images_main": 3,
+  "images_pinned": 0,
+  "modules": 4,
+  "questions": {
+   "example": 1,
+   "exercise": 19,
+   "prompt": 11
+  },
+  "tools": 8,
+  "topics": 9
+ },
+ "tool_map": [
+  {
+   "applies_to": "M1.S1.T1.C1",
+   "approved_name": "Explore Shapes Around Us",
+   "concept_id": "M1.S1.T1.C2",
+   "concept_key": "T1.C2",
+   "name": "Explore Shapes Around Us",
+   "no": 1,
+   "objective": "Students group everyday objects that look alike and notice which ones roll, slide or stand.",
+   "purpose": "Explore a ball, dice, bottle, shoebox and birthday cap. Rotate and observe, match similar objects and notice which can roll, slide or stand."
+  },
+  {
+   "applies_to": "M1.S2.T2.C3",
+   "approved_name": "Meet the 3D Shapes",
+   "concept_id": "M1.S2.T2.C4",
+   "concept_key": "T2.C2",
+   "name": "Meet the 3D Shapes",
+   "no": 2,
+   "objective": "Students name the five solids, even when turned, and match each to an everyday object.",
+   "purpose": "Rotate each solid, observe it from different sides, recognise/name it and match it with familiar objects."
+  },
+  {
+   "applies_to": "M1.S3.T3.C5",
+   "approved_name": "Explore Faces, Edges and Corners",
+   "concept_id": "M1.S3.T3.C6",
+   "concept_key": "T3.C2",
+   "name": "Explore Faces, Edges and Corners",
+   "no": 3,
+   "objective": "Students find the faces, edges and corners of solids and use flat and curved parts to tell solids apart.",
+   "purpose": "Select a face, trace an edge, identify a corner and compare features across solids."
+  },
+  {
+   "applies_to": "M2.S4.T4.C7",
+   "approved_name": "Identify Shapes in Constructions",
+   "concept_id": "M2.S4.T4.C8",
+   "concept_key": "T4.C2",
+   "name": "Identify Shapes in Constructions",
+   "no": 4,
+   "objective": "Students name and count the solids in a construction and say where one is using on top, under or between.",
+   "purpose": "Select parts, identify the solid shape, count shapes and use position words such as on top, under and between."
+  },
+  {
+   "applies_to": "M2.S5.T5.C9",
+   "approved_name": "Build and Describe",
+   "concept_id": "M2.S5.T5.C10",
+   "concept_key": "T5.C2",
+   "name": "Build and Describe",
+   "no": 5,
+   "objective": "Students arrange solid shapes into a model and describe where each shape is so others can build it.",
+   "purpose": "Arrange shapes to create a model; describe where each shape is placed; recreate a model from a simple description."
+  },
+  {
+   "applies_to": "M2.S6.T6.C11",
+   "approved_name": "Build with Clay, Sticks and Cubes",
+   "concept_id": "M2.S6.T6.C12",
+   "concept_key": "T6.C2",
+   "name": "Build with Clay, Sticks and Cubes",
+   "no": 6,
+   "objective": "Students make solid shapes from clay balls and sticks and from cubes, and count the cubes used.",
+   "purpose": "Join clay balls and sticks, explore what they represent, combine cubes and count visible/hidden cubes where relevant."
+  },
+  {
+   "applies_to": "M3.S7.T7.C13",
+   "approved_name": "Compare and Discover",
+   "concept_id": "M3.S7.T7.C14",
+   "concept_key": "T7.C2",
+   "name": "Compare and Discover",
+   "no": 7,
+   "objective": "Students compare solids and say in what ways they are the same and in what ways they are different.",
+   "purpose": "Compare solids, identify shared/different properties and explain observations using simple prompts."
+  },
+  {
+   "applies_to": "M3.S8.T8.C15",
+   "approved_name": "Shape Challenges and Games",
+   "concept_id": "M3.S8.T8.C16",
+   "concept_key": "T8.C2",
+   "name": "Shape Challenges and Games",
+   "no": 8,
+   "objective": "Students recognise solid shapes, even when turned, and read the opposite faces of a die.",
+   "purpose": "Apply learning through shape identification, dice patterns, opposite-face predictions and different-view challenges."
+  }
+ ],
+ "topics": [
+  {
+   "concepts": [
+    {
+     "applies_to": null,
+     "concept_id": "M1.S1.T1.C1",
+     "key": "T1.C1",
+     "media": [
+      "video:hook: Jaya opens a toy box and finds a football, a die, a shoebox, a bottle and a birthday cap. Some roll and some stand. The story ends on the open question why, names no solid shape and leaves the answer to Tool 1."
+     ],
+     "name": "The Mystery of Toys",
+     "other_items": [
+      "opening"
+     ],
+     "questions": [],
+     "review_covers": [],
+     "role": "hook"
+    },
+    {
+     "applies_to": "M1.S1.T1.C1",
+     "concept_id": "M1.S1.T1.C2",
+     "key": "T1.C2",
+     "media": [
+      "tool 1: Explore Shapes Around Us"
+     ],
+     "name": "Explore Shapes Around Us",
+     "other_items": [],
+     "questions": [],
+     "review_covers": [],
+     "role": "explore"
+    }
+   ],
+   "name": "The Mystery of Toys",
+   "source_type": "framing",
+   "topic_id": "M1.S1.T1"
+  },
+  {
+   "concepts": [
+    {
+     "applies_to": null,
+     "concept_id": "M1.S2.T2.C3",
+     "key": "T2.C1",
+     "media": [
+      "video:concept: the five solid shapes and their names: cube, cuboid, cylinder, cone and sphere"
+     ],
+     "name": "Meet the Solid Shapes",
+     "other_items": [
+      "ch2.note1"
+     ],
+     "questions": [],
+     "review_covers": [],
+     "role": "story"
+    },
+    {
+     "applies_to": "M1.S2.T2.C3",
+     "concept_id": "M1.S2.T2.C4",
+     "key": "T2.C2",
+     "media": [
+      "tool 2: Meet the 3D Shapes"
+     ],
+     "name": "Meet the 3D Shapes",
+     "other_items": [],
+     "questions": [
+      "ch2.do1",
+      "ch2.do2",
+      "ch2.q1",
+      "ch2.q1a",
+      "ch2.q1b",
+      "ch2.q2"
+     ],
+     "review_covers": [],
+     "role": "tool"
+    }
+   ],
+   "name": "Meet the Solid Shapes",
+   "source_type": "instructional/exploration",
+   "topic_id": "M1.S2.T2"
+  },
+  {
+   "concepts": [
+    {
+     "applies_to": null,
+     "concept_id": "M1.S3.T3.C5",
+     "key": "T3.C1",
+     "media": [
+      "video:concept: the parts of a solid: faces, edges and corners, and a face is flat or curved"
+     ],
+     "name": "The Secret Parts of Shapes",
+     "other_items": [
+      "ch2.fig1"
+     ],
+     "questions": [],
+     "review_covers": [],
+     "role": "story"
+    },
+    {
+     "applies_to": "M1.S3.T3.C5",
+     "concept_id": "M1.S3.T3.C6",
+     "key": "T3.C2",
+     "media": [
+      "tool 3: Explore Faces, Edges and Corners"
+     ],
+     "name": "Explore Faces, Edges and Corners",
+     "other_items": [],
+     "questions": [
+      "ch2.q3",
+      "ch2.do8"
+     ],
+     "review_covers": [],
+     "role": "tool"
+    }
+   ],
+   "name": "The Secret Parts of Shapes",
+   "source_type": "instructional/exploration",
+   "topic_id": "M1.S3.T3"
+  },
+  {
+   "concepts": [
+    {
+     "applies_to": null,
+     "concept_id": "M2.S4.T4.C7",
+     "key": "T4.C1",
+     "media": [
+      "image:main: One unlabelled picture of Jaya's rocket, Jaya's two-storey house and Devika's toy engine, so the child sees that each model holds several solid shapes before Tool 4 asks for names and counts."
+     ],
+     "name": "Shapes in Real Constructions",
+     "other_items": [],
+     "questions": [],
+     "review_covers": [],
+     "role": "image"
+    },
+    {
+     "applies_to": "M2.S4.T4.C7",
+     "concept_id": "M2.S4.T4.C8",
+     "key": "T4.C2",
+     "media": [
+      "tool 4: Identify Shapes in Constructions"
+     ],
+     "name": "Identify Shapes in Constructions",
+     "other_items": [],
+     "questions": [
+      "ch2.do3",
+      "ch2.do4",
+      "ch2.do5",
+      "ch2.do6",
+      "ch2.do9",
+      "ch2.disc1",
+      "ch2.q1c"
+     ],
+     "review_covers": [],
+     "role": "tool"
+    }
+   ],
+   "name": "Shapes in Real Constructions",
+   "source_type": "instructional/exploration",
+   "topic_id": "M2.S4.T4"
+  },
+  {
+   "concepts": [
+    {
+     "applies_to": null,
+     "concept_id": "M2.S5.T5.C9",
+     "key": "T5.C1",
+     "media": [
+      "video:concept: making a model by arranging solid shapes and telling where each shape is placed"
+     ],
+     "name": "Let's Build Something!",
+     "other_items": [],
+     "questions": [],
+     "review_covers": [],
+     "role": "story"
+    },
+    {
+     "applies_to": "M2.S5.T5.C9",
+     "concept_id": "M2.S5.T5.C10",
+     "key": "T5.C2",
+     "media": [
+      "tool 5: Build and Describe"
+     ],
+     "name": "Build and Describe",
+     "other_items": [],
+     "questions": [
+      "ch2.do7",
+      "ch2.disc2",
+      "ch2.play1",
+      "ch2.play1ex",
+      "ch2.q8",
+      "ch2.q10"
+     ],
+     "review_covers": [],
+     "role": "tool"
+    }
+   ],
+   "name": "Let's Build Something!",
+   "source_type": "instructional/exploration",
+   "topic_id": "M2.S5.T5"
+  },
+  {
+   "concepts": [
+    {
+     "applies_to": null,
+     "concept_id": "M2.S6.T6.C11",
+     "key": "T6.C1",
+     "media": [
+      "video:concept: a solid shape can be made by joining parts: balls and sticks make a frame, cubes make a bigger solid"
+     ],
+     "name": "Building with Clay, Sticks and Cubes",
+     "other_items": [],
+     "questions": [],
+     "review_covers": [],
+     "role": "story"
+    },
+    {
+     "applies_to": "M2.S6.T6.C11",
+     "concept_id": "M2.S6.T6.C12",
+     "key": "T6.C2",
+     "media": [
+      "tool 6: Build with Clay, Sticks and Cubes"
+     ],
+     "name": "Build with Clay, Sticks and Cubes",
+     "other_items": [],
+     "questions": [
+      "ch2.q4",
+      "ch2.q5",
+      "ch2.say1",
+      "ch2.say2",
+      "ch2.q9",
+      "ch2.say3",
+      "ch2.q11"
+     ],
+     "review_covers": [],
+     "role": "tool"
+    }
+   ],
+   "name": "Clay, Sticks and Cubes",
+   "source_type": "instructional/exploration",
+   "topic_id": "M2.S6.T6"
+  },
+  {
+   "concepts": [
+    {
+     "applies_to": null,
+     "concept_id": "M3.S7.T7.C13",
+     "key": "T7.C1",
+     "media": [
+      "image:main: One photo of real objects, so the child sees a cube and a cuboid side by side before Tool 7 asks them to say the differences. Main pair: a die (or a plain cube-shaped box) beside a closed shoebox. Secondary pair, smaller and optional: a real ball beside a flat paper circle, which Tool 7 does not need. Real objects are the new context: Tool 7 draws the solids in chart colours."
+     ],
+     "name": "How Are Shapes Different?",
+     "other_items": [
+      "ch2.fact1"
+     ],
+     "questions": [],
+     "review_covers": [],
+     "role": "image"
+    },
+    {
+     "applies_to": "M3.S7.T7.C13",
+     "concept_id": "M3.S7.T7.C14",
+     "key": "T7.C2",
+     "media": [
+      "tool 7: Compare and Discover"
+     ],
+     "name": "Compare and Discover",
+     "other_items": [],
+     "questions": [
+      "ch2.q6"
+     ],
+     "review_covers": [],
+     "role": "tool"
+    }
+   ],
+   "name": "How Are Shapes Different?",
+   "source_type": "instructional/exploration",
+   "topic_id": "M3.S7.T7"
+  },
+  {
+   "concepts": [
+    {
+     "applies_to": null,
+     "concept_id": "M3.S8.T8.C15",
+     "key": "T8.C1",
+     "media": [
+      "image:main: One illustration of a plain die tucked into the corner of two upright books on a desk: three faces show and the other three are out of sight against the books and the desk, so the child wonders what is on them. No pair of opposite faces, no sum of 7, no pattern and no arrows: Tool 8 leaves them to find."
+     ],
+     "name": "Opposite Faces of a Die",
+     "other_items": [],
+     "questions": [],
+     "review_covers": [],
+     "role": "image"
+    },
+    {
+     "applies_to": "M3.S8.T8.C15",
+     "concept_id": "M3.S8.T8.C16",
+     "key": "T8.C2",
+     "media": [
+      "tool 8: Shape Challenges and Games"
+     ],
+     "name": "Shape Challenges and Games",
+     "other_items": [],
+     "questions": [
+      "ch2.q7",
+      "ch2.play2"
+     ],
+     "review_covers": [],
+     "role": "tool"
+    }
+   ],
+   "name": "Shape Challenges and Games",
+   "source_type": "instructional/exploration",
+   "topic_id": "M3.S8.T8"
+  },
+  {
+   "concepts": [
+    {
+     "applies_to": null,
+     "concept_id": "MLAST.S9.T9.C17",
+     "key": "T9.C1",
+     "media": [],
+     "name": "Name the Shape and Its Parts",
+     "other_items": [],
+     "questions": [],
+     "review_covers": [
+      "M1.S2.T2.C3",
+      "M1.S3.T3.C5",
+      "M3.S7.T7.C13"
+     ],
+     "role": "review"
+    },
+    {
+     "applies_to": null,
+     "concept_id": "MLAST.S9.T9.C18",
+     "key": "T9.C2",
+     "media": [],
+     "name": "Shapes in Models and Dice",
+     "other_items": [],
+     "questions": [],
+     "review_covers": [
+      "M2.S4.T4.C7",
+      "M2.S5.T5.C9",
+      "M2.S6.T6.C11",
+      "M3.S8.T8.C15"
+     ],
+     "role": "review"
+    }
+   ],
+   "name": "Chapter Check",
+   "source_type": "summary",
+   "topic_id": "MLAST.S9.T9"
+  }
+ ]
+}
