@@ -1,0 +1,82 @@
+{
+  "chapter_id": "cbse_eng_maths3_ch1",
+  "phase": 2,
+  "pipeline": "class3_4_story_tool_flow",
+  "chapter_master_id": 540,
+  "subject_ref_id": 102,
+  "medium_id": 1,
+  "publication_id": 1,
+  "grade": 3,
+  "grade_band": "3_4",
+  "chapter_no": 1,
+  "chapter_name": "What's in a Name?",
+  "media_tag": "c3y",
+  "eqcheck": "plain",
+  "eqcheck_errata": [],
+  "allow_words": [],
+  "photo_rule_band": "default",
+  "asset_base_template": "https://media.singularity-learn.com/learning_plan_assets/V2/cbse/cbse/english/class_{grade}/mathematics/ch_{chapter_no}",
+  "approved_tools": [
+    {
+      "no": 1,
+      "name": "Marks at the Gate",
+      "purpose": "The child makes one mark for each cow that leaves the gate and strikes one out for each cow that comes back, then sees whether any cow is missing.",
+      "flow_row": "Marks at the gate (C1)"
+    },
+    {
+      "no": 2,
+      "name": "Marks for a Big Herd",
+      "purpose": "The child strikes out one mark for each cow that comes home, reads the marks left to find the cows still out and the cows back, then makes separate marks for cows and sheep.",
+      "flow_row": "Many cows, many marks (C2, C3)"
+    },
+    {
+      "no": 3,
+      "name": "Longest and Shortest Name",
+      "purpose": "The child counts the letters of each name and picks the longest and the shortest name, for the animal cards, for Mahesh and Kartik, and for friends' names.",
+      "flow_row": "Longest and shortest name (C4)"
+    },
+    {
+      "no": 4,
+      "name": "Starting and Ending Letters",
+      "purpose": "The child drops name tags into piles by their starting letter or by their ending letter and counts each pile to see which letter is used most.",
+      "flow_row": "Starting and ending letters (C5)"
+    },
+    {
+      "no": 5,
+      "name": "Build a Number Name",
+      "purpose": "The child lays a tens card and a ones card together to make a number name, as Teji does for 43, and counts its letters.",
+      "flow_row": "Build a number name (C6)"
+    },
+    {
+      "no": 6,
+      "name": "Number Name Puzzles",
+      "purpose": "The child finds numbers between 1 and 99 from clues about the letters in their names (8 letters, the longest name, the riddles) and notices what same-count names share.",
+      "flow_row": "Number name puzzles (C7, C8)"
+    },
+    {
+      "no": 7,
+      "name": "Group the Cards Two Ways",
+      "purpose": "The child drags cards into two groups by a rule, finds the rule in Jojo's groups, then regroups the same cards another way so every card is in one group.",
+      "flow_row": "Group the cards two ways (C10, C11)"
+    }
+  ],
+  "tool_map_required": true,
+  "concept_objective_word_range": [
+    5,
+    30
+  ],
+  "topic_objective_max_words": 40,
+  "coverage_exclude_doer_role": "tool",
+  "idea_topic_concept_range": [
+    1,
+    6
+  ],
+  "max_tool_controls": 4,
+  "max_tool_questions": 6,
+  "max_instruction_words": 15,
+  "max_sentence_words": 14,
+  "video_max_seconds": {
+    "hook": 90,
+    "concept": 150
+  }
+}
