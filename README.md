@@ -72,4 +72,3 @@ python3 -B -X utf8 smoke/run_smoke.py        # exit 0 = it works; no network, no
 
 Needs only the Python standard library; cutting a chapter out of its PDF (`core/lp_start.py`) also needs `pymupdf`.
 `docs/04_provenance.md` says exactly what was taken from where, what was left out, and what was decided without asking.
-# NCERT-Maths-Learning-Plan-class-3-4
