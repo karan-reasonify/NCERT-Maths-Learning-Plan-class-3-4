@@ -26,18 +26,18 @@ CHAPTER_NAME = CHAPTER["name"]
 # ---------------------------------------------------------------------------
 # modules: (module_id, module_name, summary), the top level of the hierarchy. Short; the child sees them.
 # ---------------------------------------------------------------------------
+# Five modules (step 3, the journey designer; amended on 12 Nov 2026, CLASH 58). M1 is Lesson 1 and holds its two topics (T1 and T2:
+# the gate fixes the opening topic as exactly [hook, Tool 1], so Lesson 1 needs two topics, CLASH 6); M2 is the solids
+# (Lessons 2 to 5, T3 to T6); M3 is the angles (Lesson 6, T7); M4 is circles, the pentagon and rigid shapes (Lessons 7 and 8,
+# T8 and T9). M5 holds Lesson 9 (T10, the recap story and the three practice tools) and the closing look back (T11, the review,
+# which the pipeline wants as the last topic). There is no separate MLAST module any more: M5 is the last module, so
+# core/finalize_ids.py has nothing to rename.
 MODULES = [
-    # Four themes from analysis.md section 3 and the tool proposal, plus the review. Tools 1 to 9, 10 to 15, 16 to 19, 20 to 22.
-    ("M1", "Solid Shapes",
-     "Start with Diksha's blocks. Meet prisms and pyramids, count their parts, sort them, build with cubes and fold nets."),
-    ("M2", "Angles and Rigid Shapes",
-     "Find angles where two lines meet. Tell right, acute and obtuse angles apart. Push straw shapes to see which keep their shape."),
-    ("M3", "Circles and Flat Shapes",
-     "Make circles from straws and points. Fold circles to find the diameter. Sort flat shapes by their sides and angles."),
-    ("M4", "Shape Puzzles",
-     "Find hidden shapes, count shapes in spider webs and make triangles from matchsticks."),
-    ("MLAST", "Chapter Review",
-     "Look back at solids, angles, circles and puzzles. Nothing new comes in here."),
+    ("M1", "Spotting Shapes", "Find shapes in buildings. Guess a hidden shape from its clues."),
+    ("M2", "Solid Shapes", "Meet prisms and pyramids and fold nets. Count faces, edges and corners, then cube towers."),
+    ("M3", "Angles", "Make angles with straws and paper. Sort them as acute, right or obtuse."),
+    ("M4", "Circles and Firm Shapes", "Draw a circle, make a pentagon and test which straw shapes stay firm."),
+    ("M5", "Revision and Review", "Name the shapes of the chapter, try a worksheet and a short assessment, then look back."),
 ]
 
 # ---------------------------------------------------------------------------
@@ -53,7 +53,8 @@ STORY = {
                "compass; two spider webs",
     # Only these are named or described as people or creatures in the book. Unnamed children in pictures (a boy with a
     # stepped Qutub Minar model, a girl making a straw triangle, a girl with a red bow) are not listed: the book gives
-    # them no names. Diksha's father is "Her father" in the book (not named, not drawn).
+    # them no names. Diksha's father is "Her father" in the book (not named, not drawn). The new lesson plan (lp_brief.md)
+    # names no character of its own: it is written as a teacher showing pictures, videos and activities.
     "characters": [
         "Diksha",
         "Diksha's father",
@@ -69,77 +70,75 @@ STORY = {
 # Tool specs and image briefs name these keys in `visuals`. Example: "ten_rod": "a tall blue bar, 10 squares".
 # ---------------------------------------------------------------------------
 #
-# These describe how the BOOK draws each recurring object, so one shape looks the same everywhere. The book is not
-# consistent about one colour per solid (the prisms are blue and the pyramids pink on one spread, but the same solids
-# are other colours elsewhere), so the colours below are the book's colour for that figure (one colour per solid for the
-# whole chapter is CLASH 27, not decided). Standing user rule for this pipeline: a sphere is always a proper shaded 3D
-# ball, never a flat disc; every solid is a shaded 3D solid, and every straw, clay ball, cube and dot can be counted.
-# Media step (step 4): keys added for the real-life images (everyday_objects, toy_cube_tower, folding_gate,
-# round_rug_and_wheel), for things the tools' questions use that had no key (compass, ruler_and_thread, classroom_scene,
-# angle_pictures, angle_letters, right_angle_figures, shape_gallery) and for people the videos need (isha, dikshas_father,
-# delhi_monuments). tools_1.py is locked, so the brief writer wires these into each tool's `visuals` list at the briefs
-# stage (the list is in media_decisions.md).
+# These describe how the BOOK draws each recurring object (step 1, written from a fresh reading of all 23 page images), as
+# CORRECTED BY THE MEDIA STEP (step 4) to the recommended option of CLASH 34 (still open: provisional until the user decides):
+# every drawn solid is a shaded 3D solid with ONE colour per kind of solid (prisms blue, pyramids pink as on the book's first
+# solid spread, cube teal, cuboid red, sphere coral, cone yellow, cylinder orchid); a net is never in the colour of its solid;
+# real objects (wooden blocks, bricks, a die, a football, tents, paper boxes) keep their own colours; sticks, clay balls, nets,
+# dot paper, the compass and the cube towers are drawn so every part can be counted. Added by the media step: `isha`,
+# `dikshas_father`, `sphere`, `solid_colours`, `compass` (objects the questions and videos need) and `prism_tent`,
+# `pyramid_tent` (the one image). The book prints neither tent; they are the plan's own real-life examples (CLASH 32, 43). The
+# football patch of the second image was removed on 12 Nov 2026 (CLASH 57), and so was its key. All visuals are made new: the
+# third-party pictures in the plan are references only (CLASH 31).
 VISUAL_KEY = {
-    "wooden_blocks": "light brown wooden blocks: cuboids of different sizes, a cylinder, a cube and two half-round blocks, lying on a floor mat in front of a drawing of India Gate",
-    "india_gate_drawing": "a drawing of the India Gate arch in sandy brown on a white sheet that stands up behind Diksha",
-    "other_buildings": "two small buildings drawn beside the first task: a sandy-brown gateway with tall minarets and arches, and a round hut with a thatched straw-coloured roof and pale walls (the book does not name them)",
+    "wooden_blocks": "light brown wooden blocks: cuboids of different sizes, a cylinder, a cube and two half-round blocks, lying on a floor mat in front of a drawing of India Gate (real wood, so the blocks keep the light brown of wood as in the book and are not in the solid colours; in the hook video none is placed on a part of the model, so nothing shows which block fits where)",
+    "india_gate_drawing": "a drawing of India Gate in sandy brown on a white sheet that stands up behind Diksha: a tall arch with a round-topped opening between two thick pillars, a flat top above it and steps below (it is an arch, so no single block of the set fits it)",
+    "other_buildings": "two small buildings drawn beside the first task: a sandy-brown gateway with two tall minarets and arches, and a round hut with a thatched straw-coloured roof and pale walls (the book does not name them)",
+    "delhi_monuments": "the places the book names in its opener: India Gate, Qutub Minar, Safdarjung Tomb, Akshardham, the National Museum, Jantar Mantar and Sansad Bhawan, drawn as they truly look with no invented building (the book draws only India Gate and Qutub Minar)",
     "street_model": "a small model street on a green base: a grey road, small houses with red, orange and blue roofs, two round brown huts, a lamp post",
-    "qutub_minar": "a tall tapering reddish-brown tower with balconies that narrow towards the top, shown with a few bushes at its foot",
-    "qutub_model": "a small stepped stack of three green boxes, each smaller than the one below (the book shows a boy holding it; in the image it stands on a table, with no child)",
-    "bricks": "three solid blocks side by side: a red-brown clay brick, a grey stone block and a brown wooden block, all true cuboids with flat faces and square corners, shown from one angle so three faces of each can be seen",
+    "qutub_minar": "a tall tapering reddish-brown tower with balconies that narrow towards the top, with a few bushes at its foot (it tapers, so no single block fits it exactly)",
+    "qutub_model": "a small stepped stack of three green boxes, each smaller than the one below, held by an unnamed boy with dark hair and a light blue top (real boxes keep their own green; the boy has no name in the book, so he is just a child)",
+    "bricks": "three solid blocks side by side: a red-brown clay brick, a grey stone block and a brown wooden block (three real materials, so they keep their own colours), all true cuboids with flat faces and square corners, shown from one angle so three faces of each can be seen",
     "diksha": "a girl with a ponytail, a yellow top and a pink skirt (as the book draws her)",
+    "isha": "a girl of Diksha's age in simple clothes, drawn in the book's style; the book shows only her hands and straws, so she is given one plain look that stays the same in every video",
+    "dikshas_father": "Diksha's father: a grown man in simple clothes, drawn in the book's style; the book names him in words only, so he is given one plain look that stays the same in every video",
     "nitesh": "a boy with dark hair and a light blue t-shirt, cutting a net out of paper with orange scissors",
     "squiggly_and_wiggly": "two black fuzzy spiders with large round eyes and a thin hanging thread; Squiggly makes the triangular web, her brother Wiggly the web of rectangles",
-    "box_net": "a pink paper box opened out flat with dotted fold lines, which folds back into the box",
-    "paper_strip_ball": "a ball made of curved orange paper strips joined at the top and bottom, with a small green leaf on top",
-    "prisms": "solid shapes drawn in blue with dashed hidden edges: a triangular prism, a square prism and a hexagonal prism",
-    "pyramids": "solid shapes drawn in magenta pink with dashed hidden edges: a triangular pyramid, a square pyramid and a pentagonal pyramid",
-    "straws_and_clay": "thin straws in green, yellow, blue or orange joined at their ends by small round clay balls to make a skeleton of a shape (red or pink balls on the triangle and the rectangle, grey-pink balls on the pentagon, orange balls on a blue-straw pyramid); every straw is its own straight line and every ball its own dot, drawn see-through so no edge hides another and all can be counted: straws are the edges and balls the corners (cube and cuboid 12 and 8, triangular pyramid 6 and 4, square pyramid 8 and 5, triangular prism 9 and 6)",
-    "die": "a standard grey-white die with dots in the usual patterns; opposite faces always add up to 7 (1 and 6, 2 and 5, 3 and 4), so two faces that add up to 7 are never in view together; the book's picture shows 5 on top, 1 in front and 3 on the right (it writes numerals, the plan draws the same faces with dots, the same on the image and on the tool: CLASH 21)",
-    "colour_cube": "one cube with six differently coloured faces (red, orange, green, purple, dark blue, yellow), shown in three views side by side; the three views are drawn as in the book and must all fit one single cube with one colouring",
-    "border_objects": "about twenty pencil sketches of everyday objects around a page: dice, erasers, balls and a football, cans and bottles, an ice-cream cone, a party hat, cheese wedges, a Rubik's cube, a gift box, a wooden wedge, a cake slice; in the plan each is drawn as the solid it really is: the ice-cream cone is a plain cone with no scoop, every ball is a shaded ball, a can is a cylinder, a cheese wedge or cake slice is a triangular prism",
-    "sorting_circles": "round outlines in dark purple-blue on a pale green panel with green italic labels; one panel has two separate circles, another has two circles that overlap",
-    "cube_models": "four models of unit cubes: A red, B purple, C yellow, D with a blue base and teal, pink and green layers above it; every unit cube drawn with its own edges so the cubes can be counted",
-    "cube_towers": "two stacks of unit cubes: a stepped tower with red, pink, green and blue layers, and a large green and cyan X-shaped tower; the plan draws every cube with clear edges so layers can be counted (the printed X tower cannot be counted reliably: CLASH 18)",
-    "triangular_dot_paper": "grey dots in a slanting triangular grid (evenly spaced rows, each row shifted half a step, so any three neighbouring dots make an equal triangle) with one finished cube outline in dark purple and two cubes drawn only in dotted lines that run exactly through dots",
-    "sphere": "a proper shaded 3D ball with a soft highlight, round from every side (the book draws a beige one and a red one this way); never a flat disc",
-    "solid_pictures": "shaded 3D pictures, each a true solid: a beige sphere, a green square pyramid, a purple cone, a red cuboid, a pink-purple cylinder, a teal cube and a small orange triangular prism lying on a rectangle face with its two triangle ends clear (the book's small orange solid, read as a triangular prism: E5); and a red sphere, a yellow cone, a blue triangular pyramid, a green cube and a purple cuboid; every sphere is a shaded ball, a cone has one round flat base and one point, a cylinder has two round flat faces and a curved side",
-    "nets_and_solids": "line drawings of nets with dotted fold lines (violet in one question, dark green in another) with a coloured solid beside or below each; the pieces of Nitesh's net are pale orange (one pentagon and five triangles); every face of a net is its own flat shape joined to the next along a dotted fold line, so the faces can be counted; the nets of the book's question 4 are drawn as printed (A and C do not fold: CLASH 12)",
+    "box_net": "a pink paper box opened out flat with dotted fold lines, and a line drawing 'Net of a box' with dotted folds; it folds back into the box (a real paper box, kept pink as in the book; a flat net is never in the colour of a solid)",
+    "paper_strip_ball": "a ball made of curved orange paper strips joined at the top and bottom, with a small green leaf on top (the craft ball of the first Craft task, a paper craft kept orange as in the book; it is not the sphere of the solids)",
+    "solid_colours": "the colour code of the maths solids, one colour per kind of solid in the teaching pictures: prisms blue, pyramids pink, cube teal, cuboid red, sphere coral, cone yellow, cylinder orchid; every solid a shaded 3D solid, with dashed hidden edges where an edge is hidden; in the sorting, matching and riddle stages of the tools every solid is drawn in ONE neutral stone-grey tint (still shaded 3D, so faces and edges show), so that colour never gives the answer; flat shapes in flat colours; a net is never in the colour of its solid; real objects (wooden blocks, bricks, a die, a football, tents, paper boxes) keep their own colours",
+    "prisms": "shaded 3D solids, ALL in the one prism blue (as the book draws them), with dashed hidden edges, labelled Triangular Prism, Square Prism (drawn long, like a box with square ends) and Hexagonal Prism; every other prism of the chapter (a pentagonal prism if one is ever drawn) is this same blue; in the sorting stages the same solids use the one neutral tint instead",
+    "pyramids": "shaded 3D solids, ALL in the one pyramid pink (the book's pink-magenta), with dashed hidden edges, labelled Triangular Pyramid, Square Pyramid and Pentagonal Pyramid; every other pyramid of the chapter is this same pink; in the sorting stages the same solids use the one neutral tint instead",
+    "sphere": "a proper shaded 3D ball with a soft highlight, round from every side, always in the one sphere colour, a coral (a lighter tint of red than the cuboid's deep red, so a sphere and a cuboid on one screen are never alike); never a flat disc; a real ball (a football) keeps its own colours",
+    "straws_and_clay": "thin straws joined at their ends by small round clay balls to make the skeleton of a shape; every straw is its own straight line and every ball its own dot, drawn see-through so no edge hides another and every one can be counted: straws are the edges and balls are the corners (cube and cuboid 12 and 8, triangular pyramid 6 and 4, square pyramid 8 and 5, triangular prism 9 and 6; the model-challenge square pyramid beside the last task is 8 straws and 5 balls). In a SOLID skeleton the straws are in the colour of the solid they make (cube teal, cuboid red, every prism blue, every pyramid pink) and every clay ball is one plain clay colour (a warm grey-brown); in a FLAT straw shape (the triangle, rectangle, square and pentagon of the push tools) the straws stay green, yellow, blue or orange as in the book and the balls red or pink, because a flat shape is not one of the solids",
+    "die": "a standard grey-white die (a real die, so it keeps its own colour and is not the teal cube): opposite faces always add up to 7 (1 and 6, 2 and 5, 3 and 4), so two faces that add up to 7 are never in view together; the book's picture shows 5, 1 and 3 on its three visible faces and writes numerals, the same die on every screen",
+    "colour_cube": "one cube with six differently coloured faces, red, orange, green, purple, dark blue and yellow, shown in three views side by side: (top orange, left red, right green), (top purple, left orange, right green), (top red, left dark blue, right yellow); the six face colours are the question's own data, so this cube is NOT teal; the three views must fit one single cube (red opposite purple, yellow opposite orange, dark blue opposite green)",
+    "border_objects": "about twenty pencil sketches round the edge of the Let Us Observe task, in plain pencil outline with grey pencil shading and no colour, so the child's red, blue, smiley and star marks show: 2 dice, 2 erasers, a Rubik's cube, a gift box, 3 balls (one a football), 3 cans or bottles, an ice-cream cone, a party hat, 2 cheese pieces, a pyramid made of small triangles, a double pyramid, a wooden wedge and a cake slice; each is drawn as the book draws it and as itself: every ball a shaded ball, the cone a plain cone with no scoop, a can a cylinder, the wooden wedge and the cake slice triangular prisms, and each cheese piece a pyramid with small holes (never a wedge)",
+    "sorting_circles": "round outlines in dark purple-blue on a pale green panel with green italic labels; two panels have two separate circles, one panel has two overlapping circles with a labelled overlap",
+    "cube_models": "four models of unit cubes in the book's shapes, A, B, C and D (A a block with one step, B a long L-shape, C a stepped pile, D a stepped model of layers 4 by 4, 3 by 3, 2 by 2 and 1 cube); every unit cube is a shaded teal cube, as every cube of the chapter, so the four models differ in shape only (the book prints them red, purple, yellow and blue with teal, pink and green); every unit cube is drawn with its own edges so the cubes can be counted",
+    "cube_towers": "two stacks of unit cubes, every cube a shaded teal cube with clear edges (a light top, a teal left face, a darker right face), the layers told apart by their steps and not by colour: a stepped tower of 4 layers (4 by 4, 3 by 3, 2 by 2 and 1 cube: 16 + 9 + 4 + 1 = 30 cubes, the same shape as model D) and a large plus-shaped tower: a middle column of 6 cubes and four stairs going out from it, each stair with columns of 5, 4, 3, 2 and 1 cubes (6 + 4 × 15 = 66 cubes); the figures show only the outside, so the hidden cubes are counted by reading the layers and columns, with solid layers and no gaps (the book's counts of 30 and 66 assume this); the tower of the cube tower video is a different, smaller tower",
+    "triangular_dot_paper": "grey dots in a slanting triangular grid (evenly spaced rows, each row shifted half a step, so any three neighbouring dots make an equal triangle), with one finished cube outline in teal (the cube colour) and two cubes drawn only in dotted lines that run exactly through the dots",
+    "solid_pictures": "shaded 3D pictures, each a true solid in the colour of its kind: beside Q1 a coral sphere with a dashed ring, a pink square pyramid with a hidden corner dashed, a yellow cone, a red cuboid, an orchid cylinder, a teal cube and a small blue triangular prism lying on a rectangle face with its two triangle ends clear (the book's small orange solid, read as a triangular prism); beside Q2 a coral sphere, a yellow cone, a pink triangular pyramid, a teal cube and a red cuboid; a sphere is a shaded ball, a cone has one round flat base and one point, a cylinder has two round flat faces and a curved side; when these solids are the riddle cards of the faces, edges and corners tool they are drawn in the one neutral tint so colour cannot give the answer",
+    "nets_and_solids": "line drawings of nets with dotted fold lines (violet in Q3: a triangle net, a cylinder net, a cuboid net, a triangular prism net; dark green in Q4: four nets) with a solid beside or below each (in a teaching picture in the colour of its kind: cylinder orchid, cube teal, cuboid red, prisms blue, pyramids pink; in the matching stages of the nets tool every solid is drawn in the one neutral tint); a net is flat and is NEVER in the colour of the solid it folds into, so the colour cannot give the match away; every face of a net is its own flat shape joined to the next along a dotted fold line, so the faces can be counted; Nitesh's pieces are pale orange (one pentagon and five triangles) with four solids a to d below; the nets of Q4 are drawn as printed (A and C do not fold)",
     "angle_mark": "a small red arc at the corner of an angle, or a small red square for a right angle",
     "straws_angle": "two straws, one green and one orange, meeting at one end to show an angle, with a red arc or red square at the corner",
     "yoga_figures": "five simple yoga figures with round heads in blue and orange, each with a red arc where two limbs meet",
-    "house_and_boat": "a blue house with a darker blue roof and a boat with a brown hull and a cream sail on a thick brown mast, with red angle marks at the corners",
+    "house_and_boat": "a blue house with a darker blue triangular roof (7 red angle marks) and a boat with a brown hull and a cream sail split by a brown mast into two triangles (10 red angle marks)",
     "right_angle_checker": "a piece of pale orange paper folded twice so the folded corner is a right angle, marked with a red square",
     "dot_grid": "rows of black dots on a white page, or on a pale blue, yellow, peach or pink rounded panel",
+    "angle_figures_grid": "eight blue angles drawn on a dot grid in two rows of four; each is two lines meeting at a point",
+    "angle_pictures": "five plain pictures: an open pair of scissors, a clothes hanger, a hand making a V sign, a seesaw and a slide; in each the two arms that meet are drawn clearly",
+    "angle_letters": "the capital letters V, A and Z in large plain strokes, one angle of each marked in red",
     "stick_figures": "four simple stick people with round faces, whose arms and legs meet at angles",
-    "rigid_shapes": "straw shapes joined by red or pink clay balls: a triangle, a rectangle, a square of four equal straws (both lean over when pushed) and a pentagon of five equal blue straws; each clay ball is a joint that lets the shape turn, so a push tilts a four-sided or five-sided shape but never a triangle",
-    "four_sided_shapes": "three flat 4-sided shapes: a green shape with a slanted side, a pink slanting shape and an orange diamond",
-    "equal_straws_circle": "many straws in different colours, all the same length, laid like spokes round a central clay ball so their ends make a circle; and the same straws with unequal lengths, whose ends do not make a circle",
-    "circle_paper": "a round sheet of orange-brown paper with dashed fold lines through the middle (creases); a red circle for the radius and diameter picture",
-    "compass_design": "a yellow circle, then overlapping dotted circles, then a six-petal flower made of overlapping circles coloured blue, green, red and yellow",
+    "rigid_shapes": "straw shapes joined by red or pink clay balls: a triangle (made by a girl in a pink top on a purple rug), a rectangle of blue straws with a second drawing of it pushed over into a slanted shape, a square, and a pentagon of five equal blue straws with grey-pink clay balls; each clay ball is a joint that lets a shape turn, so a push tilts a four-sided or five-sided shape but never a triangle",
+    "four_sided_shapes": "three flat 4-sided shapes: a green shape with a slanted side, a pink slanting shape and an orange diamond (in this chapter a diamond always means one thing: a leaning shape with four equal sides and no right angle; a square turned on its corner is called a square turned on its corner)",
+    "equal_straws_circle": "many straws in different colours, all the same length, laid like spokes round a central clay ball so that their ends make a circle; and the same straws with unequal lengths, whose ends do not make a circle",
+    "circle_paper": "a round sheet of orange-brown paper with dashed fold lines through the middle (creases); a red circle with the labels Diameter and Radius on a half and a quarter fold",
+    "compass_design": "a yellow circle (Step 1), overlapping dotted circles (Step 2), then a six-petal flower made of overlapping circles in blue, green, red and yellow (Step 3)",
+    "compass": "a school compass: two arms joined at the top, a sharp metal point on one arm and a pencil on the other; the point stays fixed on the centre and the pencil draws the circle",
     "carpet_design": "a brown carpet with a fringe, a paisley border and an orange circle in the middle holding green and yellow petals around a small blue centre",
-    "wheels": "four wheels labelled A to D: a grey car wheel with four oval holes, a large brown wooden spoked wheel, a bicycle wheel with blue spokes and a thin black tyre, and a small dark tyre with a silver rim; each seen straight on so it is a true circle with its centre showing, in the printed sizes (B the largest, then C, then A, and D the smallest: E16)",
-    "hidden_shapes": "red outlines drawn over one another: a circle, a cylinder, one square, one tilted rectangle (about twice as long as wide) and two triangles (corrected by the question mapper, CLASH 31)",
+    "wheels": "four wheels labelled A to D: a grey car wheel with four oval holes, a large brown wooden spoked wheel, a bicycle wheel with blue spokes and a thin black tyre, and a small dark tyre with a silver rim; each seen straight on so it is a true circle with its centre showing, in the printed sizes (B the largest, then C, then A, and D the smallest)",
+    "hidden_shapes": "red outlines drawn over one another: a circle, a cylinder, one upright square, one tilted rectangle (about 2.2 times as long as wide) and two triangles (six shapes); all one red on purpose, so they hide one another; the cylinder here is a line drawing in that red, not the orchid solid",
     "dissection_shapes": "flat coloured shapes: an orange long hexagon, a green square and a pink triangle on the left, and the smaller pieces they are cut into on the right",
     "shape_cards": "six flat cut-out cards from the end of the book: an orange square, a green oval, a brown quarter circle, a light-green semicircle, a blue triangle and a pink circle",
-    "spider_webs": "purple threads on white: Squiggly's web is a long shape with 12 walls numbered 1 to 12 in dark red and point A at the bottom; Wiggly's web is a set of rectangles with a short bar at the top, point A at its upper right end and point B at the bottom of the middle-left line",
-    "matchsticks": "a thin wooden stick with a red-orange head at one end; all sticks the same length; shown singly, in three separate triangles, and in a group of small triangles, with every stick drawn whole so the sticks can be counted",
-    "angle_shapes": "flat coloured 2D shapes: a blue square, a red triangle, a green slanting 4-sided shape, a purple right triangle, a purple pentagon, a thin green triangle and a red rectangle",
-    # ---- added by the media step (step 4)
-    "everyday_objects": "four to eight familiar objects, each a clean solid shape and none of them from the border sketches: for example a matchbox, a round tin, a marble and a toy tent, standing apart on a plain shelf in even light with nothing printed on them",
-    "toy_cube_tower": "a small tower of identical plain toy cubes with no letters or pictures, stacked in layers on a table so the layers show; not the book's two towers; every cube the same size with clear edges",
-    "folding_gate": "a steel folding gate across a doorway: slim straight steel strips of equal length crossing in a diamond lattice, pinned at every crossing and at the ends, shown half closed so every four-sided cell leans over",
-    "round_rug_and_wheel": "a plain round woven rug and one bicycle wheel, each seen straight on so each is a true circle; not the book's carpet and not its wheels A to D",
-    "compass": "a school compass: two arms joined at the top, a sharp metal point on one arm and a pencil on the other; the point stays fixed on the centre and the pencil draws the circle",
-    "ruler_and_thread": "a plain school ruler with equal tick marks and no unit written on it, and a loose thread, used only to compare lengths",
-    "classroom_scene": "a simple classroom: a desk and bench, a blackboard, a door, a window, a wall clock, and a book and a ruler on the desk; every corner drawn true so right, acute and obtuse angles can be found",
-    "angle_pictures": "five plain pictures: an open pair of scissors, a clothes hanger, a hand making a V sign, a seesaw and a slide; in each the two arms that meet are drawn clearly",
-    "angle_letters": "the capital letters V, A and Z in large plain strokes",
-    "right_angle_figures": "six flat coloured figures in a row: a blue rectangle, a green slanted four-sided shape, a purple triangle, an orange four-sided shape wider at the top, a purple slanted diamond and a red tilted rectangle (a little longer than wide, as the book draws it: CLASH 31); every corner drawn true",
-    "shape_gallery": "fourteen flat coloured shapes numbered 1 to 14 in three rows, mostly four-sided (squares, rectangles and slanted shapes) with one dart-shaped number 1; every corner drawn true so right, acute and obtuse angles can be told apart",
-    "isha": "a girl of Diksha's age in simple clothes, drawn in the book's style; the book shows only her hands and straws, so the plan gives her one plain look and keeps it the same in every video",
-    "dikshas_father": "Diksha's father: a grown man in simple clothes, drawn in the book's style; the book names him in words only, so the plan gives him one plain look and keeps it the same in every video",
-    "delhi_monuments": "the real places named in the opener, drawn as they truly look with no invented building: India Gate, Qutub Minar, Safdarjung Tomb, Akshardham, the National Museum, Jantar Mantar and Sansad Bhawan",
+    "spider_webs": "purple threads on white: Squiggly's web is a long shape with 12 walls numbered 1 to 12 in dark red and point A at the bottom tip (the numbers follow one walk from A round to A); Wiggly's web is a set of rectangles with a short bar at the top, point A at the bar's upper right end and point B at the bottom of the second line from the left; these are the figures of the strong structure tool, and the two webs story draws two simple webs of its own instead",
+    "matchsticks": "a thin wooden stick with a red head at one end, all the same length, every stick drawn whole so the sticks can be counted: Q2 five loose sticks and a dashed drawing box; Q3 nine sticks as three small triangles in a row that touch at the base corners (the book draws small gaps; here the corners touch, because only then can the puzzle be solved); Q4 thirteen sticks making six small triangles (a big triangle of side 2 with one small triangle on its upper left side and one on its lower right side); all corners meet on one triangular grid",
+    "angle_shapes": "flat coloured 2D shapes in Q6: a blue square, a red triangle, a green slanting 4-sided shape, a purple right triangle, a purple pentagon, a thin green triangle and a red rectangle",
+    "right_angle_figures": "six flat coloured figures in Q8 in a row: a blue rectangle, a green slanting 4-sided shape, a purple triangle, an orange 4-sided shape wider at the top, a purple slanting 4-sided shape and a red tilted rectangle (a little longer than wide, as the book draws it: a rectangle, not a square); every corner drawn true",
+    "shape_gallery": "fourteen flat coloured shapes numbered 1 to 14 in Q9 in three rows, mostly 4-sided (squares, rectangles and slanting shapes) with one dart-shaped number 1; every corner drawn true so right, acute and obtuse angles can be told apart",
+    # ---- the image (added by the media step, CLASH 43): the plan's own real-life examples, not in the book
+    "prism_tent": "a real camping tent with two matching triangle ends and three rectangle faces (two slanting sides and the floor), straight edges, as a clean shaded illustration standing on grass; one plain tent colour, the same as the pyramid tent, so colour is no clue (not the prism blue); the face shapes are marked with light outlines, never counted or named",
+    "pyramid_tent": "a real tent with a square floor and four triangle faces that meet at one point at the top, straight edges, as a clean shaded illustration standing on grass beside the prism tent; the same plain tent colour as the prism tent (not the pyramid pink); the face shapes are marked with light outlines, one marking for triangles on both tents, never counted or named",
 }
 
 # ---------------------------------------------------------------------------
@@ -147,10 +146,29 @@ VISUAL_KEY = {
 # ---------------------------------------------------------------------------
 CHAPTER_APPROACH = {
     "heading": "How this chapter is taught",
-    "intro": "TODO 2 to 4 short sentences: the arc (a story hook, then try it, then a story that names the idea, then "
-             "a tool to apply it, then the book's questions on that tool, then a short review).",
+    "intro": "Each lesson has a story or a picture, then small tools you use yourself. "
+             "Lesson 9 revises the chapter with a quiz, a worksheet and a sample assessment. "
+             "A closing look back ends the chapter.",
     "points": [
-        {"title": "TODO design decision", "text": "TODO what it is and why."},
+        {"title": "Stories with a problem",
+         "text": "Diksha, her father, Isha, Nitesh, Squiggly and Wiggly meet a real problem. A story names the idea, "
+                 "but it never gives away what you find out yourself."},
+        {"title": "You do it first",
+         "text": "In the tools you build, fold, push, count and draw. Most tools show at once whether your try is right. "
+                 "The sample assessment shows its answers when you finish each section."},
+        {"title": "Questions from your maths book",
+         "text": "Your maths book's questions sit inside the tool they belong to. "
+                 "Other tools have practice made for this chapter."},
+        {"title": "No timer, no score",
+         "text": "Nothing is timed, scored or counted as a win. You get hints, you can try again and you can start over."},
+        {"title": "Clear, true pictures",
+         "text": "A solid always looks like a solid. Each kind of solid keeps one colour. In sorting and matching games "
+                 "every solid is the same grey, so colour gives no clue."},
+        {"title": "Shapes in real life",
+         "text": "Buildings, tents, wheels and spider webs show where shapes hide around us."},
+        {"title": "Revision and a look back",
+         "text": "Lesson 9 has a recap story, a picture quiz, a worksheet and a sample assessment. "
+                 "Then a short look back shows earlier ideas again. Nothing new is taught there."},
     ],
 }
 
@@ -165,8 +183,11 @@ CHAPTER_APPROACH = {
 # ---------------------------------------------------------------------------
 #
 # 131 items, one per numbered question or per activity step-group (sub-parts a, b, c that share a stem stay together).
-# 1 example + 59 exercise + 49 prompt = 109 NCERT questions; 5 talk; 17 text. The book prints no answers. The printed
-# page number equals the pdf page number for every page of this chapter (the opener, page 1, carries no printed number).
+# 1 example + 59 exercise + 49 prompt = 109 NCERT questions; 5 talk; 17 text. Ids are the SAME as in the previous build
+# (maths4_ch1_prev_v4) so the two can be compared; every item was re-read against its page image for this rebuild. The
+# book prints no answers. The printed page number equals the pdf page number for every page of this chapter (the opener,
+# page 1, carries no printed number). The nets (Craft 2) and the six 2D cards (Card Game) are at the end of the book and
+# are not items of their own.
 NCERT_ITEMS = [
     # ---- printed page 1 (the chapter opener)
     ("opening", "text"),
@@ -327,6 +348,9 @@ NCERT_ITEMS = [
 # ---------------------------------------------------------------------------
 # misconceptions this chapter targets: (id, one-sentence description of the wrong idea).
 # ---------------------------------------------------------------------------
+#
+# The first 21 ids are the same as in the previous build; M_SH_8, M_SH_9, M_AN_8 and M_AN_9 are new for the rebuild (they
+# come from the new lesson plan's wording: the apex, spinning a die, the regular pentagon, the rigid triangle).
 MISCONCEPTIONS = [
     ("M_SH_1", "A cube is not a prism, because a prism must be a long shape with a triangle or a rectangle at its ends."),
     ("M_SH_2", "Any solid with a triangular face is a pyramid, so a triangular prism is a pyramid."),
@@ -335,6 +359,8 @@ MISCONCEPTIONS = [
     ("M_SH_5", "The face opposite a face is any face next to it, so opposite faces and faces that touch are mixed up."),
     ("M_SH_6", "The number of cubes in a tower is the number of cubes you can see, so hidden cubes do not count."),
     ("M_SH_7", "Any flat pattern of faces is a net, so any six joined squares will fold into a box."),
+    ("M_SH_8", "All the corners of a pyramid meet at its top point, so every corner of a pyramid is the apex."),
+    ("M_SH_9", "You can see all six faces of a cube at the same time if you turn it the right way."),
     ("M_AN_1", "An angle is only a corner of a drawn shape, so scissors, a seesaw or a yoga pose has no angle."),
     ("M_AN_2", "A bigger angle is one with longer arms, so making the lines longer makes the angle larger."),
     ("M_AN_3", "A right angle must look like an upright L, so a tilted corner, such as a turned square, is not a right angle."),
@@ -342,6 +368,8 @@ MISCONCEPTIONS = [
     ("M_AN_5", "A rectangle keeps its shape and its right angles when it is pushed, just as a triangle does."),
     ("M_AN_6", "A square is not a rectangle, because the two look different."),
     ("M_AN_7", "The number of angles of a shape can be different from its number of sides."),
+    ("M_AN_8", "A pentagon with all sides equal must also have all its angles equal, so it cannot change when it is pushed."),
+    ("M_AN_9", "A triangle of straws leans over when you push a side, just as a rectangle does."),
     ("M_CI_1", "A round-looking drawing is a circle even when its points are at different distances from the centre."),
     ("M_CI_2", "Any line across a circle is a diameter, even one that does not pass through the centre."),
     ("M_CI_3", "The radius and the diameter of a circle are the same length, or the diameter is half the radius."),
@@ -357,287 +385,864 @@ MISCONCEPTIONS = [
 # a teacher instruction against a hard rule. Empty means none. Never settle one silently.
 # ---------------------------------------------------------------------------
 CLASHES = [
-    (
-        "CLASH 1: The 22 tools are the pipeline's PROPOSAL, not the content team's table.\n"
-        "  NOTE SAYS: No content-team table exists for this chapter. The brief says \"If no approved tool sequence exists, propose one based on the textbook's natural learning progression\", and the user chose \"propose fresh from the book\". So the 22 tools below (names, purposes, order) were proposed by the pipeline (tool_proposal.md), locked unchanged from tool_map.md, and mapped to concepts and objectives. The pipeline's rule is that approved tools are the content team's, so the user must approve this table at this stop.\n"
-        "  THE 22 TOOLS (number, name, purpose; names are 2 to 5 plain words, and the proposal checked them against the 13 tool names of the older live plan: none repeats):\n"
-        "      1. Blocks for Buildings: The child picks wooden blocks for the roof, pillars and base of the buildings in the opening picture, builds the model and finds how it is like and unlike the real building.\n"
-        "      2. Prism or Pyramid: The child taps the faces of prisms and pyramids to find the rectangle faces all prisms share and the triangle faces that meet at one point in every pyramid, and decides if a cube is also a prism.\n"
-        "      3. Faces, Corners and Edges: The child counts the faces, corners and edges of straw and clay solids, fills the F, V and E table, works out F+V−E and sorts the solids by flat faces and straight edges.\n"
-        "      4. Opposite Faces: The child turns a die and a coloured cube to find the face opposite a face and the faces that share an edge with it.\n"
-        "      5. Spot the Faces: The child marks everyday objects by their faces and corners: rectangular face, triangular face, curved face, no corner and the same opposite faces.\n"
-        "      6. Sort the Solids: The child drags solids into two circles by a rule, such as curved or straight edges, and into overlapping circles to find the solids that belong to both sets.\n"
-        "      7. Build and Draw Cubes: The child copies cube models from unit cubes, counts the cubes in a tower layer by layer including the hidden ones, and completes cube drawings on triangular dot paper.\n"
-        "      8. Solid Riddles: The child reads clues about faces, corners and edges, and about straws and clay balls, and picks or builds the solid that fits each clue.\n"
-        "      9. Fold the Net: The child folds nets into solids, matches nets to solids, tests which nets fold into a given solid and finds the solid whose net has the given pieces.\n"
-        "      10. When Lines Meet: The child makes an angle by meeting two straws at a point, then marks and counts the angles in pictures and in a classroom scene.\n"
-        "      11. Right Angle Checker: The child folds paper into a right angle checker, uses it to test corners of shapes and objects, and draws right angles on a dot grid.\n"
-        "      12. Acute or Obtuse: The child swings a line against a right angle to see if an angle is acute or obtuse, draws both kinds on a dot grid and colours angles red, green and blue.\n"
-        "      13. Push the Straw Shapes: The child builds a triangle and a rectangle from straws and clay, pushes one side and sees that the triangle keeps its shape while the rectangle does not.\n"
-        "      14. Angles After the Push: The child pushes a rectangle, a square and a pentagon and reads how the angles change: the right angles of the rectangle and square become acute and obtuse.\n"
-        "      15. Angles in Shapes: The child draws three- and four-sided shapes on a dot grid, counts their right angles, compares rectangle and square with other four-sided shapes and finds a shape from its kinds of angles.\n"
-        "      16. Make a Circle: The child places equal straws around a centre and marks points at an equal distance from a point A to see that every point of a circle is the same distance from its centre.\n"
-        "      17. Fold the Circle: The child folds a circle in half in different ways, sees that the creases are equal and meet at the centre, and finds that the diameter is double the radius.\n"
-        "      18. Find Radius and Diameter: The child draws a compass flower, marks the centre, radius and diameter on a carpet design and compares four wheels by radius and diameter.\n"
-        "      19. Sides and Angles: The child sorts flat shape cards by their sides and shapes by their number of angles, sees that the two counts match and draws shapes with fewer and more than five angles.\n"
-        "      20. Divide the Shapes: The child spots hidden shapes and draws lines to divide a triangle, a square and other shapes into smaller shapes.\n"
-        "      21. Spider Web Puzzles: The child counts the triangles and rectangles in the two webs and traces walks that use no wall twice to find which walks are possible.\n"
-        "      22. Matchstick Moves: The child makes, moves and removes matchsticks to form 2, 4 and 3 triangles.\n"
-        "  OPTIONS: (a) approve the table as proposed; (b) change names, purposes or order (say which: the table is rewritten and locked again, and the concepts, objectives and every later step are redone for the change); (c) send the content team's table, which replaces this one.\n"
-        "  RECOMMENDATION: (a) approve. Each purpose is one action on one idea of the book, the book supports each tool (analysis.md section 8), and no tool repeats another (tool_proposal.md section 4). The size of the table is CLASH 2."
-    ),
-    (
-        "CLASH 2: The chapter is large: 22 tools, 16 concept videos, 6 images, 4 modules, 46 rows.\n"
-        "  NOTE SAYS: The brief says \"Do not use a fixed number of videos or tools\" and \"Avoid creating unnecessary tools simply to increase the tool count\". The flow rules say to repeat video and tool \"only where it adds value\".\n"
-        "  BOOK SAYS: 24 concepts, 20 activity boxes and 109 questions on 23 pages. At 6 questions a tool, 109 questions need at least 19 tools even if every question sat on a tool (109 / 6 = 18.2).\n"
-        "  THE PLAN: 1 hook, 22 tools, 16 concept videos (4 of them puzzle stories), 6 images (5 before a tool, 1 with no tool) and 1 review = 46 rows. Modules: M1 solid shapes (Tools 1 to 9), M2 angles and rigid shapes (10 to 15), M3 circles and flat shapes (16 to 19), M4 shape puzzles (20 to 22), then the review. Every tool after Tool 1 needs a concept video or an image before it, so 21 media items come before tools. Four tools are small by nature (Tool 4: 3 questions, Tool 7: 3, Tool 8: 2, Tool 22: 3). 103 questions sit on tools (about 4.7 each) and 6 on an image.\n"
-        "  OPTIONS: (a) keep 22 tools; (b) a leaner plan of 21 tools: Tool 18 becomes an image of the carpet and the wheels holding its 4 questions (the compass flower, the marking and the measuring are then not done on a tool; the table changes); (c) a leaner plan of 19 tools: also merge Tools 5 and 6 (needs a cap of 10) and Tools 13 and 14 (needs a cap of 14), each making a tool that does two things; (d) another cut: say which tools to drop (each drop changes the table and re-homes its questions).\n"
-        "  RECOMMENDATION: (a). The chapter is long in the book itself, the tools follow its activities one for one and none repeats another. If the user wants fewer, (b) is the cheapest cut."
-    ),
-    (
-        "CLASH 3: Tools 2, 13 and 14 hold 7 book questions each; the cap is 6.\n"
-        "  NOTE SAYS: The question cap per tool is 6 (chapter.config.json \"max_tool_questions\": a config default, not a curriculum rule; only the user may raise it). The build gate fails a tool with more than 6 book questions.\n"
-        "  BOOK SAYS: Tool 2 holds prism_q1, prism_q2, prism_q3, pyr_q1, pyr_q2, pyr_q3, cube_prism. Tool 13 holds straw_tri_make, straw_tri_push, straw_tri_trace, straw_tri_angles, straw_rect_make, straw_rect_angles, straw_rect_push. Tool 14 holds straw_rect_after, straw_square, straw_compare, pentagon_make, pentagon_q1, pentagon_q2, pentagon_q3. Tools 1, 12 and 15 sit exactly at 6; no other tool is over.\n"
-        "  OPTIONS: (a) keep the cap at 6 and make 23 tools: cube_prism moves to Tool 3 (6) and the push test becomes three tools (triangle: 4 questions; rectangle and square: 6; pentagon: 4). This ADDS a tool, so the table changes, and the third push tool repeats the first two only to fit the cap. (b) raise the cap to 7 for this chapter only (needs the user's say-so; one number in chapter.config.json; 22 tools; nothing else changes). (c) keep the cap at 6 and call two items teaching text instead of questions: straw_tri_trace (a notebook task) and straw_compare (an open discussion) become talk items, and cube_prism moves to Tool 3; 22 tools, but those two items then have no answer on a tool, cube_prism sits on a tool about counting parts (it is in Tool 2's purpose: \"decides if a cube is also a prism\"), and the analyst and the user must change the item kinds.\n"
-        "  RECOMMENDATION: (b). Until the user decides, the build gate will report 3 errors (Tools 2, 13 and 14: 7 against 6). The tool mapper has not edited the config or the gate."
-        "\n  QUESTION MAPPER (step 5): the cap stays at 6 and the structure stage is clean. To get there the single item whose move does least harm left each of Tools 2, 13 and 14, provisionally: cube_prism to Tool 3, straw_rect_angles to Tool 11, straw_compare to Tool 19. The details and the way back are in CLASH 30. Option (b) here (cap 7) puts all three back with three small edits."
-    ),
-    (
-        "CLASH 4: Seven tools carry two of the analyst's concepts; five concepts are split over two places.\n"
-        "  NOTE SAYS: Flow rule 3: \"A tool focuses on the concept assigned to it.\" The mapper rule is one concept per tool, or the pair the book itself puts side by side.\n"
-        "  BOOK SAYS: analysis.md has 24 concepts for 22 tools. Pairs on one tool: Tool 7 (C6 build and count cubes + C7 cube on triangular dots), Tool 8 (C8 name a solid from its description + C23 model challenge), Tool 9 (C9 nets + the net text and Craft 2 of C2), Tool 14 (second half of C13 + C15 pentagon), Tool 15 (C14 + the second half of C24), Tool 17 (C17 + the \"double\" step of C18, circ_do1) and Tool 19 (C20 + the first half of C24). Concepts split over two places: C1 (Tool 1 and the image), C5 (Tools 5 and 6), C13 (Tools 13 and 14), C18 (Tools 17 and 18), C24 (Tools 15 and 19). Each pairing is written in the tool's own flow row, so the approved purpose already says it.\n"
-        "  OPTIONS: (a) accept: in the plan each tool is one topic concept with one objective, and each pair is two ways to practise one idea; (b) give a paired part its own tool (adds up to 7 tools and changes the table); (c) leave the paired parts out (drops book questions, which the brief does not allow).\n"
-        "  RECOMMENDATION: (a). The locked map names, for each tool, the concept it serves and the part of a neighbouring concept it takes."
-    ),
-    (
-        "CLASH 5: Nets are taught at Tool 9, not next to the prisms and pyramids where the book first shows a net.\n"
-        "  NOTE SAYS: Tool 9 (Fold the Net) is the ninth tool, after the solids module's cube and riddle tools.\n"
-        "  BOOK SAYS: Page 3, under the prisms and pyramids, shows Diksha opening a box flat (\"This is called the net of the box\") and Craft 2 asks the child to use the nets at the end of the book to make the six prisms and pyramids. The three net questions (match nets to solids, which nets fold, Nitesh's pieces) are on page 9.\n"
-        "  THE PLAN: net_text and craft2 of page 3 move to Tool 9, so the net word, Craft 2 and the three page-9 questions are one unit. The book's objective \"explain what a net is\" (analysis.md section 2, item 2) is therefore met at Tool 9, six tools after the prisms and pyramids.\n"
-        "  OPTIONS: (a) as proposed (nets at Tool 9); (b) nets right after prisms and pyramids, the book's page-3 order: Tool 9 would move to position 3, which reorders the approved tools; (c) keep Tool 9 where it is and add one pinned image of the opened box beside Tool 2 so the word comes at page 3 (one more image; the C9 video then continues from it).\n"
-        "  RECOMMENDATION: (a)."
-    ),
-    (
-        "CLASH 6: The tool order differs from the book's printed order in six places.\n"
-        "  NOTE SAYS: The brief says \"Follow the sequence and mathematical methods of the textbook\" and \"Do not introduce concepts assigned to later tools prematurely\"; the flow rules say to keep the approved tool sequence.\n"
-        "  BOOK SAYS: The concepts run C1 to C24 in page order. The tools differ from it here (all moves are in tool_proposal.md section 8): (1) try5 (C23, page 22) is on Tool 8, at the page-8 position. (2) try8, try8_q and try9 (C24, page 23) are on Tool 15, at the page-15 position; cards (C20, page 20) and try6, try6_q, try7a, try7b (C24, pages 22 to 23) are on Tool 19, after the circles and before the puzzles of pages 19 to 22. (3) C15, the pentagon (page 16), is taught on Tool 14, before C14 (page 15) on Tool 15. (4) C20, the card game (page 20), comes before C19, Puzzling Shapes (pages 19 to 20, Tool 20). (5) circ_do1 (page 18, C18) is on Tool 17 with the folds of page 17, and wheels_q0 and wheels_q1 (page 19) join Tool 18 (page 18). (6) craft1 (page 3) and project1 (page 2) sit on the C1 image, and net_text and craft2 (page 3) on Tool 9 (CLASH 5).\n"
-        "  CHECK: No tool uses an idea that a later tool teaches (the words acute and obtuse come before Tools 14, 15 and 19; prisms, pyramids, corners and edges before Tool 8; the right angle before Tools 15 and 19; the radius before Tool 18).\n"
-        "  OPTIONS: (a) accept the moves; (b) restore the printed order for C23 and C24: Tool 8 would hold 1 question and Tool 15 would lose 3, and Tool 19 would have to move to the end of the chapter, which reorders the approved tools; (c) restore only C19 before C20: Tools 19 and 20 swap places, which also reorders the tools.\n"
-        "  RECOMMENDATION: (a). Each move puts a question beside the tool whose action answers it."
-    ),
-    (
-        "CLASH 7: Five tools follow an image, not a concept video.\n"
-        "  NOTE SAYS: Flow rules 3 and 4: \"Concept video\" then \"Concept tool\", the matching tool after the concept video. The gate (gates/flow_c34.py) accepts a concept video or an image right before a tool, and CLAUDE.md says \"A small concept may be one image\".\n"
-        "  BOOK SAYS / THE PLAN: Tool 1 follows the hook video. Sixteen tools follow a concept video (Tools 2, 3, 6, 8, 9, 10, 11, 12, 13, 15, 16, 17, 19, 20, 21, 22). Five follow a real-life image: Tool 4 (a die), Tool 5 (everyday objects), Tool 7 (a tower of toy cubes), Tool 14 (a folding gate) and Tool 18 (a carpet and wheels). Each is a small idea next to a neighbour whose video would only repeat it (flow rule 2: do not duplicate content; an image only when it adds a real-life example). Flow rule 2 also says an image is for the case \"when no video / tool is needed\", and here a tool does follow: the doc and the gate do not fully agree.\n"
-        "  OPTIONS: (a) keep the five images; (b) make each of the five a short story video (21 concept videos, 5 more, a longer chapter); (c) mix: say which of the five become videos (Tools 7 and 14 are the biggest ideas).\n"
-        "  RECOMMENDATION: (a)."
-    ),
-    (
-        "CLASH 8: The image after Tool 1 holds six look-and-think or offline book items.\n"
-        "  NOTE SAYS: After Tool 1 comes one image (a real picture of the Qutub Minar beside a clay brick, a stone block and a wooden block) with no video and no tool, because the second half of C1 repeats the placing of solids that Tool 1 has just done (flow rule 2: use one image when a small concept needs no video or tool).\n"
-        "  BOOK SAYS: Six items are homed on it: qutub_q1, qutub_q2, qutub_q3 and bricks_q (look-and-think prompts of page 2), project1 (Project Work: make a model of a street, offline) and craft1 (page 3, Craft 1: make a sphere-like shape with paper strips, offline and not about towers or bricks; it is C2 in analysis.md, moved here so Tool 2 stays lower).\n"
-        "  GATE CHECK (gates/flow_c34.py): this is allowed. The gate rejects book questions on an image or video concept only when a tool follows and applies to that concept (the questions then belong on the tool), and on the hook and the review. No tool applies to this image, and the cap of 6 is checked on tools only, so six items on the image pass. Not checked by any gate: build.py turns concept items into worked-example blocks (the question, short working and the answer, which the plan labels \"From the picture\" or \"Sample answer\"), so, as built, the child reads them and no answer box is made; whether the platform would show one is not verified.\n"
-        "  OPTIONS: (a) as proposed; (b) project1 on Tool 1 (Tool 1 would hold 7, needs cap 7); (c) craft1 on Tool 9 (both are paper crafts; Tool 9 would hold 5); (d) both (b) and (c) (the image keeps the four look-and-think prompts); (e) a tool for the tower with qutub_q1 to qutub_q3 and bricks_q (23 tools, changes the table).\n"
-        "  RECOMMENDATION: (a) for now. craft1 is the weakest fit (a sphere craft on a bricks picture); (c) is its nearest home."
-        "\n  QUESTION MAPPER (step 5): homed as recommended, option (a). The six items are FIO items in `items` of the image concept T2.C1. The gate allows it because no tool applies to T2.C1 (flow_c34 _check_questions bars book questions on an image concept only when a tool follows and applies to it, and the cap of 6 is checked on tools only). Answers: qutub_q1 to qutub_q3, project1 and craft1 are Sample answers, bricks_q is From the picture. project1 is worded for the child (CLASH 13, CLASH 32). qutub_q3 uses the book's own 5 storeys (the Do you know bubble, a teaching text on this concept); the image itself shows no number (CLASH 29)."
-    ),
-    (
-        "CLASH 9: Tool 1, the exploration tool, carries six book questions.\n"
-        "  NOTE SAYS: Tool 1 follows the hook video and the child tries blocks before any video names a solid. The gate allows up to 3 \"what do you notice\" prompts on it; its Phase 1 reconnects with the hook (Diksha's blocks), not a concept.\n"
-        "  BOOK SAYS: Page 1 asks six things about the child's model: model1 (make a model of the buildings with blocks) and model_q1 to model_q5 (which parts, why, what shapes, how it is similar, how it is different). That is exactly the cap, and the 3 notice prompts come on top, so this exploration tool is heavier than most. model_q3 (\"What shapes will model these parts well?\") is asked before any video has named a solid, so the child answers in everyday words.\n"
-        "  OPTIONS: (a) keep the six on Tool 1; (b) keep model1 and the notice prompts on Tool 1 and put model_q1 to model_q5 on the C1 image (it would hold 11; they are about \"your model\", so they fit poorly there).\n"
-        "  RECOMMENDATION: (a)."
-        "\n  QUESTION MAPPER (step 5): option (a) kept. model1 and model_q1 to model_q5 are the six FIO items of Tool 1 (T1.C2), exactly the cap; the 3 notice prompts of tools_1.py come on top. The sample answer of model_q3 uses everyday words (a long flat block, tall blocks) and names no solid. model_talk stays teaching text on T1.C2."
-    ),
-    (
-        "CLASH 10: Tools 9 and 19 use pages from the end of the book, outside the chapter's 23 pages.\n"
-        "  NOTE SAYS: The chapter file is printed pages 1 to 23. Nothing outside the chapter may be used.\n"
-        "  BOOK SAYS: Craft 2 (page 3, Tool 9) says \"Use the nets given at the end of the book\" and the Card Game (page 20, Tool 19) says \"Sort the 2D-shape cards given at the end of the book\". The end pages (demm114.pdf) show nets of a triangular prism, a rectangular prism or cuboid, a triangular pyramid, a hexagonal prism, a square pyramid and a pentagonal pyramid, and six cards: an orange square, a green oval, a brown quarter circle, a light-green semicircle, a blue triangle and a pink circle. The net page has no \"Square Prism\" though Craft 2 shows one (E24), and the book does not say what the three groups of the card game are (E18).\n"
-        "  OPTIONS: (a) use these pages as supporting material of this chapter (the book's own, and the two activities cannot be done without them); (b) use only the 23 pages and leave Craft 2 and the Card Game out (the brief says do not skip any activity).\n"
-        "  RECOMMENDATION: (a), with the figures redrawn from the book's shapes."
-        "\n  QUESTION MAPPER (step 5): craft2 (Tool 9) and cards (Tool 19) keep the book's own words ('given at the end of the book'); the first step of each says the nets or the six cards are on the screen. The answer of cards is one reading of the groups (E18): only straight sides, only curved sides, both."
-    ),
-    (
-        "CLASH 11: The book prints no answers: who signs off the analyst's readings?\n"
-        "  NOTE SAYS: The brief says \"Preserve exact NCERT questions\" and \"Never invent mathematical rules or textbook activities\". Every answer the plan makes is labelled \"From the picture\" or \"Sample answer\".\n"
-        "  BOOK SAYS: There is no answer key. Every answer is the analyst's reading of a figure (analysis.md, Appendix A, rows marked \"mine\") or a sample answer. On tools: F+V-E is 2 for the five solids, and the sort columns do not fit every solid (E2, E3: Tool 3); the die opposites 5, 4, 3 depend on the die (E6) and the colour cube reading (Tool 4); \"rectangular pyramid\" is never named (E4: Tool 6); the boat has 10 marked angles (E8: Tool 10); the dot-grid angles (E9: Tool 11); how many angles to mark in V, A, Z and the stick figures (E10: Tool 12); the push test (E11: Tools 13 and 14); right-angle counts 4, 0, 1, 0, 0, 4 (E23: Tool 15); wheel B longest and D shortest (E16: Tool 18); the card groups (E18: Tool 19); the hidden shapes and the cuts (E17: Tool 20); the web answers 10, yes, 12, no (E19: Tool 21).\n"
-        "  OPTIONS: (a) the user or the content team signs off Appendix A before the briefs stage; (b) the plan keeps each reading labelled \"From the picture\" or \"Sample answer\" with no sign-off; (c) an item whose answer cannot be confirmed is held back (see CLASH 18).\n"
-        "  RECOMMENDATION: (a). The briefs and the question cards would otherwise rest on one reader's measuring of printed figures."
-        "\n  QUESTION MAPPER (step 5): every answer begins exactly 'From the picture' (counts, positions, what a picture shows) or 'Sample answer' (open tasks and geometry the book does not print); open tasks end 'Your answer may differ'; none reads as an official textbook answer. Three items give NO number and NO solution because the analyst could not confirm one: ch1.try3, ch1.try4 and the second tower of ch1.towers; each answer says how to find it. Re-checked on the page images by the question mapper: F+V−E is 2 for the five solids, the boat has 10 marked angles and the house 7, the first cube tower has layers of 16, 9, 4 and 1 (30), the colour-cube opposites (red and purple, yellow and orange), the right-angle counts 4, 0, 1, 0, 0, 4, the shapes of Q9, 10 triangles and 12 rectangles in the webs, and a path through all 12 numbered walls of Squiggly's web. The gate checks every sum on the screen (none false). Two readings of analysis.md were corrected (CLASH 31) and two questions have two readings (CLASH 33). Each printed-book difference is in content.SOLUTION_NOTES; content.ERRATA stays empty (the book prints no false sum)."
-    ),
-    (
-        "CLASH 12: Six printed-book errors or ambiguities reach a tool (E1, E5, E7, E9, E21, E22).\n"
-        "  NOTE SAYS: The brief says \"Preserve exact NCERT questions, diagrams, values and conditions\" and the user said to keep the book as printed.\n"
-        "  BOOK SAYS: E1 (Tool 9, page 9 Q4): net A has both flaps on the same side and net C has the rectangle and only 2 of the 4 triangles its pyramid needs, so neither folds into the solid below it; B and D fold; no key is printed. E5 (Tool 8, page 8 Q1 f): \"6 faces, 12 edges, 8 corners\" fits both the cube and the cuboid. E7 (Tool 5, page 5 border 5): \"Circle the shapes that have the same opposite faces\" is unclear and the sketches are not numbered. E9 (Tool 11, page 11 dot grid): no key; the right angles are read by measuring the figure. E21 (Tool 8, page 22 Q5 c): 15 straws and 10 clay balls is a pentagonal prism, a solid the chapter never shows. E22 (Tool 15, page 23 Q9): several shapes fit each clue (2 right, 1 acute, 1 obtuse: shapes 2 and 7; 2 obtuse and 2 acute: six shapes; 4 right angles: four shapes), and shape 1 is a dart with an angle larger than a straight line, a kind of angle the chapter never names.\n"
-        "  OPTIONS: (a) keep each figure and wording as printed, and let the tool test the child's answer against the figure (the fold test for E1, either solid for E5, every shape that fits for E22, the checker for E9), with no new term taught; for E21 part c the child builds a solid from the counts without being given the name pentagonal prism. (b) fix the figure for the child (redraw nets A and C; choose one answer for E5 and E22). (c) hold back the part (E21 part c, E7 border5).\n"
-        "  RECOMMENDATION: (a) for E1, E5, E9, E21 and E22. For E7 the user's reading of \"same opposite faces\" is needed (does it mean each pair of opposite faces looks alike?) before the briefs."
-        "\n  QUESTION MAPPER (step 5): option (a) used for E1, E5, E9, E21 and E22. E1: solids_q4 answers 'B and D fold, A and C do not' and says to fold each net to check. E5: solids_q1 f) answers 'cube or cuboid, because both fit'. E9: right_circle lists the four angles read by measure and says to check each with the checker. E21: try5 c) is shown by its parts (two 5-sided ends, 15 straws, 10 balls) and is not named. E22: try9 lists every shape that fits each clue and says more than one fits; shape 1 is not mentioned. E7: border3 and border4 are answered; border1 and border2 name only the objects whose solid is certain, with 'for example' (the cheese pieces are drawn as pyramids in the book: CLASH 31); border5 is a Sample answer under one reading and still needs the user's reading of 'same opposite faces'."
-    ),
-    (
-        "CLASH 13: Six Teacher's Notes and \"Ask your teacher to help you use a compass\" against the brief's rule.\n"
-        "  BRIEF SAYS: \"Do not assign a teaching role to a classroom teacher.\"\n"
-        "  BOOK SAYS: Six \"Note for Teachers\" boxes: page 2 note_boxes (collect boxes, bottles, cans), page 7 note_venn (use models, discuss opposite faces, make Venn diagrams), page 14 note_rigid (the triangle is the most rigid shape), page 15 note_square (a square is a special rectangle), page 17 note_measure (measure with a paper strip, thread or scale) and page 18 note_compass (help children draw circles with a compass). And the compass question the child reads (compass, Tool 18) says \"Ask your teacher to help you use a compass.\" Three notes carry a fact the plan needs (note_rigid for Tool 13, note_square for Tool 15, note_measure for Tool 17); the others only direct a teacher.\n"
-        "  OPTIONS: (a) keep the facts as plain statements for the child with no teacher in them, drop the notes that only direct a teacher, and drop the one sentence \"Ask your teacher to help you use a compass\" from the compass question (the compass is on the screen, so no helper is needed); (b) keep the book's words exactly, including the teacher (breaks the brief's rule); (c) drop all six notes.\n"
-        "  RECOMMENDATION: (a). It edits one book question by one sentence, so it needs the user's yes."
-        "\n  QUESTION MAPPER (step 5): option (a) is followed, as recommended, so it needs the user's yes. (1) The compass question reads 'A circle can be made easily using a compass. Make the following design.' (the sentence 'Ask your teacher to help you use a compass.' is dropped; put it back to restore the printed words). (2) The same rule is applied to project1: 'Encourage learners to observe a street carefully and make a model showing the main buildings on the street.' reads 'Observe a street carefully and make a model showing the main buildings on the street.' It is a teacher line inside a question, not one of the six notes; put 'Encourage learners to' back to restore it. (3) The six notes stay `ncert` teaching text on their concepts (note_boxes, note_venn, note_rigid, note_square, note_measure, note_compass); no question, step or answer gives a teacher a role. See CLASH 32."
-    ),
-    (
-        "CLASH 14: The brief's puzzle videos and revision with concept checks have no separate slot.\n"
-        "  BRIEF SAYS: D, \"Puzzle / activity videos\", and E, \"Chapter revision\" with \"short concept checks and application questions\".\n"
-        "  FLOW RULES SAY: only a hook video, concept videos, tools and a review. The gate says the review has no video, no tool and no book item of its own, and adds no new content. The book has no end exercise and no summary page.\n"
-        "  THE PLAN: four concept videos are told as puzzle stories (Diksha's guessing game before Tool 8, her hidden shapes before Tool 20, Squiggly and Wiggly before Tool 21, Wiggly's matchsticks before Tool 22); the puzzle itself is solved on the tool. The review recaps solids, angles, circles and puzzles with only what was taught, and has no checked question.\n"
-        "  OPTIONS: (a) as proposed; (b) a review with concept checks that re-ask questions already on tools (the gate and the rule \"each question once\" stop that); (c) a review with new questions written by the plan (breaks \"never invent textbook activities\" and the gate).\n"
-        "  RECOMMENDATION: (a)."
-    ),
-    (
-        "CLASH 15: Six real-life images are new to the book.\n"
-        "  NOTE SAYS: Flow rule 2: images are clean real-life context that adds something. The user's principle: extra real-life examples are fine when they represent the concept correctly; a solid is drawn as a solid; a sphere is a shaded 3D ball; plan-made answers are labelled.\n"
-        "  BOOK SAYS: The book has drawings of the Qutub Minar and bricks (page 2), a die (page 5), a border of pencil sketches (page 5), cube towers (page 7), a carpet (page 18) and wheels (page 19). It has no folding gate. The six images are: the Qutub Minar beside a brick, a stone block and a wooden block (after Tool 1); a die on a table (before Tool 4); everyday objects (a die, an eraser, a ball, a can, an ice-cream cone, a party hat, a cheese wedge, a gift box; before Tool 5); a tower of toy cubes (before Tool 7); a folding steel gate (before Tool 14); a carpet with a round design beside four wheels (before Tool 18).\n"
-        "  CARE FOR THE BRIEFS: the ice-cream cone must show the cone solid (no scoop on top); the folding gate must really lean over when pushed; the die must match the numbers the tool uses; the toy-cube tower must be countable layer by layer.\n"
-        "  OPTIONS: (a) accept all six; (b) use only redrawn versions of the book's own pictures; (c) accept all but the folding gate.\n"
-        "  RECOMMENDATION: (a), each image checked for accuracy at the briefs stage."
-    ),
-    (
-        "CLASH 16: Physical tasks become on-screen versions inside the tools.\n"
-        "  BRIEF SAYS: \"Do not skip any important textbook concept or activity\", and children must act, not only watch.\n"
-        "  BOOK SAYS: Many activities need real material: straws and clay (Craft 3; Tools 13, 14 and 16), a block kit, cubes (Tool 7), paper folding (the right angle checker, the circle), the end-of-book nets and cards, a thread to measure a crease, a compass, matchsticks (Tool 22), Craft 1 and Project Work.\n"
-        "  THE PLAN: each becomes an on-screen version that keeps the book's rules (Tools 3, 7, 9, 11, 13, 14, 16, 17, 18, 22). Not on a tool: craft1 and project1 (on the C1 image), and straw_tri_trace (a notebook task, Tool 13). angles_do2, right_objects, acute_obj and obtuse_obj ask for objects in the classroom; they sit on a classroom scene inside Tools 10, 11 and 12.\n"
-        "  OPTIONS: (a) on-screen versions; (b) show a physical task as a story step or an image and keep the tool to the screen part; (c) leave the physical tasks out.\n"
-        "  RECOMMENDATION: (a)."
-        "\n  QUESTION MAPPER (step 5): each physical task is a FIO item with one to three short steps that say what the child does on the screen (fold, build, join, move, lay the checker on a corner). Offline items keep Sample answers: craft1 and project1 (image T2.C1) and straw_tri_trace (Tool 13). The sphere craft and the street model are shown by their figures only."
-    ),
-    (
-        "CLASH 17: The puzzle story for Tool 20 uses Diksha for a girl the book does not name.\n"
-        "  NOTE SAYS: Flow row 40 (the story before Tool 20): \"Diksha finds shapes hidden in a drawing and cuts shapes into smaller ones.\" Pipeline rule: book characters and objects only.\n"
-        "  BOOK SAYS: Six characters have names: Diksha, her father, Isha, Nitesh, Squiggly, Wiggly. The picture beside the page-19 puzzles shows an unnamed girl with a red bow; the boy with the Qutub model (page 2) and the girl with a straw triangle (page 14) are unnamed too.\n"
-        "  OPTIONS: (a) Diksha tells the story (she is the chapter's main child); (b) \"a child\" with no name; (c) no person in the puzzle stories.\n"
-        "  RECOMMENDATION: (a)."
-    ),
-    (
-        "CLASH 18: Two book items have no confirmed answer: page 22 Q4 (Tool 22) and the second cube tower (Tool 7).\n"
-        "  NOTE SAYS: Tool 22's purpose is \"to form 2, 4 and 3 triangles\" and Tool 7's is to count \"the cubes in a tower layer by layer including the hidden ones\". A tool the book cannot support is a clash, never a change.\n"
-        "  BOOK SAYS: Tool 22: Q2 (5 sticks, 2 triangles) is solved. Q3 (move 2 sticks to make 4 triangles) is solved only if the three triangles are read as touching at their base corners, though the figure draws small gaps. Q4 (remove 4 sticks to leave 3 triangles) is NOT solved in analysis.md (E20: the sticks were not counted exactly). Tool 7: the second tower on page 7 (a large green and cyan X shape) cannot be counted reliably from print; the first looks like layers of 16, 9, 4 and 1 = 30, uncertain.\n"
-        "  OPTIONS: (a) the analyst or the content team solves Q3 and Q4 and counts both towers before the briefs; (b) the tools keep the items and show an answer only once it is confirmed; (c) hold the unconfirmed parts back (Tool 22 would form only the 2 and 4 triangles; its approved purpose would then change, which needs the user).\n"
-        "  RECOMMENDATION: (a)."
-        "\n  QUESTION MAPPER (step 5): option (b). ch1.towers: the first tower is checked on the page at 14x, with front rows 4, 3, 2 and 1 and matching left faces, so layers of 16, 9, 4 and 1 make 30 (the answer shows 1 + 4 + 9 + 16 = 30 in its steps). The second tower gets NO number; the answer says to count it layer by layer on the screen. ch1.try3 and ch1.try4 give NO solution and no stick count; each answer says to move or take away sticks on the screen and count (Sample answer). ch1.try2 is solved (a diamond of 4 sticks with the 5th across it). Tool 22 therefore has only try2 confirmed, and the user's choice among options (a), (b) and (c) is still open."
-    ),
-    (
-        "CLASH 19: The word pentagon first reaches the child on Tool 14, with no video or image of its own before it.\n"
-        "  NOTE SAYS: Tool 14 (Angles After the Push) follows the image of the folding gate (flow rows 28 and 29, topic T10), and its approved purpose is \"The child pushes a rectangle, a square and a pentagon and reads how the angles change\". The flow rules say a tool applies a concept the child has just met, and the brief says \"Do not introduce concepts assigned to later tools prematurely\".\n"
-        "  BOOK SAYS: C15, the pentagon (printed page 16), is a small fact plus one hands-on step: \"Try to make this 5-sided shape with all sides equal (Pentagon)\". The book names the shape inside the task, with its picture, and then asks whether the angles are right angles and what happens when a side is pushed. No sentence teaches the word before the task. The proposal gives C15 no concept video and no image (tool_proposal.md section 2: \"inside Tool 14\"). The only media before Tool 14 are the push-test video (a triangle and a rectangle) and the folding-gate image (four-sided shapes), so the word pentagon and the idea of a 5-sided shape are new on the tool itself. The review (T18) does not revise the pentagon on its own either.\n"
-        "  OPTIONS: (a) keep it as the book does: the tool names the pentagon with the shape beside the word, and no media is added; (b) the folding-gate image (T10.C3) also shows a five-sided frame and its caption names it (no new media item, but that image then carries two ideas and the media step must keep it clean); (c) add one pinned image of a pentagon beside Tool 14 (one more image, 7 in all; a new real-life example, checked at the briefs stage; no tool changes); (d) end the rigid-shapes video (T10.C1) with Isha making a five-sided shape and naming it (that video then carries a second idea, which breaks one concept per video).\n"
-        "  RECOMMENDATION: (a). The book itself names the pentagon inside the task, and the media step can still choose (b) or (c)."
-    ),
-    # ---- CLASH 20 to 29: added by the media step (step 4, the media minimiser)
-    (
-        "CLASH 20: Three images would repeat the pictures of the tool that follows them (everyday objects, cube tower, carpet and wheels).\n"
-        "  NOTE SAYS: Flow rule 2: \"Do not duplicate content\", and an image only \"when it contributes a new real-life example or visual reference\". The user's principle: several tools discover something on their own, so an image must not give the finding away.\n"
-        "  BOOK SAYS: The proposal's images show the same things the tools use. Tool 5 marks the book's border sketches (a die, an eraser, a ball, a can, an ice-cream cone, a party hat, a cheese wedge, a gift box and more), and the image before it listed exactly those objects. Tool 7 counts the book's two cube towers, and the image before it was a tower in layers with cubes that cannot be seen. Tool 18 marks the book's carpet and compares the book's wheels A to D, and the image before it was a carpet beside four wheels of different sizes, which would show the comparison (B largest, D smallest) before the tool does.\n"
-        "  THE PLAN (media step): each image shows different real objects of the same kind, so each adds a new real-life example and none shows a finding. Tool 5's image: four to eight objects that are not on the border (for example a matchbox, a round tin, a marble and a toy tent), standing apart, with no group, mark or label. Tool 7's image: a different small tower of plain toy cubes, drawn as a clean illustration so every cube can be counted (a photo cannot promise an exact count), with no number, no layer line and no see-through view. Tool 18's image: a round rug and ONE bicycle wheel, each seen straight on, not the book's carpet and not four wheels. Three new VISUAL_KEY keys (everyday_objects, toy_cube_tower, round_rug_and_wheel); one image title changed (\"A Round Rug and a Wheel\"); Tool 7's image style is now illustration.\n"
-        "  OPTIONS: (a) as decided; (b) keep the proposal's objects (each image then shows the tool's own objects, and the wheel sizes and the layers are shown before the tool); (c) drop the image and let the tool follow a short video (a video replaces an image, so the count of media does not fall).\n"
-        "  RECOMMENDATION: (a)."
-    ),
-    (
-        "CLASH 21: The die image would answer part of Tool 4 if it shows the faces 1, 5 and 3.\n"
-        "  NOTE SAYS: CLASH 15 asks that the die match the numbers the tool uses. The user's principle: an image must not give a finding away.\n"
-        "  BOOK SAYS: Page 5 draws a die with 5 on top, 1 in front and 3 on the right, then asks which faces are opposite 2, 3 and 4 and which faces share an edge with the face numbered 1. A picture with 1 beside 5 and 3 shows that 5 and 3 touch 1, which is part of Let Us Observe 2 (a). A real die can never show two faces that add up to 7 together (1 and 6, 2 and 5, 3 and 4), so a generated picture must be checked for that. The book writes numerals; a real die has dots. The opposite pairs (E6) are the analyst's reading and still open (CLASH 11).\n"
-        "  THE PLAN (media step): the image is a real standard die with dots, at rest, with the faces 6, 4 and 5 in view (none of the faces the questions ask about, and no pair that adds up to 7), with no label, arrow, second die or hidden face. The tool's die is drawn with dots too, with opposite faces adding up to 7, so one die looks the same everywhere (VISUAL_KEY die).\n"
-        "  OPTIONS: (a) as decided; (b) the proposal's faces 1, 5 and 3 (they match the book's picture and the tool, and show that 5 and 3 touch 1); (c) numerals on both die pictures (the image is then not a real die).\n"
-        "  RECOMMENDATION: (a)."
-    ),
-    (
-        "CLASH 22: A real folding gate shows leaning cells, which are what a pushed square looks like.\n"
-        "  NOTE SAYS: CLASH 15: \"the folding gate must really lean over when pushed\". Tool 14, which comes right after the image, is where the child finds that the right angles of a pushed rectangle and square become acute and obtuse.\n"
-        "  BOOK SAYS: The book has no gate. A real scissor gate is a lattice of equal strips; each cell has four equal sides and, half closed, shows acute and obtuse angles. A still picture cannot show a push.\n"
-        "  THE PLAN (media step): one picture of a gate half closed so the cells lean, a photo of a real gate (if no true photo is available, a clean illustration with straight strips of equal length and a pin at every crossing). It carries no angle mark, no label, none of the words acute, obtuse or right angle in its caption, no hand, no before and after pair and no five-sided frame. It gives a real use of the idea of Tool 13 (a four-sided frame does not hold its shape), not the finding of Tool 14.\n"
-        "  OPTIONS: (a) as decided; (b) a before and after pair of the same gate (it shows the push and gives away Tool 14's finding); (c) drop the gate and let Tool 14 follow a short video (a second push story, repeating the one before Tool 13).\n"
-        "  RECOMMENDATION: (a)."
-    ),
-    (
-        "CLASH 23: The media step's answer to CLASH 19 (the pentagon).\n"
-        "  NOTE SAYS: CLASH 19 left the choice of (a), (b) or (c) to the media step, to be recorded for the user to decide.\n"
-        "  BOOK SAYS: Page 16 names the pentagon inside the task, with its picture: \"Try to make this 5-sided shape with all sides equal (Pentagon)\". The shape is one more straw added to shapes the child has just pushed.\n"
-        "  THE PLAN (media step): picks (a), no medium added. The fewest-media rule says a fact the tool already shows, with the word beside its picture, needs no image or video. (b) is rejected: the gate image would carry two ideas, and a real folding gate has no five-sided cell, so it would misrepresent the object. (c) is possible but adds a seventh image, and it would have to be pinned: whether the platform shows a pinned image is not verified (docs/02, notes on the wording). (d) of CLASH 19 breaks one concept per video.\n"
-        "  OPTIONS: (a) no new medium; Tool 14's first screen shows the five-straw shape and the word pentagon; (b) a five-sided frame in the gate image (not recommended); (c) one pinned picture of one real five-sided object next to Tool 14, chosen at the briefs stage, with five straight sides and no label (7 images); (d) end the rigid-shapes video with a pentagon (not recommended).\n"
-        "  RECOMMENDATION: (a). The user decides."
-    ),
-    (
-        "CLASH 24: Would a short video teach better than the image before Tools 4, 5, 7, 14 and 18? (the media step's view of CLASH 7)\n"
-        "  NOTE SAYS: CLASH 7 keeps the five images. This step was asked to say, tool by tool, whether a video would teach the idea better, and not to change it.\n"
-        "  THE PLAN (media step): Tool 4 (opposite faces): no. The idea is two words and the tool is the turning die; a video of a turning die would do what the tool does and hand over the opposite pairs. Tool 5 (spot the faces): no. The words rectangular, triangular and curved face come from the videos on faces; a video would repeat them. Tool 7 (cubes): yes, it is the one of the five where a video would teach better, because a still picture cannot show a cube that is hidden and the hidden cube (M_SH_6) is the idea; but a story that builds the tower in layers would also give away the counting method the tool finds, and the tool's own layer view shows the same. Tool 14 (angles after the push): no. A second push story would repeat the push video before Tool 13, and the real gate adds a real-life use. Tool 18 (radius and diameter in things): no, the idea is applied, not new; only the three steps of the compass flower (E15: pictures only in the book) would gain from motion, and the tool can show them step by step.\n"
-        "  OPTIONS: (a) keep the five images; (b) change one of them to a short story video (Tool 7 is the case for it: 17 concept videos and 5 images); (c) change more than one (say which).\n"
-        "  RECOMMENDATION: (a); (b) for Tool 7 only if the user wants a video there."
-    ),
-    (
-        "CLASH 25: Seven video purposes showed what the tool is meant to find, so they were reworded as questions.\n"
-        "  NOTE SAYS: The journey designer wrote several videos to frame the idea and leave the finding to the tool, and flow rule 2 says do not give the same explanation twice. Rows 20, 26, 30, 32, 34, 38 and 40 of tool_map.md (and tool_map.locked.md) describe the stories before the tools.\n"
-        "  BOOK SAYS / THE PLAN: As those rows read, a story would do the tool's work or show its result. Row 20 (angles) shows the house and the boat, which are Tool 10's solved example and its question. Row 26 (rigid shapes) has Isha push a triangle and a rectangle, which is Tool 13's whole test. Row 30 (angles in shapes) has Nitesh count the right angles of each shape, which is Tool 15's task. Row 32 (the circle) has equal straws make a circle, which is Tool 16's finding. Row 34 (diameter) has several folds give equal creases, which is Tool 17's finding. Row 38 (sides and angles) has Nitesh count the angles of each shape, which is Tool 19's finding. Row 40 (puzzling shapes) solves hidden shapes and cuts, which are Tool 20's puzzles. The VID purposes in topics_1.py now pose the question and stop: Isha meets two straws and sees yoga angles only; Isha wonders what a push does; Nitesh wonders how many angles are right angles; Diksha names the centre and one radius of a given round paper and wonders how to make a perfect circle; Diksha folds once and wonders if every fold is the same; Nitesh sorts by sides and wonders what else to count; Diksha finds one hidden shape and makes one cut. No new_idea changed. The rows of the locked table still carry the older wording (the table is not edited).\n"
-        "  OPTIONS: (a) the reworded purposes (the tool finds the answer); (b) the rows' wording (the video shows the result and the tool then repeats it).\n"
-        "  RECOMMENDATION: (a)."
-    ),
-    (
-        "CLASH 26: Six videos have a thin case for being a video: three link concepts and three puzzle stories.\n"
-        "  NOTE SAYS: The media test is a video for the hook, a big new idea or a known misconception, and a small concept may be one image. But every tool after Tool 1 needs one video or one image right before it (the flow gate), so 21 media items before 21 tools is the floor: fewer media would mean fewer tools (CLASH 2). The media step can only choose video or image for each tool; it cannot lower the count.\n"
-        "  BOOK SAYS / THE PLAN: Clear cases (a big idea or a misconception each): prisms and pyramids, faces corners and edges, the overlap, nets, angles, right angles, acute and obtuse, rigid shapes, the circle and the diameter. Thin cases: the guessing game (T6.C1, a link concept, and Tool 8 is the same game), right angles in shapes (T11.C1, a link, and Tool 15 does the counting) and sides and angles (T14.C1, a link, and Tool 19 finds the pattern); and the three puzzle stories on hidden shapes, webs and matchsticks (T15.C1, T16.C1, T17.C1), which the user's brief asks for (\"Puzzle / activity videos\") and which carry the misconceptions M_PU_1 to M_PU_3. Each of the six is kept to one frame the tool does not give.\n"
-        "  OPTIONS: (a) keep all 16 concept videos (the proposal); (b) change the three link videos to images (same count; each would need a real-life picture that its tool then partly repeats); (c) fewer tools (CLASH 2, option b or c).\n"
-        "  RECOMMENDATION: (a)."
-    ),
-    (
-        "CLASH 27: One colour per solid across the chapter, and every solid drawn as a shaded 3D solid.\n"
-        "  NOTE SAYS: Flow rule 3: \"Use consistent visual representation and colours for the same shapes / objects across the chapter.\" The user's principle: a sphere is always a shaded 3D ball; never misrepresent an object.\n"
-        "  BOOK SAYS: The book colours the same solid differently on different pages: prisms are blue and pyramids magenta on page 3, but the square pyramid is green and the triangular pyramid blue on page 8; the cuboid is red on page 8 and purple on page 9; the cone is purple in one row and yellow in the next. The small beige \"sphere\" of page 8 reads like a flat disc.\n"
-        "  THE PLAN (media step): every solid is drawn as a shaded 3D solid in every picture and tool (VISUAL_KEY updated: a sphere is a shaded ball, a cone has one round base and one point, a cylinder two round flat faces, a cube six equal squares, a cuboid rectangle faces, the small orange solid of page 8 a triangular prism). The colours are NOT decided: VISUAL_KEY keeps the book's colour for each figure.\n"
-        "  OPTIONS: (a) one colour per solid for the whole chapter: prisms blue and pyramids magenta (as on page 3), cube teal, cuboid red, sphere red, cone yellow, cylinder pink-purple; (b) the book's colour for each figure (as VISUAL_KEY now says).\n"
-        "  RECOMMENDATION: (a), because the flow rule asks for it; VISUAL_KEY is edited only after the user's answer."
-    ),
-    (
-        "CLASH 28: The review and the earlier pictures.\n"
-        "  NOTE SAYS: Flow rule 1.7: the review uses concepts already covered and adds no new content. The gate: no video or tool in the review, no new key term, no book item. The brief asks for \"a visual recap\".\n"
-        "  THE PLAN (media step): the review (T18) has no video, no image node and no tool. Between its two concepts it revises the idea of every topic; the two scene-setting images (T2.C1 bricks and T4.C1 everyday objects) are not revised on their own. A recap may show an earlier picture only as the same VISUAL_KEY drawing (the die, the cube tower, the gate, the carpet and wheels, the solids, the straw shapes, the circle), never as a new picture.\n"
-        "  OPTIONS: (a) recap lines only, no pictures; (b) recap lines with earlier drawings re-shown by their key, with no new image node; (c) one new recap image (a new medium and a risk of new content).\n"
-        "  RECOMMENDATION: (b), which meets the brief's \"visual recap\" with no new medium."
-    ),
-    (
-        "CLASH 29: The image after Tool 1 holds three subjects.\n"
-        "  NOTE SAYS: CLASH 8 and CLASH 15: one clean real-life image on the concept; images are clean and minimal.\n"
-        "  BOOK SAYS: Page 2 asks about three different pictures: whether the boy's stepped box model looks like the Qutub Minar (qutub_q1), what shape to use and how many for a model of the tower (qutub_q2, qutub_q3), and what the clay brick, the stone block and the wooden block share (bricks_q). Without the model qutub_q1 cannot be asked; without the blocks bricks_q cannot.\n"
-        "  THE PLAN (media step): one picture with the real tower, the small stepped stack of three boxes beside it (no child: it stands on a table) and the three blocks in front, well spaced. No label, no number, no \"5 storeys\", no count of boxes or storeys, no hand. The blocks are true cuboids. The tower must be the real monument (a real photograph, or a faithful drawing checked against the book), never an invented tower. The book's figures for the street model (project1) and the paper strip ball (craft1) are not in this picture: they are the figures of those two question cards (VISUAL_KEY street_model and paper_strip_ball).\n"
-        "  OPTIONS: (a) one picture, three subjects; (b) tower and blocks only, and qutub_q1 reworded (changes a book question); (c) two images (a second medium on one concept, which breaks one image per concept).\n"
-        "  RECOMMENDATION: (a)."
-    ),
+    # --- written by the tool mapper (step 2), rebuild from zero on the user's 9-lesson plan, 6 Nov 2026. ---
+    # The twelve tools (names, purposes, order) are the content team's table and are NOT changed by any clash below:
+    # every clash is a question for the user. Clashes 1 to 4 carry the user's own decisions of 6 Nov 2026 ("DECIDED BY
+    # THE USER"). Clashes 5 to 14 are the proposer's ten open questions (tool_proposal.md section 8), 15 to 19 its
+    # misfits (section 4), 20 to 38 are the mapper's checks. Numbers follow that order.
 
-    # ---- CLASH 30 to 33: added by the question mapper (step 5)
-    (
-        "CLASH 30: Three book questions sit one tool away from the proposal ONLY because of the cap of 6 (PROVISIONAL).\n"
-        "  NOTE SAYS: The cap is 6 book questions per tool (chapter.config.json 'max_tool_questions': 6, a config default that only the user may raise; the structure stage fails a tool with 7). CLASH 3 left Tools 2, 13 and 14 at 7 each. The user's instruction for step 5: keep the cap at 6, home at most 6 on every tool provisionally, move for each of the three tools the single item whose move does least harm, and delete nothing.\n"
-        "  BOOK SAYS: The proposal gave Tool 2 prism_q1, prism_q2, prism_q3, pyr_q1, pyr_q2, pyr_q3 and cube_prism; Tool 13 straw_tri_make, straw_tri_push, straw_tri_trace, straw_tri_angles, straw_rect_make, straw_rect_angles and straw_rect_push; Tool 14 straw_rect_after, straw_square, straw_compare, pentagon_make, pentagon_q1, pentagon_q2 and pentagon_q3.\n"
-        "  MOVED, AND WHERE THEY SIT NOW: (1) ch1.cube_prism ('Is a cube also a prism?') from Tool 2 to Tool 3, Faces, Corners and Edges (now 6): the table that Tool 3 fills has the row 'Cube/Square Prism', and it is the proposal's own fallback (options (a) and (c) of CLASH 3). Harm: Tool 2's approved purpose ends 'and decides if a cube is also a prism', and its one book question for that now comes one tool later. (2) ch1.straw_rect_angles ('What kinds of angles do you see in the rectangle?') from Tool 13 to Tool 11, Right Angle Checker (now 5): the answer, all four are right angles, is found by laying the checker on the corners, which is Tool 11's action. Harm: it is asked two tools before the child pushes the rectangle (Tool 13), on a straw rectangle shown on Tool 11's screen. (3) ch1.straw_compare ('How are the angles of triangles and rectangles similar or different?') from Tool 14 to Tool 19, Sides and Angles (now 6): Tool 19 compares the numbers of angles and sides of shapes, and a triangle and a rectangle are among them. Harm: the closing question of the push test is asked five tools after it. Tools 2, 13 and 14 now hold 6, 6 and 6; Tools 3, 11 and 19 hold 6, 5 and 6. Nothing was deleted, no item kind was changed, no other question moved from the proposal.\n"
-        "  OPTIONS: (a) keep the three provisional moves (cap 6, 22 tools, no new tool); (b) raise the cap to 7 for this chapter (CLASH 3 option b): the three items go back, cube_prism to Tool 2 (last in its list), straw_rect_angles to Tool 13 (between straw_rect_make and straw_rect_push) and straw_compare to Tool 14 (after straw_square), three small edits in topics_1.py; Tools 2, 13 and 14 then hold 7 and Tools 3, 11 and 19 hold 5, 4 and 5; (c) keep the cap and call straw_tri_trace and straw_compare talk items (CLASH 3 option c; this changes content.NCERT_ITEMS, the analyst's work, and is the user's call); (d) the 23-tool plan of CLASH 3 option (a).\n"
-        "  RECOMMENDATION: (b), as CLASH 3 recommends. Until the user decides, the three moves keep the structure stage clean."
-    ),
-    (
-        "CLASH 31: Three readings of the printed figures by the question mapper differ from analysis.md or from VISUAL_KEY.\n"
-        "  NOTE SAYS: The user's rule: never misrepresent an object; check every number against the page; no answer is invented. analysis.md (E17, E23) and VISUAL_KEY were written from the page at lower zoom.\n"
-        "  BOOK SAYS: (1) Hidden shapes (page 19, ch1.puzzle1): read at 7x, the outlines are a circle, a cylinder, ONE square (the one on the right, 420 by 420 units), ONE tilted rectangle (756 by 337, about 2.2 times as long as wide) and two triangles; analysis.md says two squares. (2) The red tilted figure of Q8 (page 23, ch1.try8, ch1.try8_q) measures 213 by 259 units at 6x (a rectangle, about 5 to 6), not a square; analysis.md and VISUAL_KEY right_angle_figures say 'red tilted square'. Its 4 right angles stand either way. (3) The border sketches (page 5, ch1.border1, border2, border5): the two cheese pieces are drawn as PYRAMIDS (an apex over a base with holes), and the border also has a pyramid drawn with a triangle grid and a double-pyramid sketch; VISUAL_KEY border_objects says a cheese wedge or cake slice is a triangular prism and does not list the two pyramid sketches.\n"
-        "  THE PLAN (question mapper): (1) answer 'a circle, a cylinder, a square, a rectangle and two triangles'; VISUAL_KEY hidden_shapes is corrected. (2) answer 'the blue rectangle and the red tilted shape'; VISUAL_KEY right_angle_figures is corrected to a tilted rectangle. (3) the answers of border1, border2 and border5 name only the objects whose solid is certain (dice, erasers, Rubik's cube, gift box, wooden wedge, cake slice) with 'for example'; VISUAL_KEY border_objects is NOT edited.\n"
-        "  OPTIONS: (a) keep the two VISUAL_KEY corrections and decide the cheese pieces (as pyramids like the book, or as the triangular prisms VISUAL_KEY says) before the briefs; then the border answers are completed; (b) undo the corrections and keep analysis.md's reading (two squares, a red square); (c) the content team settles all three.\n"
-        "  RECOMMENDATION: (a). The page shows a rectangle in both places, and the two corrections are one phrase each. The cheese pieces are a user decision because a pyramid has triangular faces and a base, a triangular prism has rectangular faces too."
-    ),
-    (
-        "CLASH 32: The words on screen of six questions differ from the print in small ways.\n"
-        "  NOTE SAYS: The question mapper copies the book's wording exactly (agent rule 5). The user's rules: no teacher role (brief), minus is U+2212, no page pointer that fails on a screen, no wrong printed statement repeated.\n"
-        "  BOOK SAYS / DONE: (1) ch1.compass: 'Ask your teacher to help you use a compass.' is dropped (CLASH 13 option a, as recommended; it edits one book question and needs the user's yes). (2) ch1.project1: 'Encourage learners to observe a street carefully...' reads 'Observe a street carefully...' (a teacher line inside a question; CLASH 13). (3) ch1.fve: 'F+V' then an en dash then 'E' is printed; the screen shows F+V−E with the minus sign. (4) ch1.pentagon_q2: the missing question mark of '...push one of its sides. Yes/No' is put in. (5) ch1.amazing_q4: 'center' is written 'centre', as in the rest of the chapter. (6) ch1.sort4: 'circles like those on the previous page' reads 'circles like the ones you just used', because a screen has no pages. The book's pointers 'at the end of the book' (craft2, cards) and 'given below' stay as printed, with a first step that says the nets and the cards are on the screen. Each change is in content.SOLUTION_NOTES and is one phrase.\n"
-        "  OPTIONS: (a) as done; (b) keep every printed word, including the teacher sentences, the en dash and 'previous page' (breaks the brief's rule on teachers and the dash rule); (c) keep the printed words and add a short note under each question.\n"
-        "  RECOMMENDATION: (a). Each change can be undone with one edit of topics_1.py."
-    ),
-    (
-        "CLASH 33: Two printed questions have two readings, and the plan shows both or says which one it took.\n"
-        "  NOTE SAYS: The user's rule: no invented answer; no child-facing text repeats a wrong printed statement.\n"
-        "  BOOK SAYS: (1) ch1.prism_q3, 'How many such faces each?' (page 3): 'such' can mean the other shapes of Q2, which are 2 on every prism, or the rectangle faces of Q1, which are 3, 4 and 6 on the triangular, square and hexagonal prisms. (2) ch1.try1d, 'Can he begin at point A and leave from point B without walking on any wall more than once?' (page 21): the question does not say that every wall must be used. Read as it stands, the answer is yes (a short walk from A to B uses a few walls once each). The story says he walks to check that his walls are strong, so the plan reads it as a walk that uses EVERY wall once; then no walk from A can be completed, because A and B have 2 walls each and only the two corners with 3 walls can start and end such a walk (analysis.md E19; the rule about corners is not shown to the child). Squiggly's walk (ch1.try1b) is yes on either reading.\n"
-        "  THE PLAN (question mapper): the answer of prism_q3 gives both counts; the answer of try1d says 'No. Try to use every wall once. Every walk from A gets stuck first.' and asks the child to try it on the screen.\n"
-        "  OPTIONS: (a) as done; (b) prism_q3 answers only the other shapes (2 each) and try1d answers yes with a short walk (the plain reading); (c) the content team says what the author meant.\n"
-        "  RECOMMENDATION: (a), and (c) if the content team can be asked."
-    ),
+    "CLASH 1, the tool structure. "
+    "DECIDED BY THE USER (6 Nov 2026): the lesson plan becomes tools, with the plan's activities as the tool's stages "
+    "(first one tool per lesson); because the book questions overload that, 'about 11 tools, cap 13': Lessons 2, 3, 4 "
+    "and 5 get one tool each (Tools 3, 4, 5, 6) and Lessons 1, 6, 7 and 8 get two each (Tools 1 and 2, 7 and 8, 9 and "
+    "10, 11 and 12). That came to 12 tools, and max_tool_questions is 13 for this chapter (the default is 6). "
+    "Lesson 9 has no tool: it is the review (rows 27 and 28). "
+    "PLAN SAYS: 8 lessons with 23 activities, a 9th lesson of revision and a 10-mark assessment. "
+    "BOOK SAYS: 109 questions and 22 text or talk items on 23 pages, no end exercise. "
+    "OPTIONS: none, decided. RECOMMENDATION: none. The open question about 12 against 'about 11' is CLASH 5. "
+    "core/tool_map.py verify printed a match, so the table is unchanged.",
+
+    "CLASH 2, plan items that break the pipeline rules. "
+    "DECIDED BY THE USER (6 Nov 2026): they are ADJUSTED, not kept. (1) Degrees (45, 90, 120, 30, 110, 150, 'smaller than "
+    "180', 'show the angle measurement', assessment Q2 and Q8) become 'smaller than, equal to, bigger than a right angle'; "
+    "the arm of Tool 7 shows a right-angle corner and no number. (2) Beat the Clock (5 seconds, a point per answer, a "
+    "final score) becomes 'Identify the Angle' (Tool 8, stage 2): no timer, no points, three options, feedback after "
+    "each answer. (3) The regular pentagon with equal angles and the regular or irregular comparison become the book's "
+    "'5-sided shape with all sides equal'; the comparison is the push test, the angles change (Tool 10). (4) The "
+    "10-mark, 20-minute assessment becomes an unscored recap inside the two review concepts, with no book question "
+    "(CLASH 11). (5) The radius and diameter sums in cm (3, 10, 7, 6 cm) become the book's relation: fold a circle in "
+    "half and in half again, the diameter is double the radius; wheels are compared without numbers (Tool 9). (6) The "
+    "True or False quiz becomes 'Strong or wobbly' picture practice with the book's own frames (Tool 12); the false "
+    "statement 'a triangle has four sides' is dropped. (7) Words outside the book: vertex becomes corner, polygon "
+    "becomes n-sided shape, slanted quadrilateral becomes slanted four-sided shape, diagonal becomes 'a stick across "
+    "the corners', 'regular' is dropped (CLASH 9). (8) Teacher voice ('I will explain') and slide-style videos become "
+    "short stories (CLASH 4). (9) Third-party image links are references only (CLASH 31). "
+    "ALSO ADJUSTED BY THE PROPOSER, FOR CONFIRMATION: Shape Detective's 30 seconds is dropped (same rule as the clock); "
+    "'Count and Win' is the stage 'Count the parts' (win is a score word); 'arrange blocks to create a square-based "
+    "pyramid' is built from its five faces, because cubes only make a stepped pile; 'build a cube from smaller unit "
+    "cubes' is 8 unit cubes (CLASH 8); Find the Wrong Net is built on the book's four nets and four solids, and any new "
+    "net is checked by folding. "
+    "RECOMMENDATION: confirm the proposer's four extra adjustments; the nine above need nothing.",
+
+    "CLASH 3, the book parts the plan does not mention. "
+    "DECIDED BY THE USER (6 Nov 2026): they are FOLDED into the nearest lesson's tool as extra stages and questions. "
+    "Where they went (tool: items, ids without 'ch1.'): Tool 1: model1, model_q1 to q5, project1, qutub_q1 to q3, "
+    "puzzle1. Tool 2: bricks_q, border1 to border4, cards, puzzle2 to puzzle4. Tool 3: craft1, prism_q1 to q3, pyr_q1 to "
+    "q3, cube_prism, sort1, sort3, sort3_q, sort4. Tool 4: craft2, solids_q3 to q5. Tool 5: craft3, fve, sort_faces, "
+    "three_faces, sort_edges, sort2, observe1 to observe3, border5, solids_q1, try5. Tool 6: build1, towers, dotcubes. "
+    "Tool 7: house_ex, boat_q, angles_do1, angles_do2, right_make, right_circle, right_objects, right_do1, try8, "
+    "try8_q. Tool 8: acute_obj, obtuse_obj, letters, ao_do1a, ao_do1b, ao_do2, dotshapes, dotshapes_q, fourside_q, "
+    "try9. Tool 9: circle_straws, circle_straws_q1, q2, make_circle, make_circle_q, amazing1, amazing_q1, amazing_q4, "
+    "circ_do1, compass, carpet, wheels_q0, wheels_q1. Tool 10: pentagon_make, pentagon_q1 to q3, try6, try6_q, try7a, "
+    "try7b. Tool 11: straw_tri_make to straw_compare (10). Tool 12: try1a to try1d, try2, try3, try4. Counts 11, 9, 12, "
+    "4, 12, 3, 10, 10, 13, 8, 10, 7 = 109, each question on exactly one tool, none missing (checked by script against "
+    "NCERT_ITEMS). The 22 text and talk items ride with the media of their concept (tool_proposal.md section 3). "
+    "Items that moved away from the analyst's concept (so the question mapper homes them on the tool's one concept): "
+    "bricks_q (C1) to Tool 2; border1 to border4, sort1 to sort4 (C5) across Tools 2, 3 and 5; craft2 (C2) to Tool 4; "
+    "solids_q1 (C8), try5 (C23) and border5 to Tool 5; cards (C20) and puzzle2 to puzzle4 (C19) to Tool 2; try8 and "
+    "try8_q (C24) to Tool 7; try9 (C24) and dotshapes, dotshapes_q, fourside_q (C14) to Tool 8; try6, try6_q, try7a, "
+    "try7b (C24) to Tool 10; try1a to try1d (C21) and try2 to try4 (C22) to Tool 12. "
+    "OPTIONS: none, decided. RECOMMENDATION: none; the strain it causes is CLASHES 7, 13, 15 to 19, 20 and 23."
+    " QUESTION MAPPER (step 5): every home listed here was checked item by item against the 23 page images and is KEPT: 109 "
+    "questions (1 example, 59 exercises, 49 prompts), each on exactly one tool concept (checked by program against "
+    "NCERT_ITEMS: none missing, none twice, every kind matches), per tool 11, 9, 12, 4, 12, 3, 10, 10, 13, 8, 10, 7. "
+    "Nothing is excluded, because every item is printed in this chapter, and nothing was moved to stay within the cap. The "
+    "22 text and talk items are each in `ncert` of one teaching concept (checked by program).",
+
+    "CLASH 4, how the videos are written. "
+    "DECIDED BY THE USER (6 Nov 2026): videos are stories with a problem, not slide lectures. "
+    "PLAN SAYS: 'Video Format: Animated Slide Presentation', 'I will explain', 'Create a video-style script ...'. "
+    "BOOK SAYS: Diksha, her father, Isha, Nitesh, Squiggly and Wiggly are the only story cast. "
+    "So the hook and the 11 concept videos (rows 3, 5, 6, 9, 11, 13, 15, 17, 19, 23, 25) are short stories of that cast "
+    "(a hidden block with clues, a gift box opened out, a cube tower counted by layers, straws and a paper corner, a peg "
+    "and string circle, Squiggly's and Wiggly's webs). Each has ONE new_idea and ends in the tool; the plan's lists of "
+    "facts (counts, definitions) are carried by the story's problem and by the tool's feedback. "
+    "OPTIONS: none, decided. RECOMMENDATION: none. Open points about the stories: the claim in the row 25 video "
+    "(CLASH 22) and the cast (CLASH 37).",
+
+    "CLASH 5, the number of tools: 12, not 'about 11' (proposer's open question 1). "
+    "PLAN SAYS: the user said 'about 11 tools, cap 13'. The rule 'Lessons 2 to 5 one tool each, Lessons 1, 6, 7, 8 two "
+    "each' gives 12 (4 + 8). BOOK SAYS: nothing about tools. "
+    "OPTIONS: (a) 12 as built; (b) 11 by joining two tools, for example Tools 11 and 12 (Lesson 8), which changes both "
+    "approved purposes and would put 17 questions on one tool, over the cap; (c) 13 by adding a third Lesson 7 tool "
+    "(Tool 9 would drop to 8 questions). "
+    "RECOMMENDATION: (a). Joining or adding a tool changes the approved table, so it is the user's call and not "
+    "the mapper's.",
+
+    "CLASH 6, Lesson 1 needs two topics (proposer's open question 2). "
+    "PLAN SAYS: one topic per lesson. BOOK SAYS: nothing. GATE SAYS: the opening topic must be exactly [hook video, "
+    "exploration tool] (flow_c34 _check_shape). Lesson 1 has the hook, Tool 1 and a second activity with its own video "
+    "and Tool 2, so Topic 1 holds [hook, Tool 1] and Topic 2 (Guess the Shape) holds [concept video, Tool 2]. This is the "
+    "only place where 'one topic per lesson' bends: 10 topics for 9 lessons. "
+    "OPTIONS: (a) two topics as in the table; (b) put the row 3 video and Tool 2 inside the opening (the gate forbids); "
+    "(c) move Guess the Shape into Lesson 2's topic (that topic would then hold two lessons' content). "
+    "RECOMMENDATION: (a).",
+
+    "CLASH 7, how many book questions each tool holds (proposer's open question 3). "
+    "PLAN SAYS: cap 13 for this chapter. BOOK SAYS: 109 questions. TOOL_SPEC_GUIDE says a tool with more than 6 "
+    "questions is doing too much and must be raised as a clash. The counts are Tool 1: 11, Tool 2: 9, Tool 3: 12, Tool "
+    "4: 4, Tool 5: 12, Tool 6: 3, Tool 7: 10, Tool 8: 10, Tool 9: 13 (exactly the cap), Tool 10: 8, Tool 11: 10, Tool 12: "
+    "7. Ten of the twelve tools are over the default of 6. Even a perfect spread of 109 over 12 tools is 9 per tool. "
+    "Tools 3 and 5 are one question under the cap, so no later step may add a question to Tools 3, 5 or 9. "
+    "OPTIONS: (a) accept the cap of 13 as decided; (b) move items (sort1 and sort4 to Tool 5 makes it 14, over; the "
+    "dot-grid and angle-count items to the review, which the gate forbids); (c) a third Lesson 7 tool (CLASH 5). "
+    "RECOMMENDATION: (a). Each tool shows its book questions as the last stage, a few at a time."
+    " QUESTION MAPPER: the counts are confirmed. No tool is over 13; Tool 9 is at 13 and Tools 3 and 5 at 12, so nothing may "
+    "be added to them. The exploration tool T1.C2 holds 11 book questions (CLASH 25). The gate (flow_c34 _check_questions) "
+    "bars book questions only on a hook, on a review, and on a story or image concept that a tool applies to; every "
+    "question sits on a tool concept, so none needed to move and no new clash comes from the cap.",
+
+    "CLASH 8, the cube net and the cube of unit cubes (proposer's open question 4). "
+    "PLAN SAYS: Fold It starts from 'the net of a cube' and Which Net says 'six connected squares make a cube'; "
+    "Lesson 2 challenge 3 is 'build a cube using smaller unit cubes' with no size. BOOK SAYS: no cube net anywhere, "
+    "neither in the 23 pages nor on the end pages (those hold the nets of a triangular prism, a rectangular prism or "
+    "cuboid, a triangular pyramid, a hexagonal prism, a square pyramid and a pentagonal pyramid); the cuboid net "
+    "appears on p9 Q3 (3) and Q4 D. The book builds models A to D, none a cube. A cube has 11 nets, and most arrangements "
+    "of six squares (a row of six, a block of 2 by 3) do not fold. "
+    "OPTIONS: (a) draw one cube net, the cross of six squares, as a figure, never the bare sentence 'six squares make "
+    "a cube'; build the cube as 2 by 2 by 2 (8 unit cubes); (b) use only the book's nets and no cube net; (c) a 3 by 3 "
+    "by 3 cube of 27. "
+    "RECOMMENDATION: (a) with 8 unit cubes. Any new wrong net for Find the Wrong Net is checked by folding.",
+
+    "CLASH 9, words the book does not use (proposer's open question 5). "
+    "PLAN SAYS: vertex, 'corner (vertex)', apex, polygon, regular, diagonal, rigid, quadrilateral, base, 'face is a flat "
+    "surface'. BOOK SAYS: corner(s) and the letter V ('Number of corners (V)', p4); apex never; polygon never; diagonal "
+    "never; 'rigid' and 'rigidity' only in a teacher's note (E29); 'base' only for a building; 'face' from p3 on, "
+    "undefined, and with curved faces (p8: a cone has 1 flat and 1 curved face). "
+    "OPTIONS: (a) 'corner' only, and no apex; (b) 'corner' with 'vertex' as a second name once, keep apex and rigid; (c) "
+    "the plan's words everywhere. "
+    "RECOMMENDATION: (b) in this form: corner is the word; vertex at most once as a second name (never in a tool "
+    "label); keep apex (the book asks 'all the triangular faces meet at ___ point') and rigid (the lesson's name); "
+    "'a stick across the corners', not diagonal; n-sided shape, not polygon; 'face' is a flat or curved side of a solid, "
+    "not 'a flat surface only'; for a prism say 'the two end faces', for a pyramid 'the bottom face (base)'.",
+
+    "CLASH 10, 2D versus 3D has no lesson (proposer's open question 6). "
+    "PLAN SAYS: objective 2, 'understand the difference between 2D and 3D shapes', but no lesson teaches it. BOOK SAYS: "
+    "'3D shapes' five times (p4, p6) and '2D shapes' three times (p20, p23), never defined. "
+    "OPTIONS: (a) one light line in the row 3 story (a flat shape has sides and corners, a solid has faces); Tool 2 "
+    "already sorts real objects (solids) and flat shape cards, which shows it; (b) leave it to the pictures; (c) a "
+    "video of its own (not in the approved table). "
+    "RECOMMENDATION: (a), as a story line and not a definition.",
+
+    "CLASH 11, the review (proposer's open question 7). "
+    "PLAN SAYS: Lesson 9 is revision slides, a shape-identification visual quiz, a digital worksheet and a 10-mark "
+    "assessment of 8 questions. TABLE SAYS: two review rows (rows 27 and 28), unscored, reusing earlier visuals, no new "
+    "tool, no book question. GATE SAYS (flow_c34 _check_review): at most 2 review concepts; each lists the earlier "
+    "concepts it revises (review_covers); no new key term; no book item; no new video or tool; every idea topic must "
+    "have at least one concept revised (so the Topic 2 concept, Guess the Shape, must appear in row 27 or row 28). "
+    "The 8 assessment questions are the plan's own, not book questions. "
+    "OPTIONS: (a) reuse the plan's assessment ideas reworded as recap lines with picture feedback (no degrees, cm, "
+    "polygon or vertex); (b) recap lines made only from teaching already given; (c) no recap lines. "
+    "RECOMMENDATION: (a). The digital worksheet has no slot (CLASH 33).",
+
+    "CLASH 12, the answers the book does not print (proposer's open question 8). "
+    "BOOK SAYS: no answers at all. The analyst's readings of the printed figures (analysis.md Appendix A, 'mine') need "
+    "the content team's or the user's sign-off: tower 1 = 30 and tower 2 = 66 (both assume solid layers with no extra "
+    "hidden cube, E27); the house 7 and the boat 10 marks (E8); the matchstick figures (Q3: 9 sticks, only solvable if "
+    "the three triangles touch at their base corners, E20; Q4: 13 sticks); nets A and C do not fold and B and D do "
+    "(E1); p9 Q3 matches (1)-b, (2)-d, (3)-a, (4)-c and Q5 is a pentagonal pyramid; p8 Q1 a to f (f is a cube or a "
+    "cuboid, E5); the coloured cube (red opposite purple, yellow opposite orange, blue opposite green); F, V, E of the "
+    "five solids; the right angles of the p11 dot grid (E9); the wheels (B longest, D shortest, E16); the six hidden "
+    "shapes (E17); the web counts (10 triangles, 12 rectangles); p22 Q5, Q6 and p23 Q8, Q9 (E22, E23). Every plan-made "
+    "answer is labelled 'From the picture' or 'Sample answer'. "
+    "THE WALK QUESTIONS (E19) HAVE TWO READINGS. 'Every wall': Squiggly's printed numbers 1 to 12 already trace a closed "
+    "walk over all 12 walls (yes), and no walk over every wall of Wiggly's web exists from A to B (no, two corners have "
+    "an odd number of walls). 'Any path without using a wall twice': both are trivially yes. "
+    "OPTIONS: (a) the 'every wall' reading, because the story says each spider walks to check its walls; (b) 'any "
+    "path'. RECOMMENDATION: (a); the user or content team signs off Appendix A before the briefs."
+    " QUESTION MAPPER: the solved results of Appendix A are written as answers, each beginning 'From the picture' or 'Sample "
+    "answer', and each re-checked by me: towers 30 and 66 (both with the no-gap assumption, E27); nets A to D (B and D "
+    "fold, A and C do not); the matchstick solutions of p22 Q3 and Q4 (re-checked by program: Q3 gives 4 triangles after "
+    "moving 2 sticks only if the three triangles touch at their base corners; of the 715 ways to remove 4 sticks from Q4, "
+    "128 leave exactly 3 triangles, and the answer gives one that leaves no stray stick); the boat (10 marked angles); the "
+    "coloured cube (red opposite purple, yellow opposite orange, derived again from the three views including the way the "
+    "faces turn round a corner); the right angles of the dot grid; the shapes of p23 Q8 and Q9 (re-measured); the wheels "
+    "(B, C, A, D, outer sizes 665, 604, 515 and 440 on a 6x render); the webs (10 triangles, 12 rectangles, and Squiggly's "
+    "printed numbers 1 to 12 trace one closed walk). THE WALKS: ch1.try1b says yes (both readings agree). ch1.try1d is "
+    "written on the recommended 'every wall' reading: no, because two corners of Wiggly's web have 3 walls each; one more "
+    "line gives the other reading (if he may skip walls he can go from A to B). So the user's choice (a) or (b) changes "
+    "only that one answer. Where the book allows many answers (the letter A, the four stick figures, the cuts, the cards, "
+    "the border sketches, the clues of p23 Q9) the answer gives no total or lists every fit and says so. SOLUTION_NOTES has "
+    "how each result was checked.",
+
+    "CLASH 13, Tools 2 and 12 each run four short stages (proposer's open question 9). "
+    "PLAN SAYS: Tool 2 (Lesson 1, Activity 2) is one three-clue guess, and Tool 12 (Lesson 8, Activities 2 and 3) a stick "
+    "across a frame and a quiz. BOOK SAYS: Tool 2 also gets the objects and bricks (bricks_q, border1 to border4), the "
+    "flat cards (cards) and the cuts (puzzle2 to puzzle4); Tool 12 gets the webs (try1a to try1d) and the matchsticks "
+    "(try2 to try4). So Tool 2 = three clues, sort objects, sort flat cards, cut shapes; Tool 12 = a stick across the "
+    "frame, strong or wobbly, webs, matchsticks. "
+    "OPTIONS: (a) accept, one stage on screen at a time; (b) move the cuts (Tool 2) to Tool 1 (14 questions, over the cap) "
+    "or to Tool 12 (10), and the webs (Tool 12) to Tool 11 (14, over the cap), which changes the approved purposes. "
+    "RECOMMENDATION: (a)."
+    " QUESTION MAPPER: Tool 2's nine questions are listed in the tool's stage order (bricks, border objects, flat cards, "
+    "cuts), so ch1.cards comes before ch1.puzzle2 to ch1.puzzle4, which the book prints the other way round; the child "
+    "meets the flat cards before the cuts.",
+
+    "CLASH 14, the pentagon is pushed before the rigidity lesson (proposer's open question 10; an order clash). "
+    "PLAN SAYS: Lesson 7 builds a pentagon and pushes it (Tool 10); Lesson 8 teaches rigidity (Tools 11 and 12). BOOK "
+    "SAYS: the push of the triangle, the rectangle and the square (p14) comes first, the pentagon's push question "
+    "(p16, 'does the shape of the pentagon change if we gently push one of its sides') builds on it. "
+    "OPTIONS: (a) accept: the pentagon image and Tool 10 teach the push on the pentagon first (its angles change), "
+    "and the row 23 rigid video recalls it; (b) move Tool 10 after Tool 11 (reorders the approved tools: not allowed "
+    "here); (c) keep only 'count the sides and corners' in Tool 10 and move the push to Tool 11 (changes both "
+    "approved purposes). "
+    "RECOMMENDATION: (a).",
+
+    "CLASH 15, curved solids in the prisms and pyramids tool (Tool 3; a misfit). "
+    "PLAN SAYS: Lesson 2 is prisms and pyramids and the cube only. BOOK SAYS: craft1 (a ball from paper strips), sort1 "
+    "(all faces look the same or not) and sort4 (curved or flat faces) use the sphere, cone and cylinder, which are "
+    "neither prisms nor pyramids. "
+    "OPTIONS: (a) keep them in Tool 3 as 'not every solid is a prism or a pyramid'; (b) move them to Tool 5, which "
+    "already holds 12 and would reach 15 (over the cap). "
+    "RECOMMENDATION: (a). The solids are drawn as shaded 3D solids (CLASH 34)."
+    " QUESTION MAPPER: craft1, sort1 and sort4 stay on Tool 3. Their answers name the curved solids and say that the cone "
+    "and the cylinder have both flat and curved faces (the overlap of sort4), which is the 'not every solid is a prism or a "
+    "pyramid' idea. The set of solids to sort is CLASH 52.",
+
+    "CLASH 16, the cuts in the shape-guessing tool (Tool 2; a misfit). "
+    "PLAN SAYS: Tool 2's approved purpose includes 'cuts shapes into smaller shapes'. BOOK SAYS: puzzle2 (divide a "
+    "triangle into 1 square and 2 triangles with 2 lines), puzzle3 (a square into 3 triangles with 2 lines) and puzzle4 "
+    "(cuts A, B, C) are about shapes inside shapes, not clues about sides, corners and faces. The cut lines are not "
+    "unique (E17). "
+    "OPTIONS: (a) keep them in Tool 2 as its last stage (the approved purpose names them); (b) Tool 1 (hidden shapes, "
+    "but 14 questions, over the cap); (c) Tool 12 (triangles, 10 questions). "
+    "RECOMMENDATION: (a). Every cut answer is a 'Sample answer'."
+    " QUESTION MAPPER: puzzle2 and puzzle3 give the dot-grid cuts of Appendix A as Sample answers. puzzle4 gives one cut for "
+    "each of A (two cuts), B (three cuts) and C (three corner cuts), all Sample answers ending 'Your answer may differ', "
+    "because the cut lines are not unique (E17).",
+
+    "CLASH 17, the walk puzzles in the strong-structure tool (Tool 12; a misfit). "
+    "BOOK SAYS: try1b (can Squiggly start at A and come back to A without using a wall twice) and try1d (can Wiggly go "
+    "from A to B) are about paths, not rigidity. They are tied to the same story as try1a and try1c (the number of "
+    "triangles and rectangles in the webs) and to 'checking if the walls are strong'. "
+    "OPTIONS: (a) keep them in Tool 12 as part of the webs stage; (b) no better home: the review may carry no book "
+    "item and the other tools are full or unrelated; (c) drop them (leaves two book questions uncovered). "
+    "RECOMMENDATION: (a). The reading of the question is CLASH 12."
+    " QUESTION MAPPER: try1b (yes) and try1d (no on the 'every wall' reading, with the other reading in one line) are "
+    "written as in CLASH 12. They stay on Tool 12 with try1a and try1c.",
+
+    "CLASH 18, angle-counting items in the pentagon tool (Tool 10; a misfit). "
+    "PLAN SAYS: Tool 10's approved purpose ends 'compares shapes with three, four and five angles'. BOOK SAYS: try6 "
+    "(classify seven shapes by 3, 4 or 5 angles), try6_q (sides against angles), try7a and try7b (draw a shape with "
+    "fewer or more than 5 angles) are about the number of angles of any shape, not the pentagon's push. "
+    "OPTIONS: (a) keep them in Tool 10, the pentagon being the five-angle case; (b) Tool 8 (14, over the cap); (c) "
+    "Tool 7 (14, over the cap). RECOMMENDATION: (a)."
+    " QUESTION MAPPER: try6 and try6_q are answered from the picture (3 angles: b, d, f; 4 angles: a, c, g; 5 angles: e; the "
+    "number of angles is the number of sides). try7a and try7b are Sample answers (a triangle or a square; a 6-sided "
+    "shape). No answer says 'regular' or 'equal angles' (CLASH 2).",
+
+    "CLASH 19, try5 (c) is a solid the chapter never shows (Tool 5; a misfit, E21). "
+    "BOOK SAYS: 'a model of a solid with 15 straws and 10 clay balls' is a pentagonal prism, which the chapter never "
+    "draws (it shows triangular, square and hexagonal prisms and a pentagonal pyramid). Parts (a) 12 and 8 (cube or "
+    "cuboid), (b) 9 and 6 (triangular prism) and (d) 10 and 6 (pentagonal pyramid) are solids of the chapter. "
+    "OPTIONS: (a) keep it: the child builds it from the counts, a prism with pentagon ends, and the answer is "
+    "a 'Sample answer'; (b) show (c) as a hint-only extra; (c) leave (c) out (one book part uncovered). "
+    "RECOMMENDATION: (a)."
+    " QUESTION MAPPER: the answer to try5 c) says 'a prism with two 5-sided ends' and does not name it a pentagonal prism, "
+    "as in the previous build; its working shows 5 + 5 = 10 and 10 + 5 = 15 straws and 5 + 5 = 10 balls. Parts a), b) and "
+    "d) are the cube or cuboid, the triangular prism and the pentagonal pyramid.",
+
+    "CLASH 20, tools that carry more than one analysis concept (which leads, which follow). "
+    "TABLE SAYS: each tool has one purpose. BOOK SAYS: the analyst's 24 concepts are finer than the 12 tools. The lead "
+    "names the tool and its objective; the others are stages, and the question mapper homes all of a tool's items on "
+    "the tool's one concept. Tool 1: C1 leads, C19 hidden shapes (puzzle1) is stage 2. Tool 2: CLASH 21. Tool 3: C2 "
+    "(prisms and pyramids) leads, C5 sorting by faces follows; the net half of C2 goes to Tool 4. Tool 4: C9 leads, C2 "
+    "(craft2) is stage 1. Tool 5: C3 leads; C4 (die, coloured cube), C5 (sort2, border5), C8 (riddles) and C23 (straw "
+    "model) follow. Tool 6: C6 and C7, the plan's own pair (Lesson 5 is 'Cube Towers and Geometrical Drawings'), C6 "
+    "leads. Tool 7: C10 and C11, the plan's own pair (one video teaches the angle and the right angle), C10 leads, "
+    "C24 (try8, try8_q) closes it. Tool 8: C12 leads, C14 and C24 (try9) follow. Tool 9: C16, C17 and C18, three circle "
+    "concepts in one tool (the plan has one circle video and two activities): C16 (make a circle, centre, radius) leads, "
+    "C17 (diameter by folding) and C18 (double, compass, carpet, wheels) follow. Tool 10: C15 leads, C24 follows. Tool "
+    "11: C13 only. Tool 12: CLASH 22. "
+    "OPTIONS: (a) accept; (b) one tool per analysis concept (24 tools, not the approved table). "
+    "RECOMMENDATION: (a).",
+
+    "CLASH 21, Tool 2 (Guess the Shape) has no one book concept. "
+    "PLAN SAYS: Lesson 1, Activity 2, three clues and the answer Square (four equal sides, four corners, a chessboard "
+    "has many of my smaller forms); the approved purpose adds sorting objects and flat cards by sides, corners and "
+    "faces, and cuts. BOOK SAYS: no concept is 'telling shapes apart by their sides, corners and faces'. The nearest are "
+    "C20 (sort the six 2D cards by their sides), the border questions of C5 (colour shapes with a rectangular face, a "
+    "triangular face, a curved face or no corner), bricks_q of C1 (what is common to the bricks) and the book's clue "
+    "form ('I have 5 faces and 5 corners', p8 Q1; p23 Q9). The three-clue guess has no book question of its own. The "
+    "first two clues also fit a diamond (a shape of p15), so the answer opens only after clue 3. "
+    "OPTIONS: (a) name the concept 'telling shapes apart by their sides, corners and faces', C20 leading, the rest "
+    "stages; (b) let C5 (the border questions, 4 of 9) lead. RECOMMENDATION: (a).",
+
+    "CLASH 22, Tool 12 (Build a Strong Structure): its concept is the plan's, its book items are puzzles. "
+    "PLAN SAYS: Lesson 8, Activity 2, build a square frame, add a diagonal, compare the stability. BOOK SAYS: no task adds "
+    "a stick across a frame; 'strong' appears only in try1_text ('check if the walls of her web are strong') and a "
+    "teacher's note. All seven items (try1a to try1d, try2 to try4) are puzzles (C21 webs, C22 matchsticks); try2 "
+    "(5 sticks, 2 triangles) is a four-sided frame with a stick across, the one place where plan and book meet. The row "
+    "25 story says Squiggly's triangle web holds firm and Wiggly's rectangle web wobbles until a thread goes across: "
+    "geometrically true (a frame of triangles cannot change shape, a rectangle frame can) but the wobble is the "
+    "table's invention, not the book's. "
+    "OPTIONS: (a) the concept is the plan's 'a stick across a frame makes it firm', a step on from C13, with C21 and C22 "
+    "as stages; (b) the concept is the book's puzzle pair and the stick is a stage. "
+    "RECOMMENDATION: (a); the user confirms the row 25 story claim.",
+
+    "CLASH 23, 'one tool, one purpose' under three or four stages. "
+    "FLOW RULE SAYS: each tool has one clear learning objective, simple controls, a short interaction path, and is not "
+    "'a collection of unrelated activities'. GATES CHECK (flow_c34 _check_tools): at most 4 controls per tool (not per "
+    "stage), an instruction of at most 15 words, an objective of at most 25 words with no ';', 1 to 13 book questions "
+    "and at most 3 notice prompts, a hint ladder of 0 or 4 rungs, one tool and no video in a tool concept. NOTHING "
+    "counts stages or judges 'one purpose'; that is for the checklist validator and the user. Stages per tool: Tool 1: "
+    "2; Tool 2: 4; Tool 3: 3; Tool 4: 3; Tool 5: 3; Tool 6: 3; Tool 7: 3; Tool 8: 3; Tool 9: 3; Tool 10: 1 with 4 steps; "
+    "Tool 11: 2; Tool 12: 4. "
+    "OPTIONS: (a) accept: one stage on screen at a time, the same four controls shared across stages (drag, tap, "
+    "Next, Reset), the NCERT Challenge always last; (b) split a tool (changes the approved table). "
+    "RECOMMENDATION: (a).",
+
+    "CLASH 24, stage interactions the plan makes up against 'questions are the book's'. "
+    "CLAUDE.MD AND TOOL_SPEC_GUIDE SAY: a tool carries only the book's questions of its concept (plus up to 3 notice "
+    "prompts on the exploration tool). The user's decision (CLASH 1) turns the plan's activities into stages, and some "
+    "ask the child things with plan-made answers: Tool 2 'Three clues'; Tool 3 'Match' and 'Prism or Pyramid'; Tool 4 "
+    "'Fold the net' and 'Find the wrong net'; Tool 5 'Label' and 'Count the parts'; Tool 6 'Build a cube tower' (three "
+    "cubes, two at the bottom and one on top, six cubes) and 'Look carefully' (four answer options); Tool 7 and Tool 8 "
+    "(make an angle, sort six angles, 'Identify the Angle' with three options); Tool 9 'Label the parts'; Tool 12 'Strong "
+    "or wobbly'. flow_c34 counts only 'notice' and 'ncert' items in a tool's question_map, so the plan passes. "
+    "OPTIONS: (a) treat the stages as the tool's interaction, like the notice prompts: not book questions, not in the "
+    "cap, no score, every answer labelled 'From the picture' or 'Sample answer', the book questions last; (b) drop the "
+    "plan-made stages (against the user's decision). RECOMMENDATION: (a)."
+    " QUESTION MAPPER: none of the plan's own stage interactions is written as a FIO. Three clues, Match, Label, Count the "
+    "parts, Spin the shape, Strong or wobbly, Identify the Angle and the build stages are the tool's interaction (unscored, "
+    "labelled the plan's own). They are not in `items`, not among the 109 questions of question_map.md and not in the cap.",
+
+    "CLASH 25, Tool 1 as the exploration tool holds 11 book questions and 3 notice prompts. "
+    "FLOW RULE SAYS: the exploration tool lets the child observe, try and notice before any formal explanation. BOOK "
+    "SAYS: model1, model_q1 to q5, project1, qutub_q1 to q3 and puzzle1 are mostly open prompts ('what shapes will model "
+    "these parts', 'how is your model similar to the real building', 'how many such shapes'); model_q4 and model_q5 "
+    "need a model the child has built. Tool 1 is also the first contact with the hidden-shapes picture, which holds a "
+    "cylinder among flat outlines (E31). "
+    "OPTIONS: (a) keep 11 + 3: the notice prompts come first and are read, not answered, and name no new term; the book "
+    "questions come last as sample-answer prompts; (b) move project1 and model_q4 and model_q5 to Tool 2 (12); (c) "
+    "2 notice prompts. RECOMMENDATION: (a)."
+    " QUESTION MAPPER: Tool 1's 11 questions are in the book's order (model1, model_q1 to q5, project1, qutub_q1 to q3, "
+    "puzzle1). Every sample answer uses everyday words (a flat block, a tall block, a round block, a can, a box) and names "
+    "no solid, so the exploration tool names no concept; qutub_q1 and qutub_q2 say that the real tower slopes smoothly and "
+    "the stepped boxes do not, and qutub_q3 uses the 5 storeys of the book's own 'Do you know'.",
+
+    "CLASH 26, 'concept video, then its tool' and 'never two tools in a row'. "
+    "FLOW RULE SAYS: hook, exploration tool, then [concept video, matching tool]; images only for a small concept. "
+    "HOW EACH TOOL MEETS IT (row numbers of tool_map.md): Tool 1 follows the hook (row 1), the exploration tool; "
+    "Tool 2 follows the row 3 video; Tool 3 follows the row 7 image after the row 5 and row 6 videos; Tool 4 the row 9 "
+    "video; Tool 5 the row 11 video; Tool 6 the row 13 video; Tool 7 the row 15 video; Tool 8 the row 17 video; Tool 9 "
+    "the row 19 video; Tool 10 the row 21 image (the pentagon has an image and no video); Tool 11 the row 23 video; Tool "
+    "12 the row 25 video. No two tools touch: Tools 7 and 8, 9 and 10, 11 and 12 are separated by a video or an image, "
+    "and every topic opens with a video or the hook. Tools 3 and 10 follow an IMAGE, not a video, and that is the "
+    "only place the rule is bent; the gate allows it (the previous concept is story or image and applies_to names it). "
+    "A main-flow image whose concept has a tool must bring a new real-life context (new_context true) or be pinned "
+    "(flow_c34 _check_images), so rows 7 and 21 must each show a real-life example the tool does not. "
+    "OPTIONS: (a) accept; (b) a short video for the pentagon (adds a row to the approved table). "
+    "RECOMMENDATION: (a).",
+
+    "CLASH 27, the book's printed order against the tool order. "
+    "BOOK SAYS (concepts by page): C1 p1-2, C2 p3, C3 p4, C4 p5, C5 p5-7, C6 p7, C7-C8 p8, C9 p9, C10-C12 p10-13, C13 "
+    "p14, C14 p15, C15 and C16 p16 (pentagon first), C17-C18 p17-19, C19-C20 p19-20, C21-C22 p21-22, C23 p22, C24 "
+    "p22-23. The tool order follows the user's lessons and agrees in broad sweep (buildings, solids, nets, parts, "
+    "cubes, angles, circle and pentagon, rigidity) but disagrees in five places: (1) nets (Tool 4, C9) come before "
+    "faces, edges and corners (Tool 5, C3), and the analysis says C9 needs C3; (2) the sorting questions of C5 "
+    "(border1 to border4 in Tool 2; sort1, sort3, sort3_q, sort4 in Tool 3) come before the lesson that counts faces "
+    "(Tool 5), while the book sorts after counting (sort2 was moved to Tool 5 for that reason); (3) the pentagon "
+    "(Tool 10, C15) and the dot-grid shapes with a rectangle against slanted four-sided shapes (Tool 8, C14) come "
+    "before the push tests (Tool 11, C13), CLASH 14; (4) on p16 the book makes the pentagon first and the circle "
+    "second, the plan the circle (Tool 9) first and the pentagon (Tool 10) second; (5) the puzzles of p19 to p22 (hidden "
+    "shapes, cards, cuts, model challenge) are spread over Tools 1, 2 and 5, far earlier than the book. Inside a tool "
+    "the items keep the book's order. "
+    "OPTIONS: (a) accept the lesson order and make each item answerable with words the child already has (the border "
+    "pictures are everyday objects; net questions need only pictures of faces); (b) reorder tools (not allowed here). "
+    "RECOMMENDATION: (a).",
+
+    "CLASH 28, printed-book errors that touch the tools (analysis.md section 6; the book prints no solutions, so "
+    "SOLUTION_NOTES, filled at step 5, holds the plan's own answers and how each was checked). "
+    "Tool 1: E31 (hidden shapes are all one red and include a cylinder), E17. Tool 2: E7 (border sketches unnumbered), "
+    "E17 (cut lines not unique), E18 (the cards are on the end pages and the three groups are not said). Tool 3: E3 "
+    "(the set to sort is not stated), E4 (p7 names a 'rectangular pyramid', never drawn or named). Tool 4: E1 (nets A "
+    "and C do not fold; never reuse A or C as a net that folds; net A is six rectangles that do NOT make a cuboid), E24 "
+    "(Square Prism has no net on the end pages). Tool 5: E2 (3 flat faces, flat only?), E3, E5 (f fits a cube and a "
+    "cuboid; seven pictures, six descriptions), E6 (opposite of 2, 3, 4 depends on the die), E7 (border5), E21 "
+    "(CLASH 19). Tool 6: E26 (tower 2 colours inconsistent), E27 (hidden cubes). Tool 7: E8 (boat 10), E9 (dot grid "
+    "measured), E10 (angles of V, A, Z), E23 (try8 counts 4, 0, 1, 0, 0, 4). Tool 8: E10 (stick figures), E12 (the "
+    "4-sided shapes are not named), E22 (try9 has several fits; shape 1 is a dart), E28 (obtuse has no upper limit). "
+    "Tool 9: E14 (centre and center; item 5 answered on p18), E15 ('ask your teacher' for the compass), E16 (wheels not "
+    "measured). Tool 10: E13 (no question mark), E30 (drawn regular-looking). Tool 11: E11 (no answers), E29 (rigid is a "
+    "teacher's word). Tool 12: E19 (walks), E20 (matchsticks). E25 only concerns the text layer. "
+    "OPTIONS: (a) handle each as the locked map says: the figure decides, the plan labels its answer; (b) ask the "
+    "content team about each. RECOMMENDATION: (a), with CLASH 12 for the answers."
+    " QUESTION MAPPER: every E that touches a question is in SOLUTION_NOTES with how its answer was checked, and "
+    "SOLUTION_NOTES is no longer empty. The answers that give no total on purpose: ch1.letters (the angles of A), "
+    "ch1.ao_do2 (the stick figures), ch1.border1 to ch1.border5 ('for example'), ch1.cards, ch1.puzzle4, ch1.try9 (several "
+    "shapes fit each clue and shape 1 fits none, E22) and ch1.straw_tri_angles (it reads the tool's triangle, which the "
+    "brief writer draws with three angles narrower than a right angle). ch1.dotshapes_q c) says 'none', because a 3- or "
+    "4-sided shape with 3 right angles has 4.",
+
+    "CLASH 29, errors in the plan that the proposal corrected (analysis.md 8C; for the user to confirm). "
+    "(1) Triangular pyramid '4 vertices meeting at the top apex': it has 4 corners in all and the 3 side faces meet at "
+    "one of them, the apex. (2) 'Six connected squares = cube', 'six rectangles = cuboid' (the book's own net A is six "
+    "rectangles and does not fold) and 'a square and four triangles = square pyramid' (true only when the triangles "
+    "join the four sides): never said as bare sentences, only valid nets as figures. (3) 'Face is a flat surface': a "
+    "face can be flat or curved (the cone and cylinder). (4) Spin the Shape 'how many faces can you see now': only 1, 2 "
+    "or 3 for a solid cube or cuboid, never 4 or more. (5) The 'regular' pentagon: equal sides do not give equal "
+    "angles, as the push test shows. (6) 'A triangle's shape does not easily change if its sides stay fixed': it cannot "
+    "change at all. (7) Guess the Shape: clues 1 and 2 also fit a diamond; clue 3 decides. (8) Lesson 1 mixed flat and "
+    "solid words ('looks like a triangle', 'pyramid-like'): a flat shape and a solid are named separately. (9) Obtuse "
+    "'smaller than 180': 'more than a right angle', no number (the book gives no upper limit, E28; the dart of p23 shape "
+    "1 is the one larger angle, E22). All the plan's counts are true (triangular prism 5, 9, 6; hexagonal prism 8, 18, "
+    "12; triangular pyramid 4, 6, 4; square pyramid 5, 8, 5; cube and cuboid 6, 12, 8; F+V−E = 2). "
+    "OPTIONS: (a) the corrections as listed; (b) keep the plan's wording. RECOMMENDATION: (a).",
+
+    "CLASH 30, the six Teacher's Notes against 'no teaching role for a classroom teacher'. "
+    "USER'S STANDING RULE (also in the Class 5 plans): videos explain, tools let the child explore, apply and get "
+    "feedback, and no classroom teacher is given a teaching role. BOOK SAYS: six notes to the teacher: note_boxes (p2, "
+    "'ask learners to collect boxes, bottles, cans'), note_venn (p7, 'discuss adjacent and opposite faces, shapes in two "
+    "sets, make Venn diagrams'), note_rigid (p14, 'help children to understand rigidity; the triangle is the most rigid "
+    "shape'), note_square (p15, 'discuss a square and a rectangle; a square is a special case of a rectangle; provide more "
+    "dot grids'), note_measure (p17, 'measure with a paper strip, thread or scale'), note_compass (p18, 'help children to "
+    "draw circles with a compass'); and p18 says 'ask your teacher to help you use a compass' (E15). "
+    "OPTIONS: (a) keep each as a coverage id only; a note that holds a fact (the triangle does not change when pushed, "
+    "a square is a special rectangle, adjacent and opposite faces) becomes a line of a story or of a tool's feedback; "
+    "each instruction to the teacher is dropped; (b) rewrite the notes as instructions to the child. "
+    "RECOMMENDATION: (a)."
+    " QUESTION MAPPER: the compass sentence of ch1.compass ('Ask your teacher to help you use a compass.') is DROPPED, as "
+    "option (a) recommends, and the teacher line 'Encourage learners to' of ch1.project1 is dropped with it (CLASH 50, "
+    "which needs the user's yes). The six notes stay coverage ids only (note_boxes and note_measure and note_compass on "
+    "Tool 1 and Tool 9, note_venn on Tool 3, note_square on Tool 8, note_rigid on the row 23 story); none is a task for a "
+    "teacher and none is a FIO. The facts a note holds (a square is a special rectangle, adjacent and opposite faces, the "
+    "triangle does not change when pushed) are for the brief writer to place as a line of a story or of a tool's feedback; "
+    "the answers of Tools 2, 3 and 5 already treat a square face as a rectangular face (CLASH 51).",
+
+    "CLASH 31, the third-party images in the plan. "
+    "PLAN SAYS: about 20 image links under the activities (a Teachers Pay Teachers 'Shape City', blog and shop pictures, "
+    "BBC Bitesize, Cuemath, GeoGebra, PaintingValley, Workybooks, RevisionDojo, the Exploratorium). BOOK SAYS: nothing; "
+    "none was opened or copied. "
+    "OPTIONS: (a) references only, every picture new and drawn from the book's own buildings and objects (VISUAL_KEY); "
+    "(b) reuse the third-party pictures (licence unknown). RECOMMENDATION: (a).",
+
+    "CLASH 32, the new real-life images. "
+    "TABLE SAYS: two main images (row 7, a prism and a pyramid side by side with their face shapes marked; row 21, a "
+    "five-sided shape with all sides equal) and the Tool 1 pictures (India Gate, the Qutub Minar, a street). BOOK SAYS: "
+    "only India Gate and the Qutub Minar are drawn (and a model street). USER'S PRINCIPLES: accurate real-life examples "
+    "are welcome when they represent the concept correctly; solids are shaded 3D solids; never misrepresent an object "
+    "or its geometry. RISKS: row 7 must show a real prism and a real pyramid (a triangular tent or a chocolate box; a "
+    "pyramid roof) with matching face marks; row 21 must not claim 'regular', because equal sides do not give equal "
+    "angles; India Gate is an arch (cuboids and half-round blocks) and the Qutub Minar tapers, so no block of the "
+    "book's set fits exactly and the book's own stack of three smaller boxes is the model (qutub_q2 is a 'Sample "
+    "answer'). "
+    "OPTIONS: (a) illustrations in the book's style that draw each real object truly; (b) photographs (licence needed). "
+    "RECOMMENDATION: (a).",
+
+    "CLASH 33, the brief's puzzle videos and the revision with concept checks have no separate slot. "
+    "PLAN SAYS: Lesson 9 is revision slides, a shape-identification visual quiz, a digital worksheet and a short "
+    "assessment. lp_brief.md as I have it contains no 'puzzle video' and no 'concept check' under those names. "
+    "TABLE SAYS: 11 concept videos, 2 images, 2 review rows and no row for puzzles, concept checks or a worksheet. "
+    "BOOK SAYS: the puzzles (C19 hidden shapes and cuts, C21 webs, C22 matchsticks, C23 model challenge) ride inside "
+    "Tools 1, 2, 5 and 12 as stages with no video of their own; the review may hold no book item or new tool. "
+    "OPTIONS: (a) accept: the puzzles stay stages, the visual quiz is the unscored picture recap in the review rows; "
+    "(b) add a puzzle video (a new row, not in the approved table); (c) a worksheet outside the plan. "
+    "RECOMMENDATION: (a). If the user means other videos, the user names them.",
+
+    "CLASH 34, one colour and one drawing for each solid. "
+    "FLOW RULE SAYS: the same shapes and colours look the same all through the chapter. BOOK SAYS: it is not "
+    "consistent (prisms blue and pyramids pink on p3, but a cube is teal in one line and green in the next on p8; "
+    "towers and models use other colours). USER'S PRINCIPLES: solids are shaded 3D solids, a sphere always a shaded "
+    "ball. VISUAL_KEY lists the book's colours as printed (analysis.md open question 17). "
+    "OPTIONS: (a) one colour per kind of solid across Tools 3, 4, 5 and 6 (prisms blue, pyramids pink as on p3, the "
+    "other solids as on p8), every solid shaded 3D with dashed hidden edges, flat shapes in flat colours; (b) the "
+    "book's colours wherever the book prints them. RECOMMENDATION: (a); the brief writer fixes the colour list.",
+
+    "CLASH 35, material at the end of the book. "
+    "BOOK SAYS: craft2 ('use the nets given at the end of the book') and cards ('2D-shape cards given at the end of "
+    "the book') send the child to pages outside the 23 chapter pages (the nets of six solids; an orange square, green "
+    "oval, dark-brown quarter circle, light-green semicircle, cyan triangle and pink circle). The analyst does not list "
+    "them as items of their own. craft2 sits on Tool 4 and cards on Tool 2. "
+    "OPTIONS: (a) use them: the end pages belong to this chapter and say 'use the shapes given below in Chapter 1'; "
+    "(b) redraw the nets and cards from the book's descriptions. RECOMMENDATION: (a), drawn fresh from those pages."
+    " QUESTION MAPPER: ch1.craft2 and ch1.cards keep the printed 'at the end of the book'; their first step says that the "
+    "nets and the six cards are on the screen (CLASH 50).",
+
+    "CLASH 36, physical tasks on a screen. "
+    "BOOK SAYS: model1 (blocks), project1 (a model street), craft1 (paper strips), craft2 (cut and fold nets), craft3 "
+    "(straws and plasticine), build1 (cubes from a kit), right_make (fold a paper corner), amazing1 (fold and measure "
+    "with thread), compass, the straw shapes and their notebook tracing, the matchsticks. All are hands-on. "
+    "OPTIONS: (a) a virtual version of the same task on the tool (build, fold, drag, push), with one line that the child "
+    "can also try it with real straws or paper, never as a teacher's job; (b) drop them (leaves book items uncovered). "
+    "RECOMMENDATION: (a). Measuring with thread becomes an overlay on screen, with no centimetres."
+    " QUESTION MAPPER: each hands-on question keeps its printed wording and gets steps for the screen version (build on "
+    "screen, fold on screen, measure with the thread overlay, push the frame). The answers describe the result the screen "
+    "shows and no measured number; open ones end 'Your answer may differ'. No answer uses cm.",
+
+    "CLASH 37, the unnamed children in the book's pictures. "
+    "BOOK SAYS: a boy with a stepped Qutub Minar model (p2), a girl making a straw triangle (p14) and a girl with a red "
+    "bow (p19) have no names. The boy's clothes (dark hair, light blue top) look like Nitesh's, but the book names "
+    "Nitesh only on p9. "
+    "OPTIONS: (a) 'a child' in the briefs; (b) let Diksha, Isha or Nitesh stand in. RECOMMENDATION: (a).",
+
+    "CLASH 38, the kinds of three items decide the counts. "
+    "BOOK SAYS: house_ex is the only solved example; dotshapes_q is headed 'Discuss:' but asks the child to count "
+    "shapes; five items are talk (model_talk, prism_pyr_talk, solids_q2, amazing_t3, amazing_t5). The question counts "
+    "(109, Tool 8 = 10) follow that reading (analysis.md section 5 notes). "
+    "OPTIONS: (a) keep it (dotshapes_q is a question on Tool 8); (b) make dotshapes_q a talk item (Tool 8 = 9, total "
+    "108). RECOMMENDATION: (a)."
+    " QUESTION MAPPER: confirmed. ch1.dotshapes_q is a prompt on Tool 8 (10 questions); with option (b) Tool 8 would hold 9 "
+    "and the total 108. Its answer is a Sample answer.",
+
+    # --- written by the journey designer (step 3). ---
+    "CLASH 39, Topic 3 puts three media before one tool (found while placing rows 5 to 8). "
+    "NOTE: in Topic 3 (Prisms and Pyramids) the prism video (row 5) is followed by the pyramid video (row 6), the pyramid "
+    "video by the comparison image (row 7), and only then comes Tool 3 (row 8, applies_to the image). So the prism video "
+    "does not lead straight into a tool, and three media explain one tool. The gate allows it (a story concept holds one "
+    "video and no tool; a tool may follow an image), so no gate message appears, but checklist item 3 (every concept video "
+    "leads into its matching tool) and item 7 (no repeated explanation across video, image and tool) are judged by the "
+    "checklist validator and by you. CLASH 26 covers only the image before a tool. "
+    "PLAN SAYS: Lesson 2 has a prisms slide set, a pyramids slide set and a comparison image ('I will explain the difference "
+    "between these two concepts'), then Activities 1 to 3 as one tool (table rows 5 to 8). "
+    "BOOK SAYS: page 3 shows the prisms and the pyramids on one spread, asks about each, then 'What is the difference "
+    "between a prism and a pyramid? Discuss.'; no part of it is a tool. "
+    "OPTIONS: (a) keep rows 5 to 8 as the table has them: two stories, one comparison image (new_context true, a real tent "
+    "and a real pyramid roof, not the solids Tool 3 draws), then Tool 3; the row 6 story opens by recalling the row 5 blocks "
+    "so the two stories read as one sorting scene; (b) join rows 5 and 6 into one video with two ideas (breaks one "
+    "new_idea per video); (c) drop the comparison image (row 7) so Tool 3 follows the pyramid video (removes a row of the "
+    "approved table; the face shapes would be marked inside the stories). "
+    "RECOMMENDATION: (a); choose (c) only if three media before one tool feels long.",
+
+    # --- written by the media minimiser (step 4). No medium was added, dropped or moved: 1 hook + 11 concept videos, 2 image
+    # concepts, 0 pinned images, 12 tools. Each clash below is a place where one medium overlaps another or gives away a
+    # tool's finding; the recommendation is already applied as a PROVISIONAL choice in topics_1.py and media_decisions.md. ---
+    "CLASH 40, the row 3 video and Tool 2 play the same game (three clues). "
+    "NOTE SAYS (table rows 3 and 4): the row 3 story is a hidden block with three clues, the first two fitting two shapes and "
+    "the third deciding; Tool 2's first stage is 'the child guesses a shape from three clues' (the plan's example is a square: "
+    "four equal sides, four corners, a chessboard). BOOK SAYS: no such game; the nearest are the clue riddles of p8 Q1 (Tool 5) "
+    "and p23 Q9 (Tool 8). RISK: the video plays round one of the tool, so the child meets the same activity twice. "
+    "THE PLAN (media step): the video's hidden block is one block of Diksha's wooden set that is none of Tool 2's own rounds, "
+    "and it stops once the third clue names the block: it sorts no object, cuts no shape and does not use the plan's square; "
+    "Tool 2's rounds are written after the video and use other shapes. "
+    "OPTIONS: (a) different shapes in the video and in the tool; (b) the video stops before the third clue and the child gives "
+    "it in Tool 2 (then the video is only a question). RECOMMENDATION: (a).",
+
+    "CLASH 41, face, corner and edge are used before row 11 teaches them. "
+    "NOTE SAYS: Tool 2's approved purpose says 'sides, corners and faces' (Topic 2); the row 3 story carries one line 'a solid "
+    "has faces' (CLASH 10); rows 5 to 7 say 'end faces', 'bottom face (base)' and 'triangular faces' and name a hexagonal and a "
+    "pentagonal solid; row 11 then teaches 'a solid has faces, edges and corners'. BOOK SAYS: p5 already asks for 'a "
+    "rectangular face', 'a triangular face', 'a curved face' and 'no corner'; p3 names the pentagonal pyramid and the hexagonal "
+    "prism; no word is ever defined. RISK: row 11 repeats what rows 3 to 7 already said. "
+    "THE PLAN (media step): in rows 3, 5, 6 and 7 the words are everyday words (a flat or curved side, a corner, an end face), "
+    "never defined and never counted; row 11 is the only video that defines face, edge and corner, and it points to all three "
+    "on ONE block and counts nothing; 'pentagonal' and 'hexagonal' are names only (the pentagon is counted in row 21). "
+    "OPTIONS: (a) as planned; (b) move the first formal use to row 3 (breaks the table's order). RECOMMENDATION: (a).",
+
+    "CLASH 42, Topic 3: three media explain the prism and pyramid contrast (a closer look at CLASH 39). "
+    "NOTE SAYS (rows 5 to 8): two stories, one comparison image, then Tool 3. FINDING: the three media overlap in subject, and "
+    "they answer first the blanks that Tool 3 then asks (prism_q1 to prism_q3: the common face, the other shapes, how many; "
+    "pyr_q1 to pyr_q3; cube_prism); the image holds the book's own talk prompt prism_pyr_talk. That is the pipeline's order "
+    "(concept media first, then the tool applies), but it is the longest run before any tool in the chapter (about 22 minutes "
+    "with the tool). DIVISION OF LABOUR (decided so no explanation is given twice): row 5 teaches the prism alone (no pyramid, no "
+    "cube, no count of faces, no answer to 'is a cube also a prism?'); row 6 teaches the pyramid alone (no prism beside it; it "
+    "may open by recalling the blocks Diksha sorted); the row 7 image is the only place the two stand side by side, on real tents "
+    "(CLASH 43), with the book's question 'what is the difference?' as its prompt and no answer on the picture; Tool 3 names, "
+    "builds and sorts. Recommended length: 60 to 90 seconds for each of the two videos (the ceiling is 150). "
+    "OPTIONS: (a) as the table has it, with this division of labour; (b) pin the image beside the pyramid concept so the flow is "
+    "video, video, tool (row 7 and the key T3.C3 leave the main sequence: a change to the table, for the user); (c) join rows 5 "
+    "and 6 (CLASH 39 b); (d) drop the image (CLASH 39 c). RECOMMENDATION: (a).",
+
+    "CLASH 43, the real objects of the two images, and whether a video would teach Tools 3 and 10 better. "
+    "NOTE SAYS (CLASH 32 and 39, topics note): row 7 'a real tent and a pyramid roof side by side'; row 21 'a pentagon tile or a "
+    "football patch'; both must bring a real-life example the tool does not show (new_context true). FINDING: (1) the pyramid "
+    "roof is already the example of the row 6 video (Diksha's roofs of triangle cards), so the image would repeat it. THE PLAN: "
+    "the image is TWO TENTS: a camping tent (two matching triangle ends, three rectangle faces) and a tent with a square floor "
+    "and four triangles meeting at one point. Both have triangle faces, so the pair shows that a triangle face alone does not make "
+    "a pyramid (M_SH_2). Both are one plain tent colour, not the prism blue and pyramid pink, so colour gives no clue before "
+    "Tool 3's sort (CLASH 47); they are clean illustrations with the face shapes marked by light outlines, no counts, no names "
+    "'triangular prism' or 'square pyramid' (Tool 3's match stage) and no drawn solid of Tool 3. The title is 'Two Tents'. "
+    "(2) Row 21: a FOOTBALL with black five-sided patches, one patch facing the child so its five sides and five corners can be "
+    "counted; the title is 'A Football Patch' (the old title 'Five Equal Sides' gave the count away); it shows no number, never "
+    "the word 'regular', no equal-angle mark, no straw or clay shape and no push. The patch has equal sides, as the book says, and "
+    "its angles look equal too; the image says nothing about angles, and Tool 10's push shows that equal sides do not fix the "
+    "angles (M_AN_8). A real pentagon is what Tool 10 does not show (it draws straws and flat shapes). "
+    "TOOLS AFTER AN IMAGE, would a short video teach better? Tool 3: no, it already follows two videos (CLASH 42). Tool 10: no; "
+    "the pentagon's fact is a name and two counts (a small concept, so an image); a story would either show the push (Tool 10's "
+    "finding) or count aloud (the image's job), and motion belongs to the push, which is the tool. Recorded only; nothing changed. "
+    "OPTIONS: (a) tents and a football patch; (b) a pyramid roof and a pentagon floor tile; (c) photographs (licence needed, "
+    "CLASH 32 b). RECOMMENDATION: (a).",
+
+    "CLASH 44, rows 15 and 19 carry two ideas each, and the tool then repeats part of them (CLASH 20). "
+    "NOTE SAYS: row 15 teaches 'two lines that meet at a point make an angle' and 'the corner of a paper fold is a right angle' "
+    "in one video; row 19 the centre, the radius and the diameter. BOOK SAYS: p10 the angle, p11 the right angle (its own "
+    "task, the paper checker), p16 centre and radius, p17 the diameter by folding, p18 the double. RISK: 'two concepts never share "
+    "a video', and Tool 7 (right_make: fold a paper corner; right_objects) and Tool 9 (make_circle, amazing1) then do what the "
+    "video showed. THE PLAN: the two new_idea lines are NOT changed (the table's pairs); only the edges are fixed. Row 15: the "
+    "angle first (two straws opened), then ONE right angle (a paper fold that fits one of Isha's angles); the fold is shown once "
+    "and checks only the straw angle, never a book, a window, a dot grid or a yoga figure (Tool 7's questions), and acute and "
+    "obtuse are not named. Row 19: the three names on ONE circle on the ground (the peg is the centre, the string the radius, "
+    "one line through the peg the diameter); no second diameter, no fold, no 'all equal', no 'double' (Tool 9's finding), no "
+    "unequal string, no straws, no compass, no wheels or carpet. "
+    "OPTIONS: (a) as the table, with these edges; (b) split each into two videos (adds rows: not allowed here); (c) cut the "
+    "second idea of each (the right angle to Tool 7's feedback, the diameter to Tool 9's), so the tool teaches it. "
+    "RECOMMENDATION: (a).",
+
+    "CLASH 45, row 15, Tool 7 and row 17 stage one situation (straws and a paper corner) three times. "
+    "NOTE SAYS (rows 15 to 18): row 15 Isha's straws and Nitesh's paper corner; Tool 7 an arm moved against a right-angle corner "
+    "(smaller, equal, bigger); row 17 'Nitesh and Isha test straw corners against the paper corner, some narrower and some "
+    "wider'; Tool 8 sorts. So the same test appears in a video, a tool, a second video and a second tool. WHAT ROW 17 ADDS: only "
+    "the two names, acute and obtuse (CLASH 2: Tool 7 says 'smaller than, equal to, bigger than'). RISK: row 17 is thin and "
+    "re-runs Tool 7. THE PLAN: row 17 shows TWO corners only, one narrower and one wider, in one quick check, and its story is the "
+    "giving of the two names by the book's rule ('acute is less than a right angle, obtuse is more'); it never re-runs 'make an "
+    "angle', sorts no set (Tool 8's six angles), shows no V, A or Z and no stick figure, no classroom object (acute_obj and "
+    "obtuse_obj ask for those), no corner bigger than a straight line (E28) and no degrees. Row 15 and Tool 7 never use the two "
+    "names. OPTIONS: (a) as the table, with these edges; (b) make row 17 an image concept (the rule as a picture, no story), which "
+    "drops a video of the table; (c) pin a 'three angles' reference beside Tool 8 (placement pinned), the cheapest addition if the "
+    "user wants one to keep on screen. RECOMMENDATION: (a).",
+
+    "CLASH 46, rows 23 and 25 would hand over the findings of Tools 11 and 12. "
+    "NOTE SAYS (rows 23 to 26): row 23 'Isha and Nitesh push a corner of a straw triangle and of a straw rectangle; the rectangle "
+    "slants and the triangle stays', idea 'a triangle is a rigid shape'; Tool 11 'the child pushes a corner of a triangle frame "
+    "and of a rectangle frame and sees that the triangle keeps its shape while the rectangle's angles change'. Row 25 'Squiggly's "
+    "triangle web holds firm while Wiggly's rectangle web wobbles, until a thread is added from corner to corner'; Tool 12 'adds a "
+    "stick across the corners to make triangles' and compares before and after. BOOK SAYS: p14 asks 'does the shape of the "
+    "triangle change if we gently push one of its sides? Yes/No' and prints no answer (E11); 'rigid' is only in a teacher's note "
+    "(E29). FINDING: as the table words them, both videos show the very result the tool lets the child find, so the tool would "
+    "only repeat. THE PLAN (the discovery rule: a video names the idea and may pose the test, the tool shows the result): row 23 "
+    "stops BEFORE the push: the two children hold a straw triangle and a straw rectangle, recall the pentagon of Tool 10 that "
+    "changed when pushed (CLASH 14), say what 'rigid' means and ask which shape will stay; its new_idea is now 'A rigid shape "
+    "keeps its shape when it is pushed', and the finding 'a triangle is rigid, a rectangle is not' is Tool 11's. The fact of "
+    "note_rigid (CLASH 30) therefore becomes a line of Tool 11's feedback after the push, not of the row 23 story. Row 25 stops "
+    "BEFORE the thread: the triangle web holds, the rectangle web wobbles (a recall of Tool 11 in a new setting) and Squiggly says "
+    "a thread from corner to corner would make triangles; the video does not show the thread added or the web firm (Tool 12's "
+    "first stage does), no count of triangles or rectangles, no walk and no matchstick (Tool 12's webs and puzzles), and it draws "
+    "two simple webs of its own, not the book's two. "
+    "OPTIONS: (a) both stop before the result (recommended); (b) as the table (the videos show the result and the tools confirm "
+    "it); (c) row 23 stops, row 25 as the table. RECOMMENDATION: (a). It changes the story text of rows 23 and 25 and the "
+    "new_idea of row 23: the user decides. CLASH 22 (the row 25 claim) stays open.",
+
+    "CLASH 47, the one-colour-per-solid code can give the answer. "
+    "NOTE SAYS (CLASH 34, option a, applied to VISUAL_KEY as a provisional choice): prisms blue, pyramids pink, cube teal, cuboid "
+    "red, sphere coral, cone yellow, cylinder orchid, every solid shaded 3D, a net never in the colour of its solid. FINDING: (1) a "
+    "colour that always means 'prism' or 'pyramid' lets the child sort by colour in Tool 3's sorting stage and name a solid by "
+    "colour in Tool 5's riddles and Tool 4's match; (2) the teal cube and the red cuboid sit apart from the blue prisms, although "
+    "the book's own table names them 'Cube/Square Prism' and 'Cuboid/Rectangular Prism' (p4) and Tool 3 asks 'is a cube also a "
+    "prism?' (cube_prism): a teal cube beside blue prisms would answer 'no'. Real objects (wooden blocks, bricks, a die, a "
+    "football, the two tents, paper boxes) keep their own colours, so the code governs only the maths solids. "
+    "OPTIONS: (a) the code everywhere, the sorting and guessing stages included; (b) the code in the teaching pictures, and one "
+    "neutral tint for every solid in the stages where colour could answer (Tool 3's sort and cube question, Tool 4's match, Tool "
+    "5's riddles); (c) no code. RECOMMENDATION: (b); the brief writer fixes the stages. Until the user answers, VISUAL_KEY keeps "
+    "(a) and the cube is never shown beside the prisms as a different family.",
+
+    "CLASH 48, the thin concept videos (rows 3, 9 and 17). "
+    "NOTE SAYS: the table fixes 11 concept videos. FINDING: three are thin. Row 3's idea is the tool's own game (CLASH 40). Row 9's "
+    "idea is one sentence ('a net is a solid opened out flat; folding brings it back'), but its content is motion (the box opened, "
+    "laid flat and folded back), which a still picture cannot show, so a video earns its place. Row 17's idea is two names for "
+    "what Tool 7 just did (CLASH 45). The other eight each carry a big idea or a known misconception (rows 5 and 6: M_SH_1, "
+    "M_SH_2, M_SH_8; row 11: M_SH_3, 4, 5, 9; row 13: M_SH_6; row 15: M_AN_1 to 3; row 19: M_CI_1 to 4; rows 23 and 25: M_AN_5, "
+    "M_AN_6, M_AN_9). THE PLAN: all eleven are kept as the table has them. "
+    "OPTIONS: (a) keep all; (b) rows 9 and 17 become image concepts (the book's own picture of the opened box; the rule of "
+    "acute and obtuse as a picture), which drops two videos of the table; (c) row 3 pinned as a hint beside Tool 2. "
+    "RECOMMENDATION: (a).",
+
+    "CLASH 49, the review has no medium of its own and reuses earlier pictures only. "
+    "NOTE SAYS (rows 27 and 28): 'reuses earlier visuals; no new tool and no book question'; GATE: the review may not hold a new "
+    "video or tool. THE PLAN (media step): no video, no image node and no tool in the review. A recap or picture-quiz may show "
+    "an earlier picture only as the same VISUAL_KEY drawing, never as a new one: row 27 from prisms, pyramids, prism_tent, "
+    "pyramid_tent, box_net, nets_and_solids, cube_models; row 28 from straws_angle, right_angle_checker, angle_figures_grid, "
+    "circle_paper, football_patch, rigid_shapes. It never shows a figure of a book question together with its answer (the review "
+    "carries no book item), so the two cube towers, the wheels, the carpet and the nets of Q3 and Q4 are not reused. "
+    "OPTIONS: (a) as above; (b) a new picture per recap line (new media: not allowed here). RECOMMENDATION: (a).",
+
+    # --- written by the question mapper (step 5). No question was moved, added or excluded; every clash below is a question for the user. ---
+    "CLASH 50, the printed wording of six questions is edited on the screen (question mapper, step 5). NOTE SAYS: questions "
+    "are the book's and the wording is copied exactly. BOOK SAYS: (1) ch1.compass: 'A circle can be made easily using a "
+    "compass. Ask your teacher to help you use a compass.' gives a teacher a role (E15, CLASH 30). (2) ch1.project1: "
+    "'Encourage learners to observe a street carefully ...' is a line to the teacher inside the question. (3) ch1.fve "
+    "prints 'F+V' and 'E' joined by an en dash. (4) ch1.pentagon_q2 has no question mark after 'one of its sides' (E13). "
+    "(5) ch1.amazing_q4 spells 'center' where the chapter writes 'centre' (E14). (6) ch1.sort4 says 'circles like those on "
+    "the previous page', which points to a page. DONE, as CLASH 30 option (a) recommends for the compass sentence: (1) the "
+    "compass question reads 'A circle can be made easily using a compass. Make the following design.'; (2) project1 reads "
+    "'Observe a street carefully and make a model showing the main buildings on the street.'; (3) the screen writes F+V−E "
+    "with the minus sign; (4) the question mark is put in; (5) 'centre'; (6) 'circles like the ones you just used'. Dotted "
+    "blanks are drawn as short lines. NOT CHANGED: pointers that a screen cannot follow but a child understands stay as "
+    "printed: 'at the end of the book' (craft2, cards: the first step says that the nets and the cards are on the screen, "
+    "CLASH 35), 'given below', 'in your notebook' (straw_tri_trace), 'thread' and 'plasticine' (craft3, amazing1; CLASH "
+    "36), 'the Jaadui Pitara Kit' (build1) and 'Discuss:' (dotshapes_q). OPTIONS: (a) the six edits above; (b) copy every "
+    "printed word, teacher sentences included (against CLASH 30); (c) also reword the pointers. RECOMMENDATION: (a). The "
+    "user's yes is needed because each edit changes a printed question.",
+
+    "CLASH 51, a square face counts as a rectangular face in the answers of Tools 2, 3 and 5. NOTE SAYS: ch1.border1 (Tool "
+    "2: shapes with a rectangular face), ch1.sort3 and ch1.sort3_q (Tool 3: rectangular and triangular faces, 'rectangular "
+    "pyramid'), ch1.border5 (Tool 5) and ch1.bricks_q (Tool 2) are answered with the dice, the Rubik's cube and the square "
+    "pyramid, whose faces are squares. BOOK SAYS: the p15 note for teachers (note_square, carried on Tool 8) says that a "
+    "square is a special case of a rectangle, but that note comes AFTER Tools 2, 3 and 5; M_AN_6 lists 'a square is not a "
+    "rectangle' as a wrong idea; E4: a 'rectangular pyramid' is never drawn, so sort3_q is read with the square pyramid. "
+    "THE PLAN (question mapper): sort3 carries one step line 'A square face counts as a rectangular face', and the answers "
+    "put the square pyramid in the overlap with the triangular prism. OPTIONS: (a) keep it, say it once in that step and "
+    "teach the fact in Tool 8's feedback (note_square); (b) leave the dice, the Rubik's cube and the square pyramid out of "
+    "the answers (the child may circle them and be told 'not listed'); (c) bring the square-is-a-rectangle line into an "
+    "earlier story (changes a video). RECOMMENDATION: (a).",
+
+    "CLASH 52, the solids to sort are not stated by the book, and Tools 3 and 5 sort different sets (E3). NOTE SAYS: Tool "
+    "3's Match stage uses 'the book's six solids plus the cube' (tool_proposal.md) and its sorts use the sphere, the cone "
+    "and the cylinder (CLASH 15); Tool 5's sorts need the hexagonal prism (8 flat faces), the pentagonal pyramid (10 "
+    "straight edges), the cuboid and the cone. BOOK SAYS: the p4 columns (1, 2, 4, 5, 6 and 8 flat faces; 6, 8, 9 and 12 "
+    "straight edges) and the p6 and p7 sorts give no list of shapes. The sample answers of ch1.sort1, sort3, sort3_q, sort4 "
+    "(Tool 3) and ch1.sort_faces, sort_edges, sort2 (Tool 5) assume ONE set of ten solids: sphere, cone, cylinder, cube, "
+    "cuboid (the square prism of p3, drawn long), triangular prism, hexagonal prism, triangular pyramid, square pyramid and "
+    "pentagonal pyramid; each says 'for example' and 'Your answer may differ'. OPTIONS: (a) one set of these ten for every "
+    "sorting stage and for Tool 3's Match stage (the brief writer fixes the drawings and the colours, CLASH 34 and 47); (b) "
+    "Tool 3 sorts only the solids it names and Tool 5 all ten; (c) leave the set to the brief writer. RECOMMENDATION: (a).",
+    "CLASH 53, record of approval: on 6 Nov 2026 the user replied 'continue' to the structure report and its request "
+    "'approve both as recommended'; this is read as approval of the structure with every recommendation of CLASH 1 to 52 "
+    "as written. This includes: the tool table derived from the user's 9-lesson plan (12 tools, now approved); the cap of 13 "
+    "questions per tool for this chapter; Lesson 1 as two topics; one cross net and a 2 by 2 by 2 cube drawn as figures; "
+    "the words of CLASH 9; the rigid videos of rows 23 and 25 stopping before the push and before the thread (CLASH 46); "
+    "a neutral tint instead of the solids' colour code in the sorting, matching and riddle stages (CLASH 47, so the colour "
+    "never answers 'is a cube a prism'); the six question wordings of CLASH 50; one set of ten solids for every sorting "
+    "stage (CLASH 52); the 'every wall once' reading of Wiggly's walk. The sign-off of the plan-made answers is still "
+    "open, so every answer stays labelled 'From the picture' or 'Sample answer'. No upload was asked for. Nothing else changed.",
+
+    # --- written on 12 Nov 2026 for the content team's validator report (lp_changes_11nov.md). CLASH 54 to 58 record the user's answers
+    # (DECIDED BY THE USER); CLASH 59 is the amendment's own judgement calls, for the user to confirm. The user's yes of 6 Nov 2026
+    # (CLASH 53) is VOID for the structure: the new structure must be approved again. ---
+    "CLASH 54, the content team's validator report and the tool count: 26 tools, not 12. "
+    "PLAN SAYS (lp_brief.md): 8 lessons with 23 activities (2 in Lesson 1, then 3 in each of Lessons 2 to 8), a 9th lesson of "
+    "revision and a 10-mark sample assessment. REPORT SAYS (11 Nov 2026, lp_changes_11nov.md): 11 activities are missing as "
+    "activities (Lesson 2 Activities 1 and 2, Lesson 3 Activities 2 and 3, Lesson 4 Activities 2 and 3, Lesson 5 Activities 2 and 3, "
+    "Lesson 6 Activity 3, Lesson 7 Activity 2 'Radius or Diameter' and Lesson 8 Activity 3); Lesson 9 'Revision and Chapter "
+    "Practice' and a Sample Online Assessment are missing; the Football Patch Tool is to be removed. TABLE SAYS (until 12 Nov): 12 "
+    "tools, each carrying the lesson's activities as stages (CLASH 1 and 5). OPTIONS: (a) every missing activity becomes its own "
+    "tool: 23 tools for Lessons 1 to 8 plus three for Lesson 9 = 26; (b) keep the 12 tools and list the missing activities as "
+    "stages (the 6 Nov design; the report says the content team does not see them); (c) merge some of them into fewer tools. "
+    "RECOMMENDATION: (a). DECIDED BY THE USER (12 Nov 2026): (a). The plan had 12 tools; the user's plan has 23 activities in "
+    "Lessons 1 to 8, so each missing activity becomes its own tool. The tool table is now tool_map.md and config approved_tools "
+    "(26 tools; core/tool_map.py verify prints a match). New tools: 3, 4, 7, 8, 10, 11, 13, 14, 17, 19, 23 (Lessons 2 to 8) and 24, "
+    "25, 26 (Lesson 9). The twelve tools that stay (1, 2, 5, 6, 9, 12, 15, 16, 18, 20, 21, 22) keep their concept and their book "
+    "questions, except the eleven moves of CLASH 59. Four have a narrower approved purpose now (Tool 5 is only the Prism or Pyramid "
+    "sorting, Tool 6 only Fold It, Tool 9 only the labels of a cube, Tool 12 only the cube towers); two lost a stage to a new tool "
+    "without a change of purpose (Tool 16 to Tool 17, Tool 22 to Tool 23); Tool 20's purpose gained the sentence that the pentagon "
+    "is met inside the tool. Where a stage moved to a new tool, media_decisions.md section 10 (SPLIT NOTES) says which. OLD AND "
+    "NEW NUMBERS: CLASH 1 to 53 and SOLUTION_NOTES still use the old numbers 1 to 12. Old 1 = 1, old 2 = 2, old 3 = "
+    "5 (its Match and Build stages are now Tools 3 and 4), old 4 = 6 (Match and Find the wrong net are Tools 7 and 8), old 5 = 9 "
+    "(Count the parts and Spin the shape are Tools 10 and 11), old 6 = 12 (Look carefully and Copy the cube structure are Tools 13 "
+    "and 14), old 7 = 15, old 8 = 16 (Identify the Angle is Tool 17), old 9 = 18 (Radius or Diameter is Tool 19), old 10 = 20, old "
+    "11 = 21, old 12 = 22 (Strong or wobbly is Tool 23). Row numbers of the table changed too (42 rows now). CLASH 1 and CLASH 5 "
+    "(12 tools) are superseded; so are the parts of CLASH 24, 26 and 39 that say 'no two tools touch' (see CLASH 55).",
+
+    "CLASH 55, where the new tools sit: back to back, after the lesson's video or image. "
+    "PLAN SAYS: after a lesson's slides or video come its activities, one after another, in the plan's order. TABLE SAYS (until 12 "
+    "Nov): one tool per concept video, no two tools touching (CLASH 26). GATE: flow_c34 lets a tool follow another tool of the same "
+    "topic only when config `tools_in_a_row` is true; each such tool still names, in applies_to, the video or image concept it "
+    "follows. OPTIONS: (a) the new tools run back to back inside their lesson, after the lesson's video or image, in the plan's "
+    "order; the videos stay at about 12 (plus the Lesson 9 recap); (b) a short story video before each new tool (11 more videos: "
+    "against 'minimal media'); (c) split a lesson into several topics so that every tool opens its own unit (more topics, the same "
+    "videos repeated). RECOMMENDATION: (a). DECIDED BY THE USER (12 Nov 2026): (a), config `tools_in_a_row` is true. Consequences: "
+    "Topic 3 has six concepts (video, video, image, Tools 3, 4, 5): the most the range [1, 6] allows, so `idea_topic_concept_range` "
+    "is unchanged; Tools 3, 4 and 5 all name the Two Tents image T3.C3 in applies_to, Tools 6, 7 and 8 the net video, Tools 9, 10 "
+    "and 11 the parts video, Tools 12, 13 and 14 the cube tower video, Tool 16 and Tool 17 the acute and obtuse video (Tool 15 the "
+    "angle video), Tools 18, 19 and 20 the circle video, Tool 22 and Tool 23 the strong-frames video (Tool 21 the rigid video), and "
+    "Tools 24, 25 and 26 the Lesson 9 recap video. That is how the gate reads 'a tool applies to the concept before it'; it does not "
+    "mean that, for example, Tool 4 is about the image. The runs are long (three tools after one video in Lessons 2 to 5, 7 and 9): "
+    "CLASH 39 and 42 (Topic 3) now cover three tools too.",
+
+    "CLASH 56, clock, points, degrees and cm in the plan's new activities. "
+    "PLAN SAYS: Activity 3 'Beat the Clock' (5 seconds, a point for each right answer, a final score); 'Count and Win'; 'Radius = 3 "
+    "cm, 10 cm, 7 cm' and 'A circle has a radius of 6 cm'; angles of 30, 45, 90, 110, 120 and 150 degrees; the 10-mark, 20-minute "
+    "assessment (1 x 3, 1 x 3 and 2 x 2 marks, with degrees and cm in it). TABLE SAYS: the same adjustments as CLASH 2: no timer, no "
+    "points or score, no degrees, no cm. OPTIONS: (a) keep the earlier adjustments and use the plan's activity names; (b) keep the "
+    "plan's own clock, points and marks (against the pipeline's 'no unnecessary scoring'); (c) rename the activities too. "
+    "RECOMMENDATION: (a). DECIDED BY THE USER (12 Nov 2026): (a). Beat the Clock (Tool 17) has no clock and no points; Count and Win "
+    "(Tool 10) has no points; the Sample Online Assessment (Tool 26) is unscored, 8 questions in 3 sections, no marks shown; Radius "
+    "or Diameter (Tool 19) uses plain numbers, no units; no degrees and no cm anywhere. The names are the plan's. The book prints no "
+    "radius or diameter number, so the numbers of Tool 19 are practice numbers, and each one must be a true double.",
+
+    "CLASH 57, the football picture is removed, and Build a Pentagon introduces the pentagon itself. "
+    "PLAN SAYS: Lesson 7 Activity 3 'Build a Pentagon' (five segments, five points, regular and irregular); no football item. REPORT "
+    "SAYS: remove the Football Patch Tool. TABLE SAYS (until 12 Nov): there was no Football Patch TOOL; the only football item was "
+    "the IMAGE 'A Football Patch' (concept T8.C3 'The Pentagon', row 21), shown before Build a Pentagon, and recalled by the review "
+    "through the visual `football_patch` (CLASH 26, 32, 43 and 49). OPTIONS: (a) remove the picture, nothing in its place; Build a "
+    "Pentagon follows Radius or Diameter directly and introduces the pentagon itself; (b) another real pentagon (a floor tile) in "
+    "its place; (c) keep the football picture. RECOMMENDATION: (a). DECIDED BY THE USER (12 Nov 2026): (a). The image, the image "
+    "concept T8.C3 and the visual key `football_patch` are removed, and the review's look-back no longer recalls a football patch "
+    "(it asks about 'the shape you built from equal straws'). The pentagon concept is now the role 'tool' concept of Tool 20 "
+    "(T8.C4) and its applies_to is the circle video T8.C1, as the gate requires; its idea stays the book's, five sides and five "
+    "corners, and the child meets the pentagon for the first time inside the tool (no picture, no video before it). The book's own "
+    "football stays in the answers of ch1.border3 ('From the picture: the 3 balls, one of them a football'): that is the book's "
+    "picture, not ours. M_AN_7 and M_AN_8 stay on Tool 20. CORRECTED on 12 Nov 2026 after the validator pass: the word 'pentagon' is NOT first said in the tool. It first appears in the "
+    "name cards of Tool 3 and Tool 4 (pentagonal pyramid) and in the book's own questions of Tool 5 and Tool 7 (pyr_q3, solids_q5), "
+    "which cannot move; what Tool 20 introduces is the idea, a flat shape with five equal sides and five corners, and the review is "
+    "the only later place that says it again.",
+
+    "CLASH 58, Lesson 9 and the sample assessment. "
+    "PLAN SAYS: Lesson 9 'Revision and Chapter Practice' (revisit the concepts with slides, a shape-identification visual quiz, a "
+    "digital worksheet, a short online assessment) and a 'Sample Online Assessment, 10 Marks'. REPORT SAYS: the whole section and the "
+    "assessment are missing and must be added, 'available as an online activity'. TABLE SAYS (until 12 Nov): Lesson 9 had no tool; it "
+    "was the two look-back review concepts, with the assessment reworded as an unscored recap (CLASH 2 (4) and CLASH 11). GATE: the "
+    "last topic must be a review with 1 to 2 concepts and no video, image or tool. OPTIONS: (a) Lesson 9 is a new idea topic made of "
+    "the plan's own revision and worksheet: Topic 10 'Revision and Chapter Practice' with one recap story video, then Tool 24 Shape "
+    "Identification Quiz, Tool 25 Digital Worksheet and Tool 26 Sample Online Assessment, and the two existing review concepts stay "
+    "as Topic 11 'Looking Back' (unscored, no media, no book item); (b) the tools inside the review (the gate forbids it); (c) the "
+    "worksheet and the assessment repeat book questions. RECOMMENDATION: (a). DECIDED BY THE USER (12 Nov 2026): plan-made revision and "
+    "worksheet, no repeated book questions: (a). The recap is a story video (role 'story'): it adds no new idea, and its own "
+    "new_idea line reads 'Each shape of the chapter can be named by its parts', so the gate sees no duplicate. The quiz, the "
+    "worksheet and the assessment carry no book question (config no_book_question_tools); the assessment is unscored, 8 questions "
+    "in 3 sections. M5 holds Topic 10 and Topic 11 (there is no MLAST module any more). FLAGGED FOR THE USER: because the pipeline "
+    "wants a review last, the assessment is the last TOOL but NOT the very last topic: Topic 11 'Looking Back' follows it. If the user "
+    "wants the assessment as the very last item, the gate would have to change (a question for the user; nothing was changed). Also: "
+    "the locked purpose of Tool 26 says 'the plan's sample assessment'; it is copied word for word into the tool's configuration "
+    "(approved_purpose) and a gate compares it, so it was not changed: if the user wants it reworded, tool_map.md and the config change.",
+
+    "CLASH 59, the amendment's own judgement calls (question mapper, 12 Nov 2026): for the user to confirm. "
+    "NOTE SAYS: keep every book question where it is, except where it plainly belongs to a new activity. DONE: 11 questions moved, "
+    "each to the new tool whose activity it is. (1) ch1.solids_q3 (match four nets to four solids), from Tool 6 to Tool 7: it is "
+    "'which net makes which shape'. (2) ch1.solids_q5 (which solid has Nitesh's pieces in its net), from Tool 6 to Tool 7: the same "
+    "action, a net to its solid. (3) ch1.solids_q4 (which of the nets A to D can be folded), from Tool 6 to Tool 8: it is 'find the "
+    "net that will not fold'. (4) ch1.craft3 (count F, V and E of five solids and fill the table), from Tool 9 to Tool 10: it is "
+    "counting faces, edges and corners. (5) ch1.fve (the relation F+V-E, worked on that table), from Tool 9 to Tool 10: it must stay "
+    "with the table it uses. (6) ch1.observe1, (7) ch1.observe2 and (8) ch1.observe3 (die and coloured cube: opposite faces and faces "
+    "that touch), from Tool 9 to Tool 11, and (9) ch1.border5 ('circle the shapes that have the same opposite faces'), from Tool 9 to "
+    "Tool 11: opposite faces. (10) ch1.towers (count the cubes of two towers, hidden ones too), from Tool 12 to Tool 13. (11) "
+    "ch1.dotcubes (complete the cubes on triangular dot paper), from Tool 12 to Tool 14: copying a cube structure on dot paper. "
+    "The questions per tool are now 11, 9, 0, 0, 12, 1, 2, 1, 6, 2, 4, 1, 1, 1, 10, 10, 0, 13, 0, 8, 10, 7, 0, 0, 0, 0 (Tools 1 to 26; "
+    "109 in all, each once, none dropped, none added, none from outside the chapter). `no_book_question_tools` is now 3, 4, 17, 19, "
+    "23, 24, 25, 26 (Tools 7, 8, 10, 11, 13 and 14 each received a book question and left the list). KEPT WHERE THEY WERE, "
+    "considered and not moved: (a) ch1.circ_do1 (the diameter is double the radius, by folding the paper) stays on Tool 18, not on "
+    "Tool 19: Tool 18's purpose names that fold, the book prints no radius or diameter number, and Tool 19 works with plain numbers "
+    "that are not a book question; (b) ch1.solids_q1 (match pictures to descriptions that give counts, and name the shapes) stays "
+    "on Tool 9: on Tool 3 it would use face, edge and corner counts two lessons before they are taught; on Tool 10 it works the "
+    "other way round (counts to the solid); (c) ch1.build1 stays on Tool 12 (build models with cubes), not on Tool 14; (d) "
+    "ch1.straw_tri_push and ch1.straw_rect_push (Yes or No) stay on Tool 21, not on Tool 23 (True or False reads statements). LEFT "
+    "TO THE USER: Tool 9 (the labels of a cube) still holds the sorts by flat faces and straight edges (sort_faces, sort_edges, "
+    "sort2, three_faces), the riddles solids_q1 and the model challenge try5, which are counting and naming work that its narrowed "
+    "purpose does not mention. OPTIONS: (a) leave them (recommended: they are the lesson's own questions, and moving more than the "
+    "plain ones decides the lesson's design for the user); (b) move the sorts and the model challenge to Tool 10 (Tool 9 would then "
+    "carry only solids_q1 or none). TOOL 23, TRUE OR FALSE: CLASH 2 (6) dropped the plan's false statement ('a triangle has four "
+    "sides') and CLASH 56 kept the earlier adjustments, but a true-or-false tool needs some false statements: the brief writer "
+    "proposes false ones from the book's own facts (for example 'a rectangle keeps its shape when it is pushed') and the user "
+    "confirms them at the briefs. NO BOOK QUESTION on a tool means one `notice` prompt only because the structure gate "
+    "(media_content, 'carries no tool_questions') refuses a tool with no question at all: Tools 3, 4, 17, 19, 23, 24, 25 and 26 each "
+    "hold one prompt ('What do you notice about ...?'); the brief writer may reword it. DONE LATER (12 Nov 2026): CHAPTER_APPROACH was rewritten in the brief stage and no longer describes three parts. RECOMMENDATION: (a). The user's yes is needed for every move.",
+
+    "CLASH 60, record of approval: on 12 Nov 2026 the user replied 'approve' to the amended structure report (26 tools, 11 topics, "
+    "42 concepts) after four open points were put with a recommendation each; this is read as approval of the structure with every "
+    "recommendation of CLASH 54 to 59 as written. This includes: the 11 new activity tools back to back after their lesson's video "
+    "or image (CLASH 55); the plan's names, with no clock, no points, no degrees and no cm (CLASH 56); the football picture removed "
+    "with nothing instead (CLASH 57); Lesson 9 as Topic 10 (a recap story video, Tool 24 Shape Identification Quiz, Tool 25 Digital "
+    "Worksheet, Tool 26 Sample Online Assessment) with the two look-back cards kept as Topic 11 after it, so the assessment is the "
+    "last tool and not the very last topic (CLASH 58); the 11 moved book questions and the 8 tools without a book question, each "
+    "with one notice prompt (CLASH 59); the pentagon met inside Tool 20 with no picture before it (CLASH 57); and three tools after "
+    "one video in Lessons 2, 3, 4, 5, 7, 8 and 9. TOOL 23, TRUE OR FALSE (the user's yes to the recommendation put on 12 Nov 2026): "
+    "the plan's own four statements are used as the plan wrote them, including the false one: (1) A triangle is a rigid shape, "
+    "True. (2) A rectangle can change its shape when pushed, True. (3) A triangle has four sides, False. (4) Adding a diagonal to a "
+    "rectangular frame creates two triangles, True. This replaces the brief writer's proposal in CLASH 59. The sign-off of the "
+    "answers the plan made is still open, so every such answer stays labelled 'From the picture' or 'Sample answer'. No upload "
+    "was asked for. Nothing else changed.",
+
+    "CLASH 61, fixes after the validator pass, approval recorded again (12 Nov 2026). The validator found four failures in the brief "
+    "text and some concerns; they were fixed in the specs, not in the structure: Tool 8's nets and reason cards now agree (Net 2, "
+    "the block of two rows of three, is the net that will not fold, and every net of Tools 6, 7 and 8 was folded by a script); the "
+    "thought-bubble prompt is placed in Tools 24, 25 and 26; no tool says a face is flat only (a face can be flat or curved); Tool 2 "
+    "no longer says 'right angle' in Lesson 1. Also: Tool 3 shows the five solids of its approved purpose only; Tool 25 has one "
+    "rule for Check; Tool 20's tray holds six clay balls; the phase wording was removed from the frame. Two inaccurate notes of "
+    "this record were corrected (CLASH 57: the word 'pentagon' is first met in the name cards of Tools 3 and 4 and in the book's "
+    "own questions, not in Tool 20; CLASH 59: the approach text no longer describes three parts). DECISION RECORDED: Tool 4 Build Your "
+    "Own 3D Shape builds with a real toy block set in its own colours, one colour for each kind of face and never a prism, pyramid "
+    "or cube colour, so colour never names the solid the child builds; the approach text now says the grey tint is for sorting and "
+    "matching games. Nothing else changed: no tool, no purpose, no question home. This is a repeat of the structure approval for "
+    "the corrected records; the user was told.",
 ]
 
 # ---------------------------------------------------------------------------
@@ -647,157 +1252,106 @@ CLASHES = [
 SOLUTION_NOTES = [
     {"item": "all 109 questions",
      "printed_solution": "The chapter prints no answer, solution or key.",
-     "correct": "No content-team key is part of this chapter's files (CLASH 11). Every answer is the plan's own reading "
-                "and begins exactly 'From the picture' (counts, positions, what a picture shows) or 'Sample answer' "
-                "(open tasks and geometry the book does not print); open tasks end 'Your answer may differ'. None is "
-                "presented as an official textbook answer. Where no answer could be confirmed (ch1.try3, ch1.try4 and "
-                "the second tower of ch1.towers) the answer gives no number and no solution and says how to find it. "
-                "The content team may replace the answers with a key."},
+     "correct": "No content-team key is part of this chapter's files (CLASH 12). Every answer is the plan's own reading and begins exactly 'From the picture' (counts, positions, what a picture or the screen shows) or 'Sample answer' (open tasks and geometry the book does not print); open tasks end 'Your answer may differ'. None is presented as an official answer, and none is a number the analysis could not confirm. The results of analysis.md Appendix A (towers 30 and 66, the matchstick solutions of p22 Q3 and Q4, nets A to D, the boat, the coloured cube) were checked again by the question mapper on 6 Nov 2026; each is explained in its own entry below. The content team may replace the answers with a key."},
     {"item": "ch1.solids_q4 (E1)",
-     "printed_solution": "No key. Net A is a column of four rectangles with one flap at the top right and one at the "
-                         "bottom right, both on the SAME side; net C has the rectangle and only 2 of the 4 triangles its "
-                         "pyramid needs. B (cylinder) and D (flat box, flaps on opposite sides) are fine.",
-     "correct": "The figure and the question stay as printed. The answer says 'B and D fold into the solid below. A and "
-                "C do not. Fold each one to check' (From the picture), so the child tests it by folding on the screen. "
-                "The reason is not told, and the plan does not draw a 'this folds' picture of A or C."},
+     "printed_solution": "No key. Net A is a column of four rectangles with one flap at the top right and one at the bottom right, both on the SAME side, so both flaps cover the same end; net C has the base and only 2 of the 4 triangles its pyramid needs. B (cylinder) and D (a flat box whose two end flaps are on opposite ends) are fine.",
+     "correct": "From the picture: B and D fold into the solid below, A and C do not. Checked by counting the faces of each net and folding it on a 6x render of the page: A has 6 rectangles but its two end flaps close the same end; C has 3 faces of the 6 a pyramid on a 4-sided base needs; D is a strip of 4 rectangles (two long, two short) with an end flap on each opposite end. The steps say why A and C fail. A and C are never shown as nets that fold, and the plan never says 'six rectangles make a cuboid'."},
+    {"item": "ch1.solids_q3",
+     "printed_solution": "No key.",
+     "correct": "From the picture: (1) with (b), (2) with (d), (3) with (a), (4) with (c). (1) is 4 triangles (a triangular pyramid), (2) a rectangle and 2 circles (a cylinder), (3) a strip of 4 rectangles with a flap on each of two opposite sides (a cuboid), (4) 3 rectangles and 2 triangles (a triangular prism)."},
+    {"item": "ch1.solids_q5",
+     "printed_solution": "No key.",
+     "correct": "From the picture: d, the pentagonal pyramid. 1 pentagon and 5 triangles fit only a pentagonal pyramid. Option c has a 6-sided bottom face, a is a square pyramid and b a triangular pyramid."},
     {"item": "ch1.three_faces (E2)",
      "printed_solution": "'Can you construct a 3D shape with 3 flat faces?' does not say whether curved faces are allowed.",
-     "correct": "Sample answer: a solid with only flat faces needs at least 4, and a cylinder cut in half along its "
-                "length has 3 flat faces and 1 curved face. The answer gives both readings."},
+     "correct": "Sample answer: a solid with only flat faces needs at least 4. A cylinder cut in half along its length has 3 flat faces (two half circles and a rectangle) and 1 curved face. The answer gives both readings and ends 'Your answer may differ'."},
     {"item": "ch1.sort_faces and ch1.sort_edges (E3)",
-     "printed_solution": "The set of shapes to sort is not stated. The columns are 1, 2, 4, 5, 6 and 8 flat faces and "
-                         "6, 8, 9 and 12 straight edges, so the pentagonal pyramid (10 edges) and the hexagonal prism "
-                         "(18 edges) have no edge column, and there is no column for 0, 3 or 7 flat faces.",
-     "correct": "Sample answers: flat faces 1 cone, 2 cylinder, 4 triangular pyramid, 5 square pyramid and triangular "
-                "prism, 6 cube, cuboid and pentagonal pyramid, 8 hexagonal prism. Straight edges 6 triangular pyramid, "
-                "8 square pyramid, 9 triangular prism, 12 cube and cuboid; the answer says the pentagonal pyramid (10) "
-                "and the hexagonal prism (18) fit no column."},
-    {"item": "ch1.sort3_q and ch1.sort4 (E4)",
-     "printed_solution": "'rectangular pyramid' is printed but never named in the chapter. sort4 says 'circles like "
-                         "those on the previous page', which points to a page of the book.",
-     "correct": "The answer says both solids go in the overlap because both have rectangle faces and triangle faces, "
-                "and describes the pyramid as 'a pyramid with a rectangle base' in ch1.sort3. In ch1.sort4 the words "
-                "'on the previous page' read 'you just used' (CLASH 32)."},
+     "printed_solution": "The set of shapes to sort is not stated. The columns are 1, 2, 4, 5, 6 and 8 flat faces and 6, 8, 9 and 12 straight edges, so the pentagonal pyramid (10 edges) and the hexagonal prism (18 edges) have no edge column, and there is no column for 0, 3 or 7 flat faces.",
+     "correct": "Sample answers over the ten solids of CLASH 52: flat faces 1 cone, 2 cylinder, 4 triangular pyramid, 5 square pyramid and triangular prism, 6 cube, cuboid and pentagonal pyramid, 8 hexagonal prism (the sphere has none). Straight edges 6 triangular pyramid, 8 square pyramid, 9 triangular prism, 12 cube and cuboid; the answer says that the pentagonal pyramid (10) and the hexagonal prism (18) fit no column."},
+    {"item": "ch1.sort1, ch1.sort2, ch1.sort3, ch1.sort3_q and ch1.sort4 (E3, E4)",
+     "printed_solution": "'rectangular pyramid' is printed but never drawn or named in the chapter. The set to sort is not stated. sort4 says 'circles like those on the previous page', which points to a page of the book.",
+     "correct": "Sample answers over the ten solids of CLASH 52, each 'for example'. A square face counts as a rectangular face (CLASH 51), so the square pyramid is in the overlap of sort3 with the triangular prism, and sort3_q answers 'the overlap' for the triangular prism and a pyramid with a rectangle at the bottom. In sort4 'on the previous page' reads 'you just used' (CLASH 50). sort2: the cone and the cylinder have curved edges, the sphere has no edges."},
     {"item": "ch1.solids_q1 (E5)",
-     "printed_solution": "Seven pictures stand beside six descriptions, not lettered. Description f) '6 faces, 12 edges, "
-                         "8 corners' fits both the cuboid and the cube. No key.",
-     "correct": "From the picture: a) square pyramid, b) cone, c) sphere, d) cylinder, e) triangular prism, f) 'cube or "
-                "cuboid, because both fit'. The sphere is a shaded ball."},
-    {"item": "ch1.observe1 (E6)",
+     "printed_solution": "Seven pictures stand beside six descriptions that are not lettered. Description f) '6 faces, 12 edges, 8 corners' fits both the cuboid and the cube. No key.",
+     "correct": "From the picture: a) square pyramid, b) cone, c) sphere, d) cylinder, e) triangular prism, f) cube or cuboid, because both fit. Checked: 5 + 5 − 8 = 2 and 5 + 6 − 9 = 2 and 6 + 8 − 12 = 2 for a, e and f. The sphere is a shaded ball."},
+    {"item": "ch1.observe1 and ch1.observe2 (E6)",
      "printed_solution": "'Take a die.' The answers depend on the die in hand; the picture shows only 5, 1 and 3. No key.",
-     "correct": "Sample answer: on a usual die, a) 5, b) 4, c) 3, because opposite faces add up to 7 (2 + 5, 3 + 4, "
-                "4 + 3). The tool's die is a usual die (VISUAL_KEY die)."},
+     "correct": "Sample answer: on a usual die, a) 5, b) 4, c) 3, because opposite faces add up to 7 (2 + 5, 3 + 4, 4 + 3). The tool's die is a usual die (VISUAL_KEY die). observe2 is true for any die on which 6 is opposite 1: the faces 2, 3, 4 and 5 touch 1 and 6 does not."},
+    {"item": "ch1.observe3",
+     "printed_solution": "Three views of one cube, no key.",
+     "correct": "From the picture: a) purple, b) orange. Checked by trying every colouring of the six faces against the three printed views, including the way the faces turn round a corner (top, left, right read as one turn): only red opposite purple, yellow opposite orange and dark blue opposite green fit all three views."},
     {"item": "ch1.border1 to ch1.border5 (E7)",
-     "printed_solution": "The shapes along the border are about 20 pencil sketches, not numbered, with no key. 'Circle the "
-                         "shapes that have the same opposite faces' is unclear. The two cheese pieces are drawn as "
-                         "pyramids, not as wedges.",
-     "correct": "From the picture: border3 (curved face) the balls, the football, the cans and bottles, the ice-cream "
-                "cone and the party hat; border4 (no corner) the balls, the football, the cans and the bottles. "
-                "border1 and border2 name only the unambiguous objects, with 'for example'. border5 is a Sample answer "
-                "under one reading (each pair of opposite faces looks the same). The cheese pieces and the two pyramid "
-                "sketches are left out of the answers until the user decides (CLASH 31, CLASH 12)."},
-    {"item": "ch1.boat_q (E8)",
-     "printed_solution": "'How many angles are there in this boat drawing?' The book does not say that the mast splits the "
-                         "sail into two angles. No key.",
-     "correct": "From the picture: 10 marked angles: 4 in the body, 2 at the top of the sail, 2 at the lower corners of "
-                "the sail and 2 right angles where the mast meets the sail (4 + 2 + 2 + 2 = 10). The house has 7 "
-                "(1 + 2 + 2 + 2 = 7), as the book says."},
+     "printed_solution": "The shapes along the border are about 20 pencil sketches, not numbered, with no key. 'Circle the shapes that have the same opposite faces' is unclear.",
+     "correct": "From the picture, 'for example' (counted on the page: 2 dice, 2 erasers, a Rubik's cube, a gift box, 3 balls one of them a football, 3 cans or bottles, an ice-cream cone, a party hat, 2 cheese pieces, 2 pyramid drawings, a wooden wedge and a cake slice). border3 (curved face): the balls, the cans or bottles, the cone, the hat. border4 (no corner): the balls and the cans or bottles. border1 and border2 list only certain shapes. The two cheese pieces are drawn as pyramids with small holes, never as wedges, so border1 does not list them and border5 does not either. border5 is a Sample answer under one reading (each pair of opposite faces looks the same) and needs the user's reading (CLASH 28)."},
+    {"item": "ch1.house_ex and ch1.boat_q (E8)",
+     "printed_solution": "'There are 7 angles in this house drawing.' and 'How many angles are there in this boat drawing?' The book does not say that the mast splits the sail into two angles. No key for the boat.",
+     "correct": "From the picture: the house has 7 marks (1 + 2 + 2 + 2 = 7, as the book says) and the boat has 10 marked angles (2 + 2 + 2 + 4 = 10): 2 at the top of the sail, one on each side of the mast, 2 at the lower corners of the sail, 2 right angles where the mast meets the sail and 4 in the body of the boat (counted on a 6x render)."},
     {"item": "ch1.right_circle (E9)",
      "printed_solution": "Eight angle figures on a dot grid and no key.",
-     "correct": "From the picture, read by measure: the 2nd and 3rd angles in the top row and the 1st and 4th in the "
-                "bottom row are right angles. The answer says to check each with the checker."},
-    {"item": "ch1.letters and ch1.ao_do2 (E10)",
-     "printed_solution": "'Identify all angles' in V, A and Z marks only one angle in each letter and does not say how many "
-                         "there are in A. The four stick figures do not say how many angles to mark.",
-     "correct": "Sample answers with no count of the angles of A or of the figures: V has 1 acute angle, Z has 2 acute "
-                "angles, A has an acute angle at the top and angles where the bar meets the legs. For the stick figures "
-                "the answer gives the method: red if smaller than a right angle, green if the same, blue if bigger."},
-    {"item": "ch1.straw_tri_push to ch1.pentagon_q3 (E11)",
-     "printed_solution": "The push test has no printed answer; the teacher note says only that the triangle is the most "
-                         "rigid shape.",
-     "correct": "Sample answers the child can test on the screen: the triangle does not change; the rectangle, the "
-                "square and the pentagon do; a pushed rectangle or square has two acute and two obtuse angles; a pushed "
-                "pentagon has some angles smaller and some bigger. The pentagon's angles are all bigger than a right "
-                "angle (From the picture)."},
-    {"item": "ch1.fourside_q (E12)",
-     "printed_solution": "The three 4-sided shapes are not named.",
-     "correct": "The answer says 'the three shapes shown' and gives no name for them: a rectangle and a square have 4 "
-                "right angles, and the three shapes shown have none."},
+     "correct": "From the picture, read by measure on the page: the 2nd and 3rd angles in the top row and the 1st and 4th in the bottom row are right angles. The top row 1st and 4th and the bottom row 2nd and 3rd are not (the first two are wider than a right angle, the last two narrower). The answer says to check each with the checker."},
+    {"item": "ch1.letters and ch1.ao_do2 (E10, E28)",
+     "printed_solution": "'Identify all angles' in V, A and Z marks only one angle in each letter and does not say how many there are in A. The four stick figures do not say how many angles to mark. 'Obtuse angles are more than a right angle' has no upper limit.",
+     "correct": "Sample answers with no count for A or for the figures: V has 1 acute angle, Z has 2 acute angles, A has an acute angle at the top and angles where the bar meets the legs. For the stick figures the answer gives the method: red if it is narrower than a right angle, green if the same, blue if wider. Tool 8 shows only obtuse angles narrower than a straight line, except the book's dart (CLASH 28)."},
+    {"item": "ch1.straw_tri_push to ch1.straw_compare (E11, E29)",
+     "printed_solution": "The push test has no printed answer; the teacher note says only that the triangle is the most rigid shape, and the word rigid is never in the child's text.",
+     "correct": "From the picture (what the push on the screen shows): the triangle does not change; the rectangle and the square lean over into two acute and two obtuse angles; the rectangle has 4 right angles before the push. A triangle of three fixed straws cannot change at all. straw_tri_angles reads the tool's triangle (three angles narrower than a right angle, like the book's straw triangle) and adds that another triangle can have a right angle or a wider one."},
+    {"item": "ch1.fourside_q and ch1.dotshapes_q (E12)",
+     "printed_solution": "The three 4-sided shapes are not named. dotshapes_q asks for the shapes with 1, 2, 3 and all right angles.",
+     "correct": "The answer says 'the three shapes shown' and gives no name for them: a rectangle and a square have 4 right angles, and the three shapes shown have none (measured: none has a corner near a right angle). For dotshapes_q: 1 right angle a right triangle, 2 a shape with one slanting side, 3 none (a 4-sided shape with 3 right angles has 4), all a rectangle and a square."},
     {"item": "ch1.pentagon_q2, ch1.amazing_q4 and ch1.fve (E13, E14)",
-     "printed_solution": "pentagon_q2 has no question mark ('... push one of its sides. Yes/No'). amazing_q4 spells 'center' "
-                         "while the chapter says 'centre'. fve prints 'F+V' and 'E' joined by an en dash.",
-     "correct": "The screen shows 'sides? Yes/No', 'centre' and 'F+V−E' with the minus sign (CLASH 32). Nothing else is changed."},
+     "printed_solution": "pentagon_q2 has no question mark ('... push one of its sides. Yes/No'). amazing_q4 spells 'center' while the chapter says 'centre'. fve prints 'F+V' and 'E' joined by an en dash. amazing_t5 (the relation of radius and diameter) is answered only on p18.",
+     "correct": "The screen shows 'sides? Yes/No', 'centre' and 'F+V−E' with the minus sign (CLASH 50). The relation is answered in circ_do1: double."},
+    {"item": "ch1.pentagon_make and ch1.pentagon_q1 (E30)",
+     "printed_solution": "The straw pentagon is drawn as a regular-looking pentagon; the text never says 'regular'.",
+     "correct": "The task says only '5-sided shape with all sides equal'. pentagon_q1 answers 'no, each angle is bigger than a right angle' (From the picture of that pentagon); equal sides do not fix the angles, and pentagon_q3 shows some angles get smaller and some bigger when it is pushed."},
     {"item": "ch1.compass and ch1.project1 (E15 and the teacher wording)",
-     "printed_solution": "'Ask your teacher to help you use a compass.' and 'Encourage learners to observe a street "
-                         "carefully...' give a teacher a role. Step 1 to Step 3 of the compass design are pictures only.",
-     "correct": "The compass question reads 'A circle can be made easily using a compass. Make the following design.' and "
-                "project1 reads 'Observe a street carefully and make a model showing the main buildings on the street.' "
-                "(CLASH 13, CLASH 32; the user's yes is needed). The steps of the design are read from the three pictures "
-                "(same opening, circles with their points on the first circle, then colour the petals)."},
+     "printed_solution": "'Ask your teacher to help you use a compass.' and 'Encourage learners to observe a street carefully...' give a teacher a role. Step 1 to Step 3 of the compass design are pictures only.",
+     "correct": "The compass question reads 'A circle can be made easily using a compass. Make the following design.' and project1 reads 'Observe a street carefully and make a model showing the main buildings on the street.' (CLASH 30 option (a), CLASH 50; the user's yes is needed). The steps are read from the three pictures: Step 1 a circle, Step 2 more circles of the same opening that start on the first circle and pass through its centre, Step 3 the petals coloured."},
     {"item": "ch1.wheels_q1 (E16)",
      "printed_solution": "Radius and diameter are asked four ways but only two wheels can answer; no units; no key.",
-     "correct": "From the picture, read by measure: longest radius and longest diameter B; shortest radius and shortest "
-                "diameter D. Radius and diameter are the same wheel in each pair."},
-    {"item": "ch1.puzzle1 to ch1.puzzle4 (E17)",
-     "printed_solution": "The number of hidden shapes is not stated, and no solution to puzzles 2 to 4 is printed; the cuts "
-                         "are not unique. analysis.md reads two squares among the hidden shapes.",
-     "correct": "Read again at 7x: the hidden shapes are a circle, a cylinder, ONE square (the one on the right), ONE tilted "
-                "rectangle (about 2.2 times as long as wide) and two triangles (From the picture; CLASH 31). Puzzle 2 on "
-                "the 4 by 4 right triangle: a line from the middle of the top side straight down to the slanted side, and "
-                "a line from the middle of the left side straight across to it; they make 1 square and 2 triangles. "
-                "Puzzle 3: a dot on the top side joined to the two bottom corners makes 3 triangles. Puzzle 4: Sample answer."},
+     "correct": "From the picture, read by measure on a 6x render (outer sizes 665, 604, 515 and 440 for B, C, A and D): longest radius and longest diameter B; shortest radius and shortest diameter D. Radius and diameter are the same wheel in each pair."},
+    {"item": "ch1.puzzle1 to ch1.puzzle4 (E17, E31)",
+     "printed_solution": "The number of hidden shapes is not stated, and no solution to puzzles 2 to 4 is printed; the cuts are not unique. The hidden shapes are all one red and one of them is a cylinder among flat outlines.",
+     "correct": "Read at 6x and measured: the hidden shapes are a circle, a cylinder, ONE upright square (as wide as it is tall), ONE tilted rectangle (about 2.3 times as long as wide) and two triangles; the answer says the cylinder is a solid and the others are flat. Puzzle 2 on the 4 by 4 right triangle: a line from the middle of the top side straight down to the slanted side, and a line from the middle of the left side straight across to it; they make a 2 by 2 square and 2 small right triangles. Puzzle 3 on the 3 by 3 square: a dot on the top side joined to the two bottom corners makes 3 triangles. Puzzle 4, Sample answers: A two cuts at the pointed ends, B three cuts from the bottom middle to the two top corners and straight up the middle (four right triangles with legs in the ratio 2 to 1, as printed), C three corner cuts (3 triangles and a 6-sided piece)."},
     {"item": "ch1.cards (E18)",
      "printed_solution": "The six cards are at the end of the book, and the book does not say what the three groups are.",
-     "correct": "The six cards are on the screen. Sample answer: only straight sides (square, triangle), only curved sides "
-                "(oval, circle), both (quarter circle, semicircle)."},
+     "correct": "The six cards are on the screen. Sample answer: only straight sides (square, triangle), only curved sides (oval, circle), both (quarter circle, semicircle). Another grouping, for example by the number of straight sides, is also right."},
     {"item": "ch1.try1a to ch1.try1d (E19)",
-     "printed_solution": "No key. Neither walking question says that every wall must be used.",
-     "correct": "From the picture: 10 triangles (1 at the top, 1 at the bottom, 4 small and 4 big in the middle: 1 + 1 + 4 + 4 "
-                "= 10) and 12 rectangles. Squiggly's walk is possible: the walls in the order 12, 6, 9, 3, 4, 7, 10, 2, 8, "
-                "5, 11, 1 use all 12 once and return to A. Wiggly's walk is read as one that uses every wall once, and then "
-                "no walk from A can be completed (CLASH 33); the answer gives no rule about corners."},
-    {"item": "ch1.try3 and ch1.try4 (E20)",
-     "printed_solution": "No answer. Q3 is solvable only if the three triangles are read as touching at their base corners "
-                         "(the figure draws small gaps); Q4 was not solved.",
-     "correct": "The answers give no solution and no stick count. They say to move two sticks (Q3) or take away sticks "
-                "(Q4) on the screen and count the triangles, as a Sample answer (CLASH 18)."},
-    {"item": "ch1.towers",
-     "printed_solution": "'How many cubes are there in each of these cube towers?' No key. The second tower (the large X) "
-                         "cannot be counted reliably from print.",
-     "correct": "The first tower has 4 layers of 1, 4, 9 and 16 cubes (checked on the page at 14x): 1 + 4 + 9 + 16 = 30. "
-                "The answer gives NO number for the second tower and says to count it layer by layer on the screen "
-                "(CLASH 18)."},
+     "printed_solution": "No key. Neither walking question says that every wall must be used. Squiggly's printed numbers 1 to 12 already trace one closed walk.",
+     "correct": "From the picture: 10 triangles (1 at the top, 1 at the bottom, 4 small and 4 big in the middle: 1 + 1 + 4 + 4 = 10) and 12 rectangles (1 + 6 + 2 + 2 + 1 = 12). Squiggly's walk: the numbers 1 to 12 go A, then each next wall starts where the last ended, and they use all 12 walls once and end at A (checked wall by wall; every corner has an even number of walls). Wiggly: two corners (the left and right ends of the long middle line) have 3 walls each and every other corner an even number, so a walk over every wall must start and end at those two corners, never at A and B (no, on the 'every wall' reading); if he may skip walls, A, down the long line, along the middle line and down to B uses no wall twice (yes). CLASH 12 and 17."},
+    {"item": "ch1.try2, ch1.try3 and ch1.try4 (E20)",
+     "printed_solution": "No answer. The book draws the three triangles of Q3 with small gaps at their base corners and does not say how Q4's 13 sticks are to be read.",
+     "correct": "Sample answers, each checked by program on the triangular grid. Q2: two triangles that share one stick use 3 + 3 − 1 = 5 sticks. Q3: the figure has 9 sticks (9 red heads) in three triangles that touch at their base corners; the bottom stick and the right slanting stick of the third triangle, laid along the tops between the first and second and between the second and third top corners, make 4 triangles (2 up, 2 down); with truly separate triangles there is no solution, so the touching reading is the only one in which the question can be answered (CLASH 12). Q4: the figure has 13 sticks and 7 triangles (6 small, 1 of side 2); of the 715 ways to remove 4 sticks, 128 leave exactly 3 triangles; the answer gives one that leaves no stray stick (the right side and bottom of the top right triangle, the top and right side of the far right triangle). Other answers are right too."},
+    {"item": "ch1.towers (E26, E27)",
+     "printed_solution": "'How many cubes are there in each of these cube towers?' No key. Only the outside of each tower is drawn, and the colours of tower 2 are not consistent.",
+     "correct": "From the picture: 30 and 66, with the stated assumption of solid layers, no gap and no extra hidden cube. The first tower has 4 layers of 1, 4, 9 and 16 cubes (1 + 4 + 9 + 16 = 30, the same shape as model D). The second tower is a middle column of 6 and four stairs going out from it, each with columns of 5, 4, 3, 2 and 1 cubes: 5 + 4 + 3 + 2 + 1 = 15, 4 × 15 = 60 and 6 + 60 = 66 (counted from the 21 visible top faces and the stair steps; analysis.md Appendix A). The tool draws every cube teal, so the colour mix is not copied."},
     {"item": "ch1.try5 (E21)",
-     "printed_solution": "c) 15 straws and 10 clay balls is a solid the chapter never shows.",
-     "correct": "The working shows it from its parts: two 5-sided ends (5 + 5 = 10 straws) and 5 more straws (10 + 5 = 15), "
-                "with 5 + 5 = 10 balls. The answer says 'a solid with two 5-sided ends' and does not name it. a) cube or "
-                "cuboid, b) triangular prism, d) pentagonal pyramid (5 + 5 = 10 straws, 5 + 1 = 6 balls)."},
+     "printed_solution": "c) 15 straws and 10 clay balls is a solid the chapter never shows. The picture beside it is a square pyramid of 8 straws and 5 balls, none of the four answers.",
+     "correct": "The working shows it from its parts: two 5-sided ends (5 + 5 = 10 straws), 5 more straws (10 + 5 = 15) and 5 + 5 = 10 balls. The answer says 'a prism with two 5-sided ends' and does not name it. a) cube or cuboid, b) triangular prism, d) pentagonal pyramid (5 + 5 = 10 straws, 5 + 1 = 6 balls)."},
+    {"item": "ch1.try6 and ch1.try6_q (E25)",
+     "printed_solution": "The text layer puts 'What relation do you notice...' after Q5; the page prints it under Q6.",
+     "correct": "The page is used: try6_q follows try6. From the picture: 3 angles b, d, f; 4 angles a, c, g; 5 angles e; the number of sides is the number of angles."},
     {"item": "ch1.try8, ch1.try8_q and ch1.try9 (E22, E23)",
-     "printed_solution": "try9 asks to 'identify the shape' but several shapes fit each clue; shape 1 is a dart with an angle "
-                         "larger than a straight line. try8 has no key, and its red tilted figure is drawn as a rectangle, "
-                         "not a square.",
-     "correct": "From the picture, read by measure: try8 4, 0, 1, 0, 0, 4 and 'the blue rectangle and the red tilted shape'. "
-                "try9: 2 right, 1 acute, 1 obtuse: shapes 2 and 7; 1 right, 2 obtuse, 1 acute: shape 10; 2 obtuse, 2 "
-                "acute: shapes 3, 5, 8, 9, 11, 13; 4 right angles: shapes 4, 6, 12, 14. The answer says that more than "
-                "one shape fits. Shape 1 fits no clue and is not mentioned."},
-    {"item": "ch1.craft2 (E24)",
-     "printed_solution": "Craft 2 shows a 'Square Prism', but the net page at the end of the book has no net of that name "
-                         "(it has a 'Rectangular Prism / Cuboid').",
-     "correct": "The answer does not name which net makes which prism. It says each net folds into the solid shown beside "
-                "it, a Sample answer. The nets are on the screen."},
+     "printed_solution": "try9 asks to 'identify the shape' but several shapes fit each clue; shape 1 is a dart with an angle larger than a straight line. try8 has no key, and its red tilted figure is drawn as a rectangle, not a square.",
+     "correct": "From the picture, re-measured on the page: try8 4, 0, 1, 0, 0, 4 and 'the first and the last shape' (both rectangles; the purple triangle has one right angle). try9: 2 right, 1 acute, 1 obtuse: shapes 2 and 7; 1 right, 2 obtuse, 1 acute: shape 10; 2 obtuse, 2 acute: shapes 3, 5, 8, 9, 11, 13; 4 right angles: shapes 4, 6, 12, 14. The answer says that more than one shape fits. Shape 1 fits no clue and is not mentioned."},
+    {"item": "ch1.craft2 and ch1.craft3 (E24)",
+     "printed_solution": "Craft 2 shows a 'Square Prism', but the net page at the end of the book has no net of that name (it has a 'Rectangular Prism / Cuboid'). The p4 table row is 'Cube/Square Prism'.",
+     "correct": "The answer does not say which net makes which prism: each net folds into the solid shown beside it, a Sample answer. The nets are on the screen. craft3 uses the table's own row names."},
     {"item": "ch1.prism_q3",
-     "printed_solution": "'How many such faces each?' does not say which faces: the other shapes of Q2 (2 each) or the "
-                         "rectangle faces of Q1 (3, 4 and 6). No key.",
-     "correct": "From the picture: the answer gives both, '2 of the other shape on each prism. The rectangle faces are 3, "
-                "4 and 6' (CLASH 33)."},
+     "printed_solution": "'How many such faces each?' does not say which faces: the other shapes of Q2 (2 each) or the rectangle faces of Q1 (3, 4 and 6). No key.",
+     "correct": "From the picture: the answer gives both, '2 of the other shape on each prism. The rectangle faces are 3, 4 and 6'."},
+    {"item": "ch1.pyr_q3",
+     "printed_solution": "'Identify any other shape in each of the pyramids' has no answer for the triangular pyramid, whose faces are all triangles.",
+     "correct": "From the picture: the bottom face; the square pyramid has a square, the pentagonal pyramid a pentagon, and the triangular pyramid has only triangles."},
 ]
 # The book prints no equation and no false sum, so there is no false-equation chain to keep: ERRATA stays empty and
 # chapter.config.json "eqcheck_errata" stays empty. Every sum the plan writes is true (F+V−E = 2 for the five solids,
-# 1 + 4 + 9 + 16 = 30, 4 + 2 + 2 + 2 = 10, 1 + 2 + 2 + 2 = 7, 1 + 1 + 4 + 4 = 10, 5 + 5 + 5 = 15, 5 + 5 = 10, 5 + 1 = 6).
+# 1 + 4 + 9 + 16 = 30, 5 + 4 + 3 + 2 + 1 = 15, 4 × 15 = 60, 6 + 60 = 66, 2 + 2 + 2 + 4 = 10, 1 + 2 + 2 + 2 = 7, 1 + 1 + 4 + 4 = 10,
+# 3 + 2 + 1 = 6, 1 + 6 + 2 + 2 + 1 = 12, 3 + 3 − 1 = 5, 5 + 5 = 10, 10 + 5 = 15, 5 + 1 = 6).
 ERRATA = [
 ]
 
 DESIGN_REFERENCES = [
-    {"text": "Class 3/4 story and tool flow: docs/00_overview.md. The approved tool map comes from the content team.",
+    {"text": "Class 3/4 story and tool flow: docs/00_overview.md. The tool map follows the user's 9-lesson teaching plan, with every activity its own tool.",
      "url": ""},
 ]

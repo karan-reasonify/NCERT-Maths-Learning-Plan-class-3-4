@@ -40,6 +40,12 @@ DEFAULTS = {
     "max_sentence_words": 16,
     "review_max_concepts": 2,
     "explore_tool_no": 1,
+    # Per-chapter switches, both OFF by default (a chapter turns them on only on the user's say-so):
+    #   tools_in_a_row         a tool concept may follow another tool concept of the same topic (the lesson's
+    #                          activities one after another); its applies_to is still the concept video/image it follows
+    #   no_book_question_tools approved tool numbers that carry no NCERT question (the user's own activities)
+    "tools_in_a_row": False,
+    "no_book_question_tools": [],
     "tool_map_required": True,
     "question_kinds": ("example", "exercise", "prompt"),
     "framing_source_type": "framing",
@@ -137,6 +143,12 @@ def _check_shape(plan, topics, config, problems):
                 problems.append("%s: a topic cannot open with a tool; the concept video (or image) comes first" % cid)
             if role == "tool":
                 prev = cs[i - 1] if i else {}
+                if _cfg(config, "tools_in_a_row"):
+                    # the activities of one lesson run back to back: look past earlier tool concepts of this topic
+                    j = i - 1
+                    while j >= 0 and cs[j].get("source_segment_role") == "tool":
+                        j -= 1
+                    prev = cs[j] if j >= 0 else {}
                 if prev.get("source_segment_role") not in ("story", "image") or c.get("applies_to") != prev.get("concept_id"):
                     problems.append("%s: a tool must come right after the concept it applies to and name it in "
                                     "applies_to (previous concept is %s, applies_to is %r)"
@@ -356,7 +368,8 @@ def _check_tools(plan, topics, config, problems):
         qmap = conf.get("question_map") or []
         if [q.get("text") for q in qmap] != list(conf.get("tool_questions") or []):
             problems.append("%s: tool_questions and question_map disagree" % tid)
-        if not qmap:
+        plan_made = conf.get("approved_no") in (_cfg(config, "no_book_question_tools") or [])
+        if not qmap and not plan_made:
             problems.append("%s: the tool has no questions: tie it to the NCERT question(s) of its concept, or raise "
                             "this as a clash for the user" % tid)
         notice = [q for q in qmap if q.get("kind") == "notice"]
@@ -369,7 +382,7 @@ def _check_tools(plan, topics, config, problems):
         if len(ncert) > _cfg(config, "max_tool_questions"):
             problems.append("%s: %d NCERT questions on one tool (at most %d: a short interaction path); split the "
                             "set or ask the user" % (tid, len(ncert), _cfg(config, "max_tool_questions")))
-        if role == "tool" and not ncert:
+        if role == "tool" and not ncert and not plan_made:
             problems.append("%s: a concept tool carries at least one NCERT question of its concept" % tid)
         for q in ncert:
             qid = q.get("ncert_id")

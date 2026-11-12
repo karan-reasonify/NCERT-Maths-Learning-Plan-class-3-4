@@ -10,7 +10,7 @@
   "grade_band": "3_4",
   "chapter_no": 1,
   "chapter_name": "Shapes Around Us",
-  "media_tag": "c4x",
+  "media_tag": "c4y",
   "eqcheck": "plain",
   "eqcheck_errata": [],
   "allow_words": [],
@@ -19,135 +19,159 @@
   "approved_tools": [
     {
       "no": 1,
-      "name": "Blocks for Buildings",
-      "purpose": "The child picks wooden blocks for the roof, pillars and base of the buildings in the opening picture, builds the model and finds how it is like and unlike the real building.",
-      "flow_row": "Blocks for the buildings (C1)"
+      "name": "Shape Detective",
+      "purpose": "The child taps the parts of India Gate, the Qutub Minar and a street picture, chooses the block shape that models each part, and spots shapes hidden in a picture.",
+      "flow_row": "Topic 1: Shapes Around Us (Lesson 1, opening)"
     },
     {
       "no": 2,
-      "name": "Prism or Pyramid",
-      "purpose": "The child taps the faces of prisms and pyramids to find the rectangle faces all prisms share and the triangle faces that meet at one point in every pyramid, and decides if a cube is also a prism.",
-      "flow_row": "Prism or pyramid (C2)"
+      "name": "Guess the Shape",
+      "purpose": "The child guesses a shape from three clues, then sorts everyday objects and flat shape cards by their sides, corners and faces, and cuts shapes into smaller shapes.",
+      "flow_row": "Topic 2: Guess the Shape (Lesson 1, second part)"
     },
     {
       "no": 3,
-      "name": "Faces, Corners and Edges",
-      "purpose": "The child counts the faces, corners and edges of straw and clay solids, fills the F, V and E table, works out F+V−E and sorts the solids by flat faces and straight edges.",
-      "flow_row": "Count the parts of solids (C3)"
+      "name": "Match the 3D Shape",
+      "purpose": "The child drags the name of each solid onto its picture: triangular prism, square pyramid, cube, hexagonal prism and triangular pyramid.",
+      "flow_row": "Topic 3: Prisms and Pyramids (Lesson 2)"
     },
     {
       "no": 4,
-      "name": "Opposite Faces",
-      "purpose": "The child turns a die and a coloured cube to find the face opposite a face and the faces that share an edge with it.",
-      "flow_row": "Opposite and touching faces (C4)"
+      "name": "Build Your Own 3D Shape",
+      "purpose": "The child drags, turns and arranges blocks to build a triangular prism, a square-based pyramid and a cube from smaller unit cubes, then names the shape they built.",
+      "flow_row": "Topic 3: Prisms and Pyramids (Lesson 2)"
     },
     {
       "no": 5,
-      "name": "Spot the Faces",
-      "purpose": "The child marks everyday objects by their faces and corners: rectangular face, triangular face, curved face, no corner and the same opposite faces.",
-      "flow_row": "Faces on everyday objects (C5)"
+      "name": "Prisms and Pyramids",
+      "purpose": "The child sorts solids one by one into a Prism basket or a Pyramid basket by looking at their faces, and sees at once whether each one is right.",
+      "flow_row": "Topic 3: Prisms and Pyramids (Lesson 2)"
     },
     {
       "no": 6,
-      "name": "Sort the Solids",
-      "purpose": "The child drags solids into two circles by a rule, such as curved or straight edges, and into overlapping circles to find the solids that belong to both sets.",
-      "flow_row": "Sort solids by a rule (C5)"
+      "name": "Nets of 3D Shapes",
+      "purpose": "The child folds the net of a cube into a solid, then the net of a cuboid or a pyramid, building the idea that a net is a solid opened out flat.",
+      "flow_row": "Topic 4: Nets of 3D Shapes (Lesson 3)"
     },
     {
       "no": 7,
-      "name": "Build and Draw Cubes",
-      "purpose": "The child copies cube models from unit cubes, counts the cubes in a tower layer by layer including the hidden ones, and completes cube drawings on triangular dot paper.",
-      "flow_row": "Build and draw cubes (C6, C7)"
+      "name": "Which Net Makes Which Shape",
+      "purpose": "The child matches each net to the solid it folds into: six connected squares to a cube, six rectangles to a cuboid, and a square with four triangles to a square pyramid.",
+      "flow_row": "Topic 4: Nets of 3D Shapes (Lesson 3)"
     },
     {
       "no": 8,
-      "name": "Solid Riddles",
-      "purpose": "The child reads clues about faces, corners and edges, and about straws and clay balls, and picks or builds the solid that fits each clue.",
-      "flow_row": "Name the solid from its clues (C8, C23)"
+      "name": "Find the Wrong Net",
+      "purpose": "The child sees three nets for one solid, finds the one net that will not fold into it and says why.",
+      "flow_row": "Topic 4: Nets of 3D Shapes (Lesson 3)"
     },
     {
       "no": 9,
-      "name": "Fold the Net",
-      "purpose": "The child folds nets into solids, matches nets to solids, tests which nets fold into a given solid and finds the solid whose net has the given pieces.",
-      "flow_row": "Fold the net (C9)"
+      "name": "Faces Edges and Corners",
+      "purpose": "The child labels the faces, edges and corners of a cube and taps each part to see it light up.",
+      "flow_row": "Topic 5: Faces, Edges and Corners (Lesson 4)"
     },
     {
       "no": 10,
-      "name": "When Lines Meet",
-      "purpose": "The child makes an angle by meeting two straws at a point, then marks and counts the angles in pictures and in a classroom scene.",
-      "flow_row": "When lines meet (C10)"
+      "name": "Count and Win",
+      "purpose": "The child counts the faces, edges and corners of a cube, a cuboid, a triangular prism and a square pyramid, types each count and sees at once whether it is right.",
+      "flow_row": "Topic 5: Faces, Edges and Corners (Lesson 4)"
     },
     {
       "no": 11,
-      "name": "Right Angle Checker",
-      "purpose": "The child folds paper into a right angle checker, uses it to test corners of shapes and objects, and draws right angles on a dot grid.",
-      "flow_row": "Right angle checker (C11)"
+      "name": "Spin the Shape",
+      "purpose": "The child spins a die and a cuboid, says how many faces show from each side, and finds opposite faces and faces that touch.",
+      "flow_row": "Topic 5: Faces, Edges and Corners (Lesson 4)"
     },
     {
       "no": 12,
-      "name": "Acute or Obtuse",
-      "purpose": "The child swings a line against a right angle to see if an angle is acute or obtuse, draws both kinds on a dot grid and colours angles red, green and blue.",
-      "flow_row": "Acute or obtuse (C12)"
+      "name": "Cube Towers and Drawings",
+      "purpose": "The child builds cube towers from a box of small cubes: a tower of three cubes, a tower with two cubes at the bottom and one on top, and a structure of six cubes, and counts the cubes used.",
+      "flow_row": "Topic 6: Cube Towers and Drawings (Lesson 5)"
     },
     {
       "no": 13,
-      "name": "Push the Straw Shapes",
-      "purpose": "The child builds a triangle and a rectangle from straws and clay, pushes one side and sees that the triangle keeps its shape while the rectangle does not.",
-      "flow_row": "Push the triangle and the rectangle (C13)"
+      "name": "Look Carefully",
+      "purpose": "The child counts all the cubes in a 3D arrangement, including the partly hidden ones, and picks the right answer from four choices.",
+      "flow_row": "Topic 6: Cube Towers and Drawings (Lesson 5)"
     },
     {
       "no": 14,
-      "name": "Angles After the Push",
-      "purpose": "The child pushes a rectangle, a square and a pentagon and reads how the angles change: the right angles of the rectangle and square become acute and obtuse.",
-      "flow_row": "Angles after the push (C13, C15)"
+      "name": "Copy the Cube Structure",
+      "purpose": "The child recreates a sample cube structure on an empty grid with draggable cubes, compares it with the original, and copies cube structures on dot paper.",
+      "flow_row": "Topic 6: Cube Towers and Drawings (Lesson 5)"
     },
     {
       "no": 15,
-      "name": "Angles in Shapes",
-      "purpose": "The child draws three- and four-sided shapes on a dot grid, counts their right angles, compares rectangle and square with other four-sided shapes and finds a shape from its kinds of angles.",
-      "flow_row": "Right angles in shapes (C14)"
+      "name": "Angle Builder",
+      "purpose": "The child moves one arm of an angle to make angles smaller than, equal to and bigger than a right angle, and finds and checks right angles with a paper corner.",
+      "flow_row": "Topic 7: Understanding Angles (Lesson 6)"
     },
     {
       "no": 16,
-      "name": "Make a Circle",
-      "purpose": "The child places equal straws around a centre and marks points at an equal distance from a point A to see that every point of a circle is the same distance from its centre.",
-      "flow_row": "Make a circle (C16)"
+      "name": "Angle Sorting",
+      "purpose": "The child sorts and names angles as acute, right or obtuse by comparing each with a right angle, in angle pictures and in shapes.",
+      "flow_row": "Topic 7: Understanding Angles (Lesson 6)"
     },
     {
       "no": 17,
-      "name": "Fold the Circle",
-      "purpose": "The child folds a circle in half in different ways, sees that the creases are equal and meet at the centre, and finds that the diameter is double the radius.",
-      "flow_row": "Fold the circle (C17)"
+      "name": "Beat the Clock",
+      "purpose": "The child looks at one angle at a time and picks acute, right or obtuse from three answers, and sees at once whether it is right. There is no clock and no points.",
+      "flow_row": "Topic 7: Understanding Angles (Lesson 6)"
     },
     {
       "no": 18,
-      "name": "Find Radius and Diameter",
-      "purpose": "The child draws a compass flower, marks the centre, radius and diameter on a carpet design and compares four wheels by radius and diameter.",
-      "flow_row": "Radius and diameter in things (C18)"
+      "name": "Circle Detective",
+      "purpose": "The child makes a circle, labels its centre, radius and diameter, and folds paper to see that the diameter is double the radius.",
+      "flow_row": "Topic 8: Circles and Pentagons (Lesson 7)"
     },
     {
       "no": 19,
-      "name": "Sides and Angles",
-      "purpose": "The child sorts flat shape cards by their sides and shapes by their number of angles, sees that the two counts match and draws shapes with fewer and more than five angles.",
-      "flow_row": "Sort by sides and angles (C20, C24)"
+      "name": "Radius or Diameter",
+      "purpose": "The child is given the radius or the diameter of a circle, finds the other one by using that the diameter is double the radius, and types the answer in an answer box. Plain numbers, no units.",
+      "flow_row": "Topic 8: Circles and Pentagons (Lesson 7)"
     },
     {
       "no": 20,
-      "name": "Divide the Shapes",
-      "purpose": "The child spots hidden shapes and draws lines to divide a triangle, a square and other shapes into smaller shapes.",
-      "flow_row": "Cut shapes into smaller shapes (C19)"
+      "name": "Build a Pentagon",
+      "purpose": "The child joins five equal sides into a pentagon, counts its sides and corners, pushes it to see its angles change, and compares shapes with three, four and five angles. The pentagon is met inside the tool: there is no picture before it.",
+      "flow_row": "Topic 8: Circles and Pentagons (Lesson 7)"
     },
     {
       "no": 21,
-      "name": "Spider Web Puzzles",
-      "purpose": "The child counts the triangles and rectangles in the two webs and traces walks that use no wall twice to find which walks are possible.",
-      "flow_row": "Count and walk the webs (C21)"
+      "name": "Triangle vs Rectangle",
+      "purpose": "The child pushes a corner of a triangle frame and of a rectangle frame and sees that the triangle keeps its shape while the rectangle's angles change.",
+      "flow_row": "Topic 9: Shapes with Straws, Rigidity (Lesson 8)"
     },
     {
       "no": 22,
-      "name": "Matchstick Moves",
-      "purpose": "The child makes, moves and removes matchsticks to form 2, 4 and 3 triangles.",
-      "flow_row": "Make triangles with matchsticks (C22)"
+      "name": "Build a Strong Structure",
+      "purpose": "The child builds square frames, adds a stick across the corners to make triangles, and finds strong frames in matchstick puzzles and spider webs.",
+      "flow_row": "Topic 9: Shapes with Straws, Rigidity (Lesson 8)"
+    },
+    {
+      "no": 23,
+      "name": "True or False",
+      "purpose": "The child reads four statements about rigid shapes one at a time and taps True or False, and sees the reason at once.",
+      "flow_row": "Topic 9: Shapes with Straws, Rigidity (Lesson 8)"
+    },
+    {
+      "no": 24,
+      "name": "Shape Identification Quiz",
+      "purpose": "The child looks at pictures of shapes from the whole chapter, solids, nets, angles, circles, pentagons and rigid frames, and names each one, and sees at once whether it is right.",
+      "flow_row": "Topic 10: Revision and Chapter Practice (Lesson 9)"
+    },
+    {
+      "no": 25,
+      "name": "Digital Worksheet",
+      "purpose": "The child works through a short worksheet of mixed practice on all eight lessons, fill in the blanks, match, count and sort, and sees at once whether each answer is right.",
+      "flow_row": "Topic 10: Revision and Chapter Practice (Lesson 9)"
+    },
+    {
+      "no": 26,
+      "name": "Sample Online Assessment",
+      "purpose": "The child answers a sample assessment of eight questions in three sections, fill in the blanks, short answers and solve, with each answer checked at the end. No clock, no marks, no degrees, no cm.",
+      "flow_row": "Topic 10: Revision and Chapter Practice (Lesson 9)"
     }
   ],
   "tool_map_required": true,
@@ -162,11 +186,22 @@
     6
   ],
   "max_tool_controls": 4,
-  "max_tool_questions": 7,
+  "max_tool_questions": 13,
   "max_instruction_words": 15,
   "max_sentence_words": 16,
   "video_max_seconds": {
     "hook": 90,
     "concept": 150
-  }
+  },
+  "tools_in_a_row": true,
+  "no_book_question_tools": [
+    3,
+    4,
+    17,
+    19,
+    23,
+    24,
+    25,
+    26
+  ]
 }

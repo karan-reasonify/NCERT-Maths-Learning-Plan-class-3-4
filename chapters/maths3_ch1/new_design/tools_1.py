@@ -1,72 +1,548 @@
 # -*- coding: utf-8 -*-
-"""What's in a Name? (Class 3, chapter 1): the chapter's tool specs, one entry per tool of the locked table.
+"""What's in a Name? (Class 3, chapter 1): the chapter's tool specs, one entry per APPROVED tool.
 
-STRUCTURE STAGE (c34-tool-mapper): each entry carries tool_id, title (EXACTLY the name in the table), approved_no, the ONE
-learning objective, the VISUAL_KEY keys it draws and, for Tool 1, the `notice` prompts. The rest of each spec (screen,
-controls, instruction, feedback, done_when, shared_state, hints) is for the brief writer, after the user approves the
-structure. The tool's questions are the book items (FIO in topics_N.py), never written here.
+BRIEFS STAGE (c34-brief-writer), after the user approved the structure. tool_id, title (EXACTLY the approved name),
+approved_no and the ONE learning objective are the content team's and are unchanged; this stage fills screen, controls,
+instruction, feedback, done_when, shared_state, hints and visuals. The tool's questions are the book's items already
+placed on its concept (topics_1.py); none is added here.
 
-The seven tools are the pipeline's PROPOSAL, not the content team's (CLASH 1 in content.py): no content-team table existed
-and the user chose "propose fresh from the book". tool_map.md -> chapter.config.json "approved_tools" holds the same names,
-purposes and order; tool_map.locked.md has the concept, the place in the flow and the proposed book items of each.
+Every tool goes in the same order, so the child always knows what comes next:
+  FIRST, GET READY  a small, simple situation that picks up the story or picture before the tool, with short steps;
+  THEN, PLAY        drag, tap, type, match, sort or count with a practice set, with an answer straight away;
+  LAST, THE BOOK QUESTION(S)  the book's question, in its own words, with the book's own numbers.
+The tools show no part names and no dots for these three steps.
+All practice data (a practice herd, practice names, a practice number) are the plan's own and say "Practice".
 
-A tool here is a spec + placeholder (tools_spec/TOOL_SPEC_GUIDE.md): the tool itself is built elsewhere. Nothing below is
-made yet.
+Shared frame: a Hint lamp (four rungs), a Next arrow; no score, no timer; Reset is one of the
+controls of every tool (at most 4 controls in all). Same look in every tool: marks are upright bars in groups of five
+with a gap (no slanting line across a group); a thin line across one bar means struck out; orange is the starting
+letter, blue the ending letter; the green round badge is the tick (or the cross); a number card is a rounded tag.
 
-Notes for the brief writer (decisions are the user's, see CLASHES):
-- Tools 3, 4 and 5 and the hair styles image need sample data (CLASH 14); name tags and sheep have no VISUAL_KEY key yet.
-- No tool needs number names before Tool 5 (Tool 1 is for children who "do not know how to count": one mark, one cow).
+Typed entries: the letter keyboard (A to Z, a back key, Done; names up to 12 letters, an animal up to 14, the first
+letter made capital by the tool; Done is grey until one letter is typed; a letter counts the same in capital or small)
+is ONE control; the number pad (digits 0 to 9, a back key, OK; up to two digits) is ONE
+control. Nothing typed is saved or sent anywhere: it stays on the screen.
+
+The eight tools are the content team's: names, purposes and order are locked in chapter.config.json "approved_tools"
+(tool_map.md; core/tool_map.py verify prints a match).
 """
 from __future__ import annotations
 
 from topics_common import T  # noqa: F401
 
+FRAME = ("FRAME, the same in every tool: a Hint lamp and a Next arrow. "
+         "No score, no timer.")
+TONE = ("Tone, the same in every tool: a soft chime and 'Well done.' before a right reason; 'Not yet, try again.' before "
+        "a wrong reason. A wrong try shakes gently and can be retried. No buzzer, no red cross, no score.")
+
 TOOLS = {
-    # Tool 1: the exploration tool, right after the hook. Concept: C1 (the opening situation).
+    # Tool 1: the exploration tool, right after the hook video. Concept C1 (the opening situation).
     "marks_gate": T(
         "tool_marks_at_the_gate", "Marks at the Gate", 1,
-        "Students make one mark for each cow that leaves, strike one out for each that returns, "
-        "and notice whether any cow is missing.",
-        notice=["What do you see on the wall when a cow goes out?",
-                "What happens to the marks when the cows come back?",
-                "How can you tell that no cow is missing?"],
-        visuals=["tally_mark", "struck_mark", "cow_shed", "cows", "deba_and_deep"]),
+        "Students mark each cow that leaves, strike out one mark for each that returns, and tell if any cow is missing.",
+        screen=(FRAME + " One big picture: the cow shed gate with Deba and Deep beside it, and a low plain wall for the marks. "
+                "A small herd of the plan's own waits in the shed (the builder uses 6 cows, with a small Practice tag; no "
+                "number is ever shown or said). "
+                "FIRST, GET READY (picks up the opening story): the cows wait quietly in the shed behind the gate. A thought "
+                "bubble with a question mark floats over Deba and Deep, the problem of the story. Their friend comes to the "
+                "wall and says in a speech bubble: 'A mark for each cow that goes out. Strike one out for each "
+                "that comes in.' Two small pictures show it: a cow walking out beside a new mark, and a cow walking in beside "
+                "a mark with a thin line across it. The child taps Next. "
+                "THEN, PLAY. Morning: one cow walks to the gate and waits. The child taps Make a mark: a mark appears on "
+                "the wall and the cow walks out. This repeats for every cow. Evening: the line changes to 'Strike out one "
+                "mark for each cow that comes in.' A cow waits at the gate. The child taps Strike out a mark: a thin line "
+                "crosses one mark and the cow walks in. The last cow is slow and is still on the path when the others are "
+                "in, so for a moment one mark has no line. The three What do you notice? prompts show one at a time in a "
+                "speech bubble: after the morning, after the first cow is in, and while the slow cow walks. They are read "
+                "and thought about; nothing is typed. "
+                "LAST, THE BOOK QUESTION: when the last cow is in, 'Did all the cows come back home?' shows under the "
+                "wall with two big tiles, Yes and No. Its three steps show beside the wall; step 3 is 'Look at the wall. "
+                "Does any mark have no line across it?'. The child looks at the wall: no mark is without a line, and that "
+                "answers step 3. That leads to the book question, and the child taps Yes. Every mark now has a line "
+                "across it."),
+        controls=["Tap Make a mark when a cow goes out",
+                  "Tap Strike out a mark when a cow comes in",
+                  "Tap the Yes tile or the No tile",
+                  "Tap Reset to start again"],
+        instruction="Mark each cow that goes out. Strike one out for each that comes in.",
+        feedback=["Right try: One cow goes out, so one mark appears on the wall.",
+                  "Right try: One cow comes in, so one mark gets a line across it.",
+                  "Right try: The last cow is on the path, so one mark has no line yet.",
+                  "Right try: Yes. Every mark has a line across it, so no cow is missing.",
+                  "Wrong try: No cow is at the gate yet. Wait for the next cow.",
+                  "Wrong try: This cow already has its mark. One mark for each cow.",
+                  "Wrong try: This cow is going out. Tap Make a mark, not Strike out a mark.",
+                  "Wrong try: This cow is coming in. Tap Strike out a mark, not Make a mark.",
+                  "Wrong try: Look at the wall again. Does any mark have no line? Every mark has a line, so no cow is missing.",
+                  TONE],
+        done_when=("First, the child has read the friend's idea and tapped Next. Then, every cow has gone out with one "
+                   "mark made and has come in with one mark struck out. Last, the child has tapped Yes for the book "
+                   "question and the wall shows every mark with a line across it."),
+        shared_state=["part", "cows_out", "cows_in", "marks_made", "marks_struck", "answer_tile"],
+        notice=["What do you notice about the marks on the wall?",
+                "What happens to a mark when a cow comes back?",
+                "How can the marks show you that a cow is missing?"],
+        hints=["Look at the gate. Is the cow going out or coming in?",
+               "One cow, one mark. Going out: make a mark. Coming in: strike one out.",
+               "A cow is waiting at the gate. Tap the button that matches what it does.",
+               "Cow going out: tap Make a mark. Cow coming in: tap Strike out a mark. At the end, look for a mark with no line."],
+        visuals=["cow_shed", "cows", "tally_mark", "struck_mark", "deba_and_deep", "wall_marks", "their_friend"]),
 
-    # Tool 2: C2 (reading the marks) with C3 (marks for two kinds), the book's own pair.
-    "marks_herd": T(
-        "tool_marks_for_a_big_herd", "Marks for a Big Herd", 2,
-        "Students read the marks to find the cows still out and the cows back, "
-        "then make separate marks for cows and sheep.",
-        visuals=["tally_mark", "struck_mark", "stone_slab", "cows", "deba_and_deep"]),
+    # Tool 2: after the concept video of row 3 (standing and struck-out marks, groups of five). Concept C2.
+    "big_herd": T(
+        "tool_count_the_big_herd", "Count the Big Herd", 2,
+        "Students count 47 marks in groups of five and find how many cows are still out and how many came home.",
+        screen=(FRAME + " The picture is the shed gate with a wall beside it and, in the last part, the stone slab on sand. Marks stand "
+                "in groups of five with a gap and no slanting line across a group; a standing mark is a cow still out and "
+                "a struck-out mark, with a thin line across it, is a cow that is back. A number pad (digits 0 to 9, a back key, OK) slides up only when a number is asked. "
+                "FIRST, GET READY (the cowherds are back at the wall, one morning after the cows have gone out to the "
+                "fields): Deba and Deep stand beside the wall. A short row of marks stands on it, labelled Practice, in two "
+                "groups of five and one group of three, all standing. Deba asks in a speech bubble: 'Our wall again. How "
+                "many marks are there?' The child taps each group: it lights up and shows its own count, 5, 5 and 3. The "
+                "number pad slides up, the child types the marks on the wall and taps OK. "
+                "THEN, PLAY (Practice): evening. 'Ten cows come home. Strike out their marks.' The child taps a group of five two "
+                "times: five cows walk in each time and a line crosses each of their marks. Three standing marks are left. "
+                "Line: 'Which marks are cows still out? Tap them.' The child taps the three standing marks and they glow. "
+                "LAST, THE BOOK QUESTIONS, on the real stone slab. (1) ch1.fill1, 'So, they had ____ cows.': the slab "
+                "holds nine groups of five and one last group of two marks. Each tap on a group lights it and shows only "
+                "that group's own count; there is no running total. The child adds and types the number on the pad, then "
+                "taps OK. (2) ch1.story4: the next day the cows walk in, five at a time. The child taps a group of five to "
+                "strike it out, group after group. The last group of two stays standing. Deba and Deep look along the "
+                "path and see no cow outside the gate. Then three answer cards ask 'Why were "
+                "Deba and Deep worried?': 'Two marks were still left, but they saw no cows outside the gate.' (right), "
+                "'Every mark was struck out and every cow was home.' (wrong), 'There were too many marks to count.' "
+                "(wrong). The child taps one card. A step of the plan follows: 'How many marks are "
+                "still left? That many cows are still out.' The child types the number on the pad. (3) ch1.fill2, 'How "
+                "many cows had reached home?': the child types the number on the pad. Last scene, after the answers: Deba "
+                "and Deep find the missing cows in a nearby field and all walk home together; the last marks get their "
+                "lines."),
+        controls=["Tap marks on the wall or the slab",
+                  "Tap a digit or OK on the number pad",
+                  "Tap an answer card",
+                  "Tap Reset to start again"],
+        instruction="Count the marks in fives. A standing mark is a cow still out.",
+        feedback=["Right try: 5 + 5 + 3 = 13 marks, so 13 cows are out.",
+                  "Wrong try: Tap each group and add the counts. How many marks are there in all?",
+                  "Right try: 13 − 10 = 3. Three marks are still standing, so three cows are still out.",
+                  "Wrong try: That mark is struck out. That cow is home. Tap a standing mark.",
+                  "Right try (ch1.fill1): 47 cows. That is 9 groups of 5 and 2 more marks.",
+                  "Wrong try (ch1.fill1, a number below 47): That number is too small. Did you count the last group?",
+                  "Wrong try (ch1.fill1, a number above 47): That number is too big. Count the groups again. A full group has 5 marks.",
+                  "Right try (ch1.story4): Two marks were still left, so two cows were not home yet. Deba and Deep saw none outside the gate.",
+                  "Wrong try (ch1.story4): If every mark were struck out, they would not worry. Look at the marks left.",
+                  "Wrong try (ch1.story4): Counting is not the worry. A standing mark is a cow still out.",
+                  "Wrong try (ch1.story4, the last group tapped): No more cows are coming in, so this group stays. Look at the gate.",
+                  "Right try (the plan's step): 2 marks are left, so 2 cows are still out.",
+                  "Wrong try (the plan's step): Count the standing marks. How many are there?",
+                  "Right try (ch1.fill2): 47 − 2 = 45. The struck-out marks are the cows that are home.",
+                  "Wrong try (ch1.fill2, the number 47): 47 is all the cows. Two have not come back. Take them away.",
+                  "Wrong try (ch1.fill2, the number 2): 2 is the cows still out. How many cows are home?",
+                  TONE],
+        done_when=("First, the child has tapped all three groups and typed the marks on the wall (13). Then, the child has struck out ten marks and tapped the "
+                   "three marks left. Last, the child has typed the cows on the slab (47), tapped the right card for why "
+                   "Deba and Deep were worried, typed the cows still out (2) and typed the cows that reached home (45)."),
+        shared_state=["part", "groups_tapped", "marks_struck", "marks_left", "typed_number", "chosen_card"],
+        hints=["Look at the marks. They stand in groups. Each mark is one cow.",
+               "Count group by group. A full group has five marks.",
+               "Tap each group once. Count in fives: 5, 10, 15. Then add the last marks.",
+               "A standing mark is a cow still out. Cows at home are all the cows minus the cows still out."],
+        visuals=["stone_slab", "tally_mark", "struck_mark", "cows", "deba_and_deep", "answer_blank", "wall_marks",
+                 "tally_group", "cow_shed"]),
 
-    # Tool 3: C4 (the length of a name is its letter count).
+    # Tool 3: after the bridge video of row 5 (a short story video, decided by the user). Concept C3.
+    "hemant_herd": T(
+        "tool_hemants_cows_and_sheep", "Hemant's Cows and Sheep", 3,
+        "Students make a separate row of marks for each kind of animal: 36 cows and 23 sheep.",
+        screen=(FRAME + " The picture is Hemant (green shirt) at his shed gate, with his cows and real sheep beside him, and a "
+                "wall with TWO FIXED ROWS for marks: a small cow picture at the head of the cow row and a small sheep "
+                "picture at the head of the sheep row. Under each row sit its own two buttons, Add 1 mark and Add 5 marks. "
+                "Marks stand in groups of five with a gap and no slanting line across a group. Each row shows its own count "
+                "in a small chip. The tool never adds the two rows together and shows no total for both. "
+                "FIRST, GET READY (picks up the story of Hemant's two rows): Hemant says in a speech bubble: 'Cows "
+                "here. Sheep here.' with an arrow to each row. One cow walks out of the shed. The child taps Add 1 mark "
+                "under the cow row and one mark appears. Line: 'Each animal gets a mark in its own row.' "
+                "THEN, PLAY (a Practice herd): five animals walk out one at a time, in a mixed order: cow, sheep, cow, "
+                "cow, sheep. After each one the child taps Add 1 mark under the row of that animal. Then 'The quick way': "
+                "five cows walk out together and the child taps Add 5 marks under the cow row: a group of five appears. Line: 'Five at once: tap Add 5 marks.' "
+                "LAST, THE BOOK QUESTION (ch1.hemant1): both rows start empty. The child makes the marks for Hemant's 36 "
+                "cows and 23 sheep: 36 marks in the cow row and 23 marks in the sheep row, with Add 5 marks and Add 1 "
+                "mark. ONE RULE FOR THE BUTTONS: no button is ever refused, Add 5 marks included, even near the end of a "
+                "row. A row may therefore hold more marks than there are animals; the row then shows the message 'This row has "
+                "more marks than animals.' and the child taps the last mark of that row to take it back, one mark at a time. "
+                "A mark put in the wrong row is taken back the same way. The question's words, with the numbers 36 and 23, "
+                "stay on the screen above the rows. The cow row glows when it holds 36 and the "
+                "sheep row glows when it holds 23. When both glow, a last line shows: 'Marks can keep count in other "
+                "places too. Think of one.'"),
+        controls=["Tap Add 1 mark under a row",
+                  "Tap Add 5 marks under a row",
+                  "Tap the last mark of a row to take it back",
+                  "Tap Reset to start again"],
+        instruction="Make marks for each kind in its own row. Fives are quicker.",
+        feedback=["Right try: A cow walked out, so one mark goes in the cow row.",
+                  "Right try: A sheep walked out, so one mark goes in the sheep row.",
+                  "Right try: Add 5 marks makes a group of five. It is the same as five single marks.",
+                  "Right try: The cow row holds the cows. The sheep row holds the sheep.",
+                  "Right try (the cow row is done): 7 × 5 = 35, and 1 more mark makes 36 cow marks.",
+                  "Right try (the sheep row is done): 4 × 5 = 20, and 3 more marks make 23 sheep marks.",
+                  "Wrong try: That is a sheep. Its mark goes in the sheep row. One kind, one row.",
+                  "Wrong try: That is a cow. Its mark goes in the cow row. One kind, one row.",
+                  "Wrong try (shown once, the first time the two kinds are mixed): A cow's mark and a sheep's mark must not share a row. A mark left could not say which animal is out.",
+                  "Wrong try (shown whenever a row has too many marks, whichever button was tapped): This row has more marks than animals. Tap its last mark to take one back.",
+                  TONE],
+        done_when=("First, one mark is in the cow row. Then, every practice animal is marked in its own row and the "
+                   "quick way is used once. Last, the cow row holds 36 marks and the sheep row holds 23 marks, each kept "
+                   "in its own row, and the child taps Next. The two rows are never added together."),
+        shared_state=["part", "cow_marks", "sheep_marks", "last_animal", "mix_reminder_shown"],
+        hints=["Which animal is it? Cows and sheep each have their own row.",
+               "Make one mark for each animal, in its own row. Fives are faster.",
+               "One tap on Add 5 marks makes a group of five. Use Add 1 mark for the extra marks. Too many marks? Tap the last mark to take it back.",
+               "Cows: 7 groups of 5 and 1 more. Sheep: 4 groups of 5 and 3 more."],
+        visuals=["tally_mark", "cows", "answer_blank", "tally_group", "sheep", "hemant", "cow_shed"]),
+
+    # Tool 4: after the concept video of row 7 (name length is the number of letters). Concept C4.
     "longest_shortest": T(
-        "tool_longest_and_shortest_name", "Longest and Shortest Name", 3,
-        "Students count the letters in each name and compare them to find the longest and the shortest name.",
-        visuals=["animal_card", "name_big", "mahesh_kartik_boys", "tick_and_cross"]),
+        "tool_longest_and_shortest_names", "Longest and Shortest Names", 4,
+        "Students count the letters in names to find the longest and the shortest name, and to see when two names are equally long.",
+        screen=(FRAME + " Tapping a name drops a small count mark under each letter in turn and a count badge grows. Names sit "
+                "in rows of equal letter boxes, one letter in each box, so room does not mislead (in the first two "
+                "parts, and in stage 1 and stage 3 of the book questions). In stage 2 the names are written freely, as the book draws them, so the child sees that a "
+                "name can look wide and still have as many letters as a narrow one. A green tick badge and a green cross "
+                "badge wait at the side, as many as needed. "
+                "THE LETTER KEYBOARD AND ITS DONE KEY: the keyboard (A to Z, a back key and Done) slides up only when a name "
+                "is asked. Whatever case the child types, the line shows the name with the first letter capital and the "
+                "rest small. There is no space, digit or sign key, so only letters can be typed. The back key takes away "
+                "the last letter. A friend's name holds up to 12 letters and an animal name up to 14; when the line is full "
+                "the keys wait and a small line says 'The line is full.' Done stays grey until the line holds at least one "
+                "letter. Tapping Done accepts the name: it is fixed on its line and its letters are counted at once. The "
+                "tool counts whatever is typed and does not check that it is a real name or animal. A quick-pick name tile "
+                "puts its name on the next free line at once and needs no Done. "
+                "FIRST, GET READY (picks up the yard game of the story, where the child with the longest animal name goes "
+                "first): two children of the yard each hold one Practice animal card, cat and horse, in equal letter boxes. "
+                "The child taps each name to count its letters, then drags the green tick onto the child who goes first. "
+                "Line: 'The longer name goes first. Count, then tick.' "
+                "THEN, PLAY: three Practice names, hen, camel and buffalo, in letter boxes. The child taps each name to "
+                "count it, then drags the green tick onto the longest name and the green cross onto the shortest name. Line: 'Tick the longest name. Cross the shortest name.' "
+                "LAST, THE BOOK QUESTIONS, in three stages, in the book's order. STAGE 1, the team captains "
+                "(ch1.letus1, ch1.longer1): the ten animal cards (tiger, dog, snake, goat, lion, elephant, deer, ox, rat, "
+                "monkey). The child taps a card to count its letters; the count badge stays on the card. Two boxes wait, First "
+                "team captain and Second team captain, each with a Letter count slot. The child drags one card into each "
+                "box and its count travels with it; a card dragged with no count shows 'Tap the card to count its letters "
+                "first.' Then 'Do you know any animal having a longer name than the first team's captain?': the keyboard "
+                "slides up, the child types an animal name and taps Done, and the tool counts its letters and says if it "
+                "has more letters than the first team's captain. Any word of 1 to 14 letters is accepted by Done; a word "
+                "with 8 letters or fewer is counted and gets the message that it is not longer. STAGE 2, Mahesh and "
+                "Kartik (ch1.letus2): the two names as the book draws them, large, with the two boys and their one speech "
+                "bubble; Mahesh looks wider. The child taps each name to count its letters, then drags one answer tile: "
+                "Mahesh is longer, Kartik is longer, or Same length. STAGE 3, the names you enter (ch1.letus3, ch1.letus3a): "
+                "the book's words 'Write down the names of some of your friends in the spaces given below and then, answer "
+                "the questions from a to f.' show as printed, and a plain line under them says 'Part (a) comes now. Parts "
+                "(b) to (f) come in the next tool.' Eight name lines wait. The child types friends' names with the keyboard, "
+                "or taps the quick-pick tiles of the book's eight names (Practice names: Deba, Deep, Hemant, Mahesh, "
+                "Kartik, Teji, Jojo, Mala), two to eight names. A name that is already on a line is refused gently, "
+                "whatever its case: Teji and teji are the same name. Each name's letters are counted. "
+                "If all the names have the same number of letters, "
+                "the tool asks for one more name with a different count. Then the child drags the green tick onto the "
+                "longest name or names and the green cross onto the shortest name or names; names that tie each get the "
+                "badge."),
+        controls=["Tap a name to count its letters",
+                  "Drag a card, a tile or a badge to its place",
+                  "Tap a letter key, Done or a name tile to enter a name",
+                  "Tap Reset to start again"],
+        instruction="Count the letters of each name. Most letters make the longest name.",
+        feedback=["Right try: The count goes up by one for each letter. Tap the name to count it.",
+                  "Right try: Horse has 5 letters and cat has 3. Horse is longer, so its child goes first.",
+                  "Wrong try: Count the letters of each name again. Which name has more? Which has fewer?",
+                  "Right try: Buffalo has the most letters, so it is the longest. Hen has the fewest, so it is the shortest.",
+                  "Right try (stage 1): The most letters is 8, so the first team captain is elephant. The fewest is 2, so the second team captain is ox.",
+                  "Wrong try (stage 1): Count the other cards too. Does any card have more letters?",
+                  "Wrong try (stage 1): This card has no count yet. Tap the card to count its letters first.",
+                  "Right try (ch1.longer1): Your word has more than 8 letters, so it is longer than elephant.",
+                  "Wrong try (ch1.longer1): That word does not have more than 8 letters. Try a longer animal name.",
+                  "Right try (stage 2): Mahesh has 6 letters and Kartik has 6 letters. They are the same length. Neither is longer.",
+                  "Wrong try (stage 2): Mahesh looks wider, but wider is not longer. Count the letters of both names.",
+                  "Wrong try (stage 2): Count the letters of both names again. Do they have the same count?",
+                  "Right try (stage 3): Names can tie. Tick every name with the most letters. Cross every name with the fewest.",
+                  "Wrong try (stage 3): Another name has more letters. Count again.",
+                  "Wrong try (stage 3): This name is already on a line. Write a different name.",
+                  "Wrong try (stage 3): All your names are equally long. Add a name with a different number of letters.",
+                  TONE],
+        done_when=("First, the child has dragged the tick onto the child with the longer practice name. Then, the child has ticked the "
+                   "longest and crossed the shortest practice name. Last, the child has dragged the two captains and typed "
+                   "one animal with more than 8 letters; has answered for Mahesh and Kartik; has entered two to eight friends' "
+                   "names; and has put a tick on every longest name and a cross on every shortest name."),
+        shared_state=["part", "counted_names", "first_captain", "second_captain", "typed_animal",
+                      "mahesh_kartik_answer", "friend_names", "tick_names", "cross_names"],
+        hints=["Look at the name. What do you count to find its length?",
+               "Count the letters, not the room the name takes. More letters make a longer name.",
+               "Tap the name. Each letter gets a mark as it is counted. Then compare the counts.",
+               "The longest name has the most letters. The shortest has the fewest. Equal counts tie."],
+        visuals=["animal_card", "name_big", "mahesh_kartik_boys", "tick_and_cross", "answer_blank"]),
 
-    # Tool 4: C5 (starting letters and ending letters). The weakest tool of the table (CLASH 7).
+    # Tool 5: after the Name Tags image of row 9 (an image concept, no video). Concept C5.
     "start_end_letters": T(
-        "tool_starting_and_ending_letters", "Starting and Ending Letters", 4,
-        "Students sort names by their starting letter or ending letter and count each group to find the letter used most.",
-        visuals=["name_big", "group_box", "answer_blank"]),
+        "tool_starting_and_ending_letters", "Starting and Ending Letters", 5,
+        "Students sort names by their starting and ending letters and count each group to find the most used starting letter.",
+        screen=(FRAME + " Two RINGS are this tool's own device: an orange ring and a blue ring, round outlines that the child "
+                "drags onto one letter. A letter with the orange ring turns orange (the starting letter); a letter with the "
+                "blue ring turns blue (the ending letter); all other letters stay dark grey. The letter keyboard and the "
+                "quick-pick name tiles slide up only when a name is asked. "
+                "CAPITAL AND SMALL LETTERS, ONE RULE: a letter counts the same whether it is capital or small. A typed name "
+                "shows with its first letter capital and the rest small, whatever the child types, so Kartik, kartik and "
+                "KARTIK are the same name. Starting-letter piles have capital labels and ending-letter piles have small "
+                "labels, but a tag goes by the letter and never by the case: Kartik goes in pile K by its first letter and "
+                "in pile k by its last letter. A tap on K in the alphabet strip means the letter K or k. "
+                "THE CONFIRM STEP: the keyboard is the one of the last tool (A to Z, a back key, Done; only letters; 1 to 12 "
+                "letters). The child types their name and taps Done. Done stays grey until the line holds a letter. Done "
+                "confirms the name: it is fixed on a tag in grey letters and is the child's own name in ch1.letus3b, "
+                "ch1.letus3c and ch1.letus3e. A quick-pick tile confirms its name at once. To change the name, the child "
+                "taps the tag and types again; the rings and the counts for the own name then start again. There is no "
+                "Check key: each drop of a ring or a tag and each tap on a pile or a letter is checked the moment it is "
+                "made. A right drop stays. A wrong drop slides back with its message. Part ch1.letus3d is met when D "
+                "and M both glow. "
+                "FIRST, GET READY (a new place, so it does not repeat the name tags picture): a shelf of bird picture "
+                "cards, each with its name under the picture. Practice cards: swan and owl. Line: 'Orange ring: starting "
+                "letter. Blue ring: ending letter.' The child drags the orange ring onto the first letter of swan and the "
+                "blue ring onto its last letter, then the same for owl. "
+                "THEN, PLAY (Practice): a fruit stall with four Practice cards: mango, banana, guava and apple. Three "
+                "piles wait, labelled with the ending letters a, e and o. The child drags each card onto the pile with its "
+                "last letter. When the cards are sorted, the child taps the pile with the most cards. Line: 'Sort the cards by their last letter. Tap the tallest pile.' "
+                "LAST, THE BOOK QUESTIONS. The eight Practice names are the book's friends: Deba, Deep, Hemant, Mahesh, "
+                "Kartik, Teji, Jojo and Mala, each on a name tag with its first letter orange and its last letter blue. "
+                "(a) ch1.letus3b: the child types their own name (or taps a name tile); it shows on a tag in grey letters; "
+                "the child drags the orange ring onto its first letter, and the starting letter shows in a 'My starting "
+                "letter' box. (b) ch1.letus3c: six piles wait, labelled D, H, J, K, M and T. The child drags each of the "
+                "eight tags onto the pile of its starting letter, then taps the pile that has the child's own starting "
+                "letter to read its count. If the child's letter has no pile, the tool shows an empty pile with that letter "
+                "and the count 0. (c) ch1.letus3d: the piles show their counts as stacks; the child taps the tallest "
+                "pile or piles. D and M are the tallest and tie, so both must be tapped. (d) ch1.letus3e: the child drags the "
+                "blue ring onto the last letter of their own name. The eight tags are sorted again, by ending letter, onto "
+                "seven piles labelled a, h, i, k, o, p and t; the child taps the pile of their own ending letter to read "
+                "its count (0 if no pile has it). (e) ch1.letus3f: an alphabet "
+                "strip from A to Z. The child taps the six letters that start a name (D, H, J, K, M, T) to take them out. "
+                "The 20 letters left glow and a line says they start no name. A last optional line: 'Try this later with "
+                "the boys' names and the girls' names in your class.'"),
+        controls=["Tap a letter key or a name tile to type a name",
+                  "Drag a ring or a card to its place",
+                  "Tap a pile or a letter on the alphabet strip",
+                  "Tap Reset to start again"],
+        instruction="Orange ring: first letter. Blue ring: last letter. Sort the names.",
+        feedback=["Right try: The orange ring goes on the first letter. The blue ring goes on the last letter.",
+                  "Wrong try: The first letter is at the start of the name. Try the orange ring there.",
+                  "Wrong try: The last letter is at the end of the name. Try the blue ring there.",
+                  "Right try: Banana and guava both end with a, so that pile is the tallest.",
+                  "Wrong try: Look at the last letter of this card. Drop it on the pile with that letter.",
+                  "Right try (ch1.letus3b): The orange ring marks the first letter. That is your starting letter.",
+                  "Right try (shown once, when a tag lands in a pile with a label of the other case): A capital K and a small k are the same letter.",
+                  "Right try (ch1.letus3c): This pile holds the names that start with your letter. Count them.",
+                  "Right try (ch1.letus3c, no pile): No name starts with your letter, so the count is 0.",
+                  "Wrong try (ch1.letus3c): Look at the first letter of this tag. Drop it on the pile with that letter.",
+                  "Right try (ch1.letus3d): D and M are the tallest piles, with 2 names each. They tie. A tie is fine.",
+                  "Wrong try (ch1.letus3d): Look at the other piles. Is any pile as tall as this one?",
+                  "Right try (ch1.letus3e): This pile holds the names that end with your letter. Count them.",
+                  "Wrong try (ch1.letus3e): Look at the last letter of this tag. Drop it on the pile with that letter.",
+                  "Right try (ch1.letus3f): 26 − 6 = 20. Twenty letters do not start any name.",
+                  "Wrong try (ch1.letus3f): No name starts with this letter. Tap only the letters that start a name.",
+                  TONE],
+        done_when=("First, the rings are on the first and last letters of swan and owl. Then, the four practice cards are "
+                   "on their ending-letter piles and the tallest pile is tapped. Last, the child has confirmed their own name with Done (or a tile), has put the orange ring "
+                   "on their own first letter and the blue ring on their own last letter; has sorted the eight names by starting letter and read the count for their own "
+                   "letter; has tapped both tallest piles, D and M; has sorted the eight names by ending letter and read the "
+                   "count for their own ending letter; and has tapped the six starting letters so the 20 other letters glow."),
+        shared_state=["part", "own_name", "own_first_letter", "own_last_letter", "tags_in_start_piles",
+                      "tags_in_end_piles", "tallest_piles_tapped", "letters_taken_out"],
+        hints=["Look at the name. Which letter comes first? Which comes last?",
+               "Orange ring: the first letter. Blue ring: the last letter.",
+               "Drag the card to the pile that shows its first letter. For ending letters, use its last letter.",
+               "Starting letter: the first letter. Ending letter: the last letter. Count the tags in a pile."],
+        visuals=["first_last_letter_colours", "name_big", "answer_blank", "name_tag", "letter_rings"]),
 
-    # Tool 5: C6 (number names and their letter count).
-    "build_number_name": T(
-        "tool_build_a_number_name", "Build a Number Name", 5,
-        "Students make a number name from a tens card and a ones card and count the letters in it.",
-        visuals=["number_card", "teji", "jojo", "answer_blank"]),
+    # Tool 6: after the concept video of row 11 (number names made with cards). Concept C6.
+    "number_name": T(
+        "tool_build_a_number_name", "Build a Number Name", 6,
+        "Students build a number name from one or two number cards, tens card first, and count its letters.",
+        screen=(FRAME + " Teji and Jojo stand beside a mat that holds the 27 number cards in three coloured rows: peach One "
+                "to Nine, light blue Ten to Nineteen, light green Twenty to Ninety. A laying row has two slots, the tens "
+                "slot on the left and the ones slot on the right. Under the laid cards the written name shows in small "
+                "letters with a grey hyphen, for example forty-three. Tapping a card lights its letters one by one and a "
+                "count badge grows; tapping the grey hyphen shows 'A hyphen is not a letter.' and it is not counted. A "
+                "number pad (digits 0 to 9, a back key, OK) slides up when a number is asked. "
+                "FIRST, GET READY (the mat is back, as in the story): Teji and Jojo stand beside the mat of cards. Jojo says "
+                "in a speech bubble: 'Find the card Nine.' The child taps the card Nine on the mat: its letters light up one by "
+                "one and a count badge grows. Then Teji says: 'Now find the card Sixty.' The child taps it in the same way. "
+                "A card that is not the one asked for lights its letters too, with the message that it is another card. "
+                "THEN, PLAY (Practice): Teji says: 'Make 94.' The child drags the cards into the row, Ninety and Four. If "
+                "Four goes first, the tool says the tens card goes first. Line: 'Tap each card to count its letters. Type the "
+                "total.' The child taps Ninety and Four to count their letters and types the total on the "
+                "pad: 6 + 4 = 10. The child may tap the hyphen to see that it is not counted. Then 'Make 12': it is one "
+                "card, Twelve; the child lays it, taps it to count and types 6. "
+                "LAST, THE BOOK QUESTIONS. (1) ch1.example1, Teji's roll number 43: the book's words already say that its "
+                "number name has 10 letters, and the screen does not hide that. The child's task is the counting: lay Forty, "
+                "then Three, tap each card to see its letters counted (5 and 5), and type the total on the pad to check it "
+                "against the book's words. (2) ch1.fill3, Jojo's roll number 17: the child "
+                "lays the one card Seventeen, taps it to count and types the number of letters. (3) ch1.letus4a: the child "
+                "types their own roll number from 1 to 99 on the pad. The cards stop at 99, so 0 or a bigger number gets a "
+                "gentle message. The child lays the cards (a tens card then a ones card; one card for 1 to 19; one card for "
+                "a tens number such as 40), counts, and types the letters. The tool fills 'My roll number is ____. Its "
+                "number name has ____ letters.' (4) ch1.letus4b: a short OPTIONAL instruction card about the notebook: "
+                "'Write some numbers and their number names in your notebook. How many letters does each have?' Nothing is "
+                "typed; the child taps Next."),
+        controls=["Drag a number card into the row",
+                  "Tap a card or a letter to count it",
+                  "Tap a digit or OK on the number pad",
+                  "Tap Reset to start again"],
+        instruction="Lay the tens card first, then the ones card. Count the letters.",
+        feedback=["Right try: You found the card. Each letter lit up as it was counted.",
+                  "Wrong try: That is another card. Read the word on it and look again.",
+                  "Right try: The tens card goes first. Then the ones card.",
+                  "Wrong try: The tens card goes first. Swap the two cards.",
+                  "Right try: Ninety has 6 letters. Four has 4 letters. 6 + 4 = 10 letters.",
+                  "Right try: Twelve is one card. It has 6 letters.",
+                  "Right try (hyphen tapped): A hyphen is not a letter. It is not counted.",
+                  "Right try (ch1.example1): Forty has 5 letters. Three has 5 letters. 5 + 5 = 10 letters.",
+                  "Wrong try (ch1.example1): Forty is spelled F, O, R, T, Y. It has 5 letters.",
+                  "Right try (ch1.fill3): Seventeen is one card. It has 9 letters.",
+                  "Wrong try (ch1.fill3): Seventeen is one card. Take the second card back.",
+                  "Wrong try (counting): Count again. Tap each card and add the counts.",
+                  "Wrong try (ch1.letus4a): The cards stop at 99. Type a number from 1 to 99.",
+                  "Right try (ch1.letus4a, a tens number such as 40): Forty is one card by itself. The ones card is not needed.",
+                  "Right try (ch1.letus4a, a number from 1 to 19): It is one card by itself.",
+                  "Right try (ch1.letus4a, Sample answer): Roll number 91 is Ninety, One. 6 + 3 = 9 letters.",
+                  TONE],
+        done_when=("First, the child has tapped the cards Nine and Sixty. Then, the child has laid the cards for 94 in "
+                   "the right order and has typed the letters of 94 and of 12. Last, the child has laid and counted 43 "
+                   "(the book already says 10 letters; the counting is the task) and 17, has typed their own roll number from "
+                   "1 to 99, laid its cards and typed its letters, and has tapped Next past the optional notebook card."),
+        shared_state=["part", "laid_cards", "counted_cards", "typed_number", "roll_number", "roll_letters"],
+        hints=["Look at the number. How many cards does its name need?",
+               "Tens card first, then the ones card. A number from 1 to 19 is one card.",
+               "Tap each card to count its letters. Add the counts. A hyphen is not a letter.",
+               "Lay the tens card, then the ones card. Add the letters of both cards."],
+        visuals=["number_card", "teji", "jojo", "answer_blank", "number_name_row"]),
 
-    # Tool 6: C7 (numbers whose names have the same letter count) with C8 (longest names, riddles, own puzzles).
+    # Tool 7: after the concept video of row 13 (Twenty and Thirty, the eight-letter puzzle). Concepts C7 and C8 as one.
     "number_puzzles": T(
-        "tool_number_name_puzzles", "Number Name Puzzles", 6,
-        "Students use the letter counts of number names to find numbers between 1 and 99 "
-        "and notice what same-count names share.",
-        visuals=["number_card", "answer_blank", "teji", "jojo", "speech_bubble"]),
+        "tool_number_name_puzzles", "Number Name Puzzles", 7,
+        "Students use the letter counts of number names to find the numbers between 1 and 99 that fit a clue.",
+        screen=(FRAME + " Teji and Jojo stand beside the mat of the 27 number cards, the same as in the last tool. A laying "
+                "row has two slots. The child lays the cards of a number and taps OK: the tool shows the written name "
+                "with a grey hyphen, the numeral and the letter count, for example 5 + 3 = 8 letters. Tapping a card or a "
+                "number tile lights its letters one by one. "
+                "FIRST, GET READY (picks up the story of Twenty and Thirty, with other cards): three Practice cards, Four, "
+                "Five and Twelve. 'Which two cards have the same number of letters?' The child taps each card to count its "
+                "letters, then drags the two cards with the same count into a box. "
+                "THEN, PLAY (Practice): 'Find a number whose name has 4 letters.' The child lays the cards of a number and "
+                "taps OK. Four, Five and Nine fit. Any other number shows its own letter count. "
+                "LAST, THE BOOK QUESTIONS, six steps in the book's order. (1) ch1.example2: the book's words already say "
+                "that 56 has 8 letters, and the screen does not hide that. The child's task is the counting: lay Fifty and "
+                "Six (56), tap OK, and tap each card to see its letters counted; the tool shows 5 + 3 = 8 letters. (2) ch1.think1: 'Write other numbers between 1 and 99 "
+                "that have 8 letters.' The child lays cards and taps OK. A number with 8 letters (not 56) joins a table of "
+                "six boxes, each box showing the number and its name; any other number shows its own letter count. Every "
+                "number with 8 letters is accepted. After three numbers are found the tool says that more numbers fit, and "
+                "asks 'What is the same in the names of the numbers you found?' (read and thought about). (3) ch1.letus5: "
+                "'Write the number(s) between 1 and 99 that have the longest name.' The child lays cards and taps OK; 73, 77 "
+                "and 78 (12 letters each) are accepted, and the tool says the other two fit as well. (4) ch1.letus6a: the first "
+                "orange Find out box is shown on its own, without any other question above it. The child lays two cards "
+                "and taps OK; 93, 97 and 98 are accepted. A number that fits the letters but is not near 100 gets a gentle "
+                "message. (5) ch1.letus6b: the second Find out box, with a strip of the tiles 63 to 78. The child taps tiles "
+                "to count their letters, then lays the answer and taps OK; 70 (Seventy, one card) is accepted. (6) ch1.letus7: "
+                "a short OPTIONAL instruction card: 'Make similar puzzles of your own in your notebook and ask your "
+                "classmates.' Nothing is entered; the child taps Next."),
+        controls=["Drag a number card into the row",
+                  "Tap a card or a number tile to count its letters",
+                  "Tap OK to check the row",
+                  "Tap Reset to start again"],
+        instruction="Lay cards to try a number. Count its letters. Does it fit the clue?",
+        feedback=["Right try: Four has 4 letters. Five has 4 letters. They match. Twelve has 6, so it stays out.",
+                  "Wrong try: Count the letters of each card again. Which two have the same count?",
+                  "Right try: That name has 4 letters, so it fits the clue.",
+                  "Wrong try: That name has a different number of letters, not 4. Try another number.",
+                  "Right try (ch1.example2): Fifty has 5 letters. Six has 3 letters. 5 + 3 = 8 letters.",
+                  "Right try (ch1.think1): That name has 8 letters, so it joins your table.",
+                  "Wrong try (ch1.think1): That name does not have 8 letters. Try another number.",
+                  "Wrong try (ch1.think1): That is the example. Find a different number with 8 letters.",
+                  "Right try (ch1.letus5): That name has 12 letters, the most of any number from 1 to 99. Other numbers have 12 too.",
+                  "Wrong try (ch1.letus5): That name has fewer letters. Both of its words need to be long.",
+                  "Wrong try (ch1.letus5, the number 99): 99 is a big number, but its name has only 10 letters. A big number does not mean a long name.",
+                  "Right try (ch1.letus6a): Two words, 6 letters and 5 letters, and near 100. Each of 93, 97 and 98 fits.",
+                  "Wrong try (ch1.letus6a, a number such as 23 or 87): The words have 6 and 5 letters, but the number is not near 100. Try a number closer to 100.",
+                  "Wrong try (ch1.letus6a): The first word must have 6 letters and the second word 5. Check the letters of each word.",
+                  "Right try (ch1.letus6b): Seventy has 7 letters, the fewest from 63 to 78.",
+                  "Wrong try (ch1.letus6b, the number 63): 63 is the smallest number, but its name has 10 letters. Here, smallest means the fewest letters.",
+                  TONE],
+        done_when=("First, the two practice cards with the same letter count are in the box. Then, a number with 4 "
+                   "letters is laid. Last, the child has built 56 and counted its letters (the book already says 8); has found at least three other numbers with 8 letters; "
+                   "has laid one of 73, 77 and 78; has laid one of 93, 97 and 98; has laid 70; and has tapped Next past the "
+                   "optional notebook card."),
+        shared_state=["part", "laid_cards", "letters_counted", "found_eight_letter_numbers", "longest_found",
+                      "near_100_found", "smallest_found"],
+        hints=["Read the clue. What must the number name have?",
+               "Try a number. Lay its cards and tap OK to see its letters.",
+               "Count the letters of each word. Add them. Compare with the clue.",
+               "Lay two cards, like Fifty and Six: 5 + 3 = 8. Tap OK, then change one card and count again."],
+        visuals=["number_card", "teji", "jojo", "answer_blank", "number_name_row"]),
 
-    # Tool 7: C10 (group things by a rule) with C11 (another way to group the same things), the book's own pair.
+    # Tool 8: after the story video of row 16 (Teji groups, Jojo regroups). Concepts C10 and C11 as one.
     "group_two_ways": T(
-        "tool_group_the_cards_two_ways", "Group the Cards Two Ways", 7,
-        "Students put things into two groups by a rule, say what is common in a group, and regroup them another way.",
+        "tool_group_the_cards_two_ways", "Group the Cards Two Ways", 8,
+        "Students group things by a rule, find the rule behind a grouping, and regroup the same things by another rule.",
+        screen=(FRAME + " Teji and Jojo stand beside a table with picture cards and two group boxes (dotted boxes for picture "
+                "cards, note-pad panels for the household objects). A rule card names the rule of a grouping; a card "
+                "dropped in a group stays there until the child drags it out. "
+                "FIRST, GET READY (picks up the cards story with other cards): four Practice cards, a red apple, a yellow "
+                "banana, a red ball and a yellow ball. Teji's rule card says 'Fruits and toys' and two boxes are labelled "
+                "Fruits and Toys. The child drags each card into its box. Line: 'Teji's rule: fruits and toys. Drag each card into its group.' "
+                "THEN, PLAY (Practice, new cards): 'Find the rule.' Four Practice picture cards sit in two groups with no "
+                "label: a hen and an owl in the first group, a cat and a horse in the second. Three rule cards wait: 'Birds "
+                "and not birds', 'Fruits and toys' and 'Red things and yellow things'. The child drags one rule card onto the "
+                "two groups. A right card labels both groups. "
+                "LAST, THE BOOK QUESTIONS, three stages, in the book's order. STAGE 1, ch1.jojo1: Jojo's two groups of five "
+                "cards are shown as the book draws them: a kite, an aeroplane, a bird, a fly and a drone in the first group, "
+                "and a fish, a light bulb, a mobile phone, a book and a rat in the second group, with no label. Three rule "
+                "cards wait: 'Things that fly and things that do not fly', 'Things that eat food and things that do not' and "
+                "'Things that live in water and things that do not'. The child drags one rule card onto the two groups. "
+                "A right card labels both groups. STAGE 2, ch1.letus8: the eight household objects (TV, Chair, Lamp, Bed, "
+                "Clock, Fan, Pillow, Blanket) and two lilac note-pad panels, 'Things that need electricity' and 'Things "
+                "that don't need electricity'. The child drags each object into a panel. The split is fixed: TV, Lamp, Clock "
+                "and Fan need electricity; Chair, Bed, Pillow and Blanket do not. STAGE 3, ch1.letus9: the same eight objects "
+                "return to the table and two empty pale green panels with blue tabs wait, with no labels. The child drags "
+                "every object into one of the two panels. Any grouping is accepted if every object is in exactly one "
+                "panel, both panels hold at least one object, and the split is not the electricity split. Then the child "
+                "drags a rule card onto the panels: 'Things that give light or show pictures' (Lamp and TV against the other "
+                "six), 'Things that tell the time' (Clock against the other seven), 'Things that blow air' (Fan against the "
+                "other seven) or 'Another rule: I say it aloud' (always fits). The tool checks the first three cards against "
+                "the groups. When the groups and the rule card fit, a last line shows: 'Can you think of one more object "
+                "for each group?'"),
+        controls=["Drag a picture card into a group",
+                  "Drag a rule card onto the groups",
+                  "Tap Reset to start again"],
+        instruction="Put each card in a group. A rule decides the group.",
+        feedback=["Right try: Each card is in the group that fits the rule.",
+                  "Wrong try: Look at this card again. Does it follow Teji's rule?",
+                  "Right try: Yes. The hen and the owl are birds. The cat and the horse are not.",
+                  "Wrong try: This rule does not fit every card. Look at each group again.",
+                  "Right try (ch1.jojo1): Yes. The first group has things that fly. The second group has things that do not fly.",
+                  "Wrong try (ch1.jojo1, eat food): A bird eats food, but a kite does not. They are in the same group, so this rule does not fit.",
+                  "Wrong try (ch1.jojo1, live in water): Only the fish lives in water. The rule must fit every card in a group.",
+                  "Right try (ch1.letus8): TV, Lamp, Clock and Fan need electricity. Chair, Bed, Pillow and Blanket do not.",
+                  "Wrong try (ch1.letus8, the Lamp): This lamp has a pull cord. It is an electric lamp, so it needs electricity.",
+                  "Wrong try (ch1.letus8, the Clock): A clock runs on electricity from a cell or from the plug.",
+                  "Wrong try (ch1.letus8, the Fan or the TV): This object needs electricity to work. Try the other panel.",
+                  "Wrong try (ch1.letus8): This object needs no electricity to work. Try the other panel.",
+                  "Right try (ch1.letus9): Every object is in one group, and the groups are new. Your rule card fits.",
+                  "Wrong try (ch1.letus9): This is the electricity split again. Group the eight objects another way.",
+                  "Wrong try (ch1.letus9): One panel is empty. Put at least one object in each panel.",
+                  "Wrong try (ch1.letus9): An object is still on the table. Every object goes in one group.",
+                  "Wrong try (ch1.letus9): This rule card does not fit your groups. Pick another card, or move an object.",
+                  TONE],
+        done_when=("First, the four practice cards are in the Fruits and Toys boxes. Then, the child has chosen the rule "
+                   "card that fits the two practice groups. Last, the child has chosen the rule card that fits Jojo's groups; "
+                   "has placed all eight household objects in the electricity panels; and has placed all eight in two "
+                   "new panels with a split that is not the electricity split, with a rule card that fits."),
+        shared_state=["part", "practice_groups", "rule_card_chosen", "jojo_rule_found", "electricity_split",
+                      "new_split", "new_rule_card"],
+        hints=["Look at all the cards. What do the cards in one group share?",
+               "A rule decides the group. Ask the same question about every card.",
+               "Pick one card. Does it follow the rule? Then drop it in the right group.",
+               "Every card goes in exactly one group. For the last stage, use a different rule from the one before."],
         visuals=["picture_card", "household_card", "group_box", "teji", "jojo"]),
 }

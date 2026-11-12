@@ -1,0 +1,23 @@
+{
+ "sha256": "267a9f5687d43f96979bd79143e4fdc4a013252e6d8b85130b0148f774c445eb",
+ "config_path": "/root/maths-learning-plan/Learning-Plan-Maths-Class3-4/chapters/maths4_ch1/new_design/chapter.config.json",
+ "config_sha256": "1f29aa58daa48448f321afb83f8dc6dfc0ce1ce967617bf23cd3df18114b5a64",
+ "chapter_id": "cbse_eng_maths4_ch1",
+ "chapter_master_id": 526,
+ "phase": 2,
+ "version": 6,
+ "plan_id": "cbse_eng_maths4_ch1_v6",
+ "timestamp": "2026-11-12T10:48:43.126725+00:00",
+ "gate_summary": {
+  "errors": 0,
+  "counts": {
+   "structure_problems": 0,
+   "equations_checked": 79,
+   "equations_failed": 0,
+   "coverage_problems": 0,
+   "objectives_problems": 0,
+   "flow_problems": 0
+  },
+  "warnings": []
+ }
+}

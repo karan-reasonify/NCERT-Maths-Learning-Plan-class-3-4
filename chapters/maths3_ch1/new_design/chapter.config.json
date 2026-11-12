@@ -10,7 +10,7 @@
   "grade_band": "3_4",
   "chapter_no": 1,
   "chapter_name": "What's in a Name?",
-  "media_tag": "c3y",
+  "media_tag": "c3z",
   "eqcheck": "plain",
   "eqcheck_errata": [],
   "allow_words": [],
@@ -20,44 +20,50 @@
     {
       "no": 1,
       "name": "Marks at the Gate",
-      "purpose": "The child makes one mark for each cow that leaves the gate and strikes one out for each cow that comes back, then sees whether any cow is missing.",
-      "flow_row": "Marks at the gate (C1)"
+      "purpose": "Students make one mark for each cow that leaves and strike out one mark for each cow that returns. Include the textbook question: \"Did all the cows come back home?\"",
+      "flow_row": "Topic 1: The Cows of Tarakeshwar"
     },
     {
       "no": 2,
-      "name": "Marks for a Big Herd",
-      "purpose": "The child strikes out one mark for each cow that comes home, reads the marks left to find the cows still out and the cows back, then makes separate marks for cows and sheep.",
-      "flow_row": "Many cows, many marks (C2, C3)"
+      "name": "Count the Big Herd",
+      "purpose": "Use the exact textbook tally: nine groups of five and two extra marks = 47 cows. Students identify why Deba and Deep were worried, how many cows were still out (2), and how many reached home (45).",
+      "flow_row": "Topic 2: Marks Left on the Wall"
     },
     {
       "no": 3,
-      "name": "Longest and Shortest Name",
-      "purpose": "The child counts the letters of each name and picks the longest and the shortest name, for the animal cards, for Mahesh and Kartik, and for friends' names.",
-      "flow_row": "Longest and shortest name (C4)"
+      "name": "Hemant's Cows and Sheep",
+      "purpose": "Students make separate tally records for 36 cows and 23 sheep. Do not combine the two totals.",
+      "flow_row": "Topic 2: Marks Left on the Wall"
     },
     {
       "no": 4,
-      "name": "Starting and Ending Letters",
-      "purpose": "The child drops name tags into piles by their starting letter or by their ending letter and counts each pile to see which letter is used most.",
-      "flow_row": "Starting and ending letters (C5)"
+      "name": "Longest and Shortest Names",
+      "purpose": "One focused activity with three short stages: animal team captains; compare Mahesh and Kartik; compare the names students enter for the friends' name activity. Cover the related textbook questions without adding new questions.",
+      "flow_row": "Topic 3: How Long Is a Name?"
     },
     {
       "no": 5,
-      "name": "Build a Number Name",
-      "purpose": "The child lays a tens card and a ones card together to make a number name, as Teji does for 43, and counts its letters.",
-      "flow_row": "Build a number name (C6)"
+      "name": "Starting and Ending Letters",
+      "purpose": "Students identify their own starting letter, sort the textbook name set by starting and ending letters, count matching names, find the most-used starting letter and identify letters not used at the start.",
+      "flow_row": "Topic 4: Starting and Ending Letters"
     },
     {
       "no": 6,
-      "name": "Number Name Puzzles",
-      "purpose": "The child finds numbers between 1 and 99 from clues about the letters in their names (8 letters, the longest name, the riddles) and notices what same-count names share.",
-      "flow_row": "Number name puzzles (C7, C8)"
+      "name": "Build a Number Name",
+      "purpose": "Cover the textbook examples 43 and 17, then let students use their own roll number. The notebook task to write more number names is shown as a short optional instruction card, not a separate tool.",
+      "flow_row": "Topic 5: Number Names"
     },
     {
       "no": 7,
+      "name": "Number Name Puzzles",
+      "purpose": "Cover the textbook tasks: numbers with eight letters, longest number names, the near-100 clue and the smallest name from 63 to 78. Accept all valid answers: 93, 97 and 98 for the near-100 clue; 70 for the 63 to 78 clue. Show a short instruction card for making a similar puzzle in the notebook.",
+      "flow_row": "Topic 6: Number Puzzles and Place Names"
+    },
+    {
+      "no": 8,
       "name": "Group the Cards Two Ways",
-      "purpose": "The child drags cards into two groups by a rule, finds the rule in Jojo's groups, then regroups the same cards another way so every card is in one group.",
-      "flow_row": "Group the cards two ways (C10, C11)"
+      "purpose": "One tool focused on grouping by a rule, with three short stages: identify Jojo's rule (things that fly / do not fly); sort the eight household objects by electricity use; regroup the same eight objects using another valid rule. Accept multiple sensible groupings in the final stage.",
+      "flow_row": "Topic 7: Grouping Things"
     }
   ],
   "tool_map_required": true,

@@ -11,7 +11,7 @@ which is not part of this pipeline.
 """
 from __future__ import annotations
 
-VIDEO_INSTRUCTION = "Watch the story. When it asks you a question, think and say your answer before you go on."
+VIDEO_INSTRUCTION = "Watch the story. When it asks a question, think and say your answer before you go on."
 
 IMAGE_NEGATIVE = (
     "clutter, crowded scenes, decorative borders, ornaments or mascots that carry no information, unrelated objects, "
@@ -21,7 +21,7 @@ IMAGE_NEGATIVE = (
 
 IMAGE_STYLES = {
     "photo": "A clean, bright, well-lit photograph",
-    "illustration": "A clean, simple, flat-colour illustration with soft shapes",
+    "illustration": "A clean, simple, colourful illustration with soft shapes and gentle shading",
 }
 
 

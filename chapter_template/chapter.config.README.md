@@ -33,6 +33,8 @@
 | `idea_topic_concept_range` | `[1, 6]` | concepts in an idea topic (a concept video and its tool are 2) |
 | `max_tool_controls` | `4` | simple controls per tool |
 | `max_tool_questions` | `6` | NCERT questions on one tool (a short interaction path) |
+| `tools_in_a_row` | `false` | `true` lets a lesson's activity tools run one after another after the lesson's video or image (each `applies_to` still names that video or image concept). Only on the user's say-so, per chapter (Class 4 Ch 1, 11 Nov 2026) |
+| `no_book_question_tools` | `[]` | approved tool numbers that carry no NCERT question because they are the user's own activities (the tool then needs no `question_map`). Only on the user's say-so, per chapter |
 | `max_instruction_words` | `15` | words in a tool's on-screen instruction |
 | `max_sentence_words` | `14` (Class 3), `16` (Class 4) | longest sentence in teach lines and recaps (advisory) |
 | `video_max_seconds` | `{"hook": 90, "concept": 150}` | target length limits |
